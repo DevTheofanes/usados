@@ -6,22 +6,22 @@ import history from './services/history'
 import Global from "./styles/Global";
 import { Routes } from "./routes/routes";
 
-import { CartContextProvider } from './hooks/useCart'
-import { UserContextProvider } from "./hooks/useUser";
+// import { CartContextProvider } from './hooks/useCart'
+// import { UserContextProvider } from "./hooks/useUser";
 
 Modal.setAppElement('#root')
 
 function App() {
   return (
-    <UserContextProvider>
+    // <UserContextProvider>
       <Router history={history}>
-        <CartContextProvider>
+        {/* <CartContextProvider> */}
           <Global />
           <Routes />
           <ToastContainer autoClose={1500}/>
-        </CartContextProvider>
+        {/* </CartContextProvider> */}
       </Router>
-    </UserContextProvider>
+    // </UserContextProvider>
   );
 }
 
