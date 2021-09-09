@@ -2,39 +2,60 @@ import React from 'react';
 
 import { 
   Container,
-  SearchSpace,
-  SearchHeader,
-  SearchBorder,
-  SearchGrid,
-  SearchItem,
-  InfoContent,
-  InfoContentTitle,
-  InfoContentDuoImages,
-  InfoContentUnicImage
 } from './styles';
 
 import { HeaderComponent } from '../../components/Header';
 
-import SecureBanner from '../../assets/banners/secureBanner.png'
-import OficialBanner from '../../assets/banners/oficialBanner.png'
-import CommentsBanner from '../../assets/banners/commentsBanner.png'
-import { FooterComponent } from '../../components/Footer';
+import BackgroundDashboard from '../../assets/backgroundDashboard.png'
+import BackgroundForShop from '../../assets/backgroundForShop.png'
+import BackgroundForServices from '../../assets/backgroundForServices.png'
+import HyundaiImage from '../../assets/hyundaiImage.png'
+import Signature from '../../assets/signature.png'
+import LogoImg from '../../assets/Logo.png'
 
 export function Dashboard() {
   return (
     <Container>
       <HeaderComponent />
 
+      {/* <Lobby background={BackgroundDashboard}>
+        <LobbyItem color="#f05f64">
+          <FaCar size={132} color="#fff"/>
+        </LobbyItem>
+        <LobbyItem color="#f0bc2c">
+          <MdPhoneIphone size={132} color="#fff"/>
+        </LobbyItem>
+        <LobbyItem color="#52b95b">
+          <FaHome size={132} color="#fff"/>
+        </LobbyItem>
+        <LobbyItem color="#16acde">
+          <MdDirectionsBoat size={132} color="#fff"/>
+        </LobbyItem>
+        <LobbyItem color="#f287b5">
+          <FaHelicopter size={132} color="#fff"/>
+        </LobbyItem>
+      </Lobby>
+
       <SearchSpace>
         <SearchHeader>
           <strong>O que você procura hoje?</strong>
+
+          <SearchHeaderItens>
+            <span>Todos</span>
+            <span>Carros</span>
+            <span>Caminhões</span>
+            <span>Celulares</span>
+            <span>Casas</span>
+            <span>Barcos</span>
+            <IoIosArrowBack />
+            <IoIosArrowForward/>
+          </SearchHeaderItens>
         </SearchHeader>
 
         <SearchGrid>
           <SearchItem>
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
-            <SearchBorder />
             <span>THAI TOYOTA</span>
             <span>R$ 134.990</span>
           </SearchItem>
@@ -42,7 +63,6 @@ export function Dashboard() {
           <SearchItem>
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
-            <SearchBorder />
             <span>THAI TOYOTA</span>
             <span>R$ 134.990</span>
           </SearchItem>
@@ -50,7 +70,6 @@ export function Dashboard() {
           <SearchItem>
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
-            <SearchBorder />
             <span>THAI TOYOTA</span>
             <span>R$ 134.990</span>
           </SearchItem>
@@ -58,7 +77,6 @@ export function Dashboard() {
           <SearchItem>
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
-            <SearchBorder />
             <span>THAI TOYOTA</span>
             <span>R$ 134.990</span>
           </SearchItem>
@@ -66,7 +84,6 @@ export function Dashboard() {
           <SearchItem>
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
-            <SearchBorder />
             <span>THAI TOYOTA</span>
             <span>R$ 134.990</span>
           </SearchItem>
@@ -74,7 +91,6 @@ export function Dashboard() {
           <SearchItem>
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
-            <SearchBorder />
             <span>THAI TOYOTA</span>
             <span>R$ 134.990</span>
           </SearchItem>
@@ -82,7 +98,6 @@ export function Dashboard() {
           <SearchItem>
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
-            <SearchBorder />
             <span>THAI TOYOTA</span>
             <span>R$ 134.990</span>
           </SearchItem>
@@ -90,29 +105,13 @@ export function Dashboard() {
           <SearchItem>
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
-            <SearchBorder />
             <span>THAI TOYOTA</span>
             <span>R$ 134.990</span>
           </SearchItem>
         </SearchGrid>
       </SearchSpace>
     
-      <InfoContent>
-        <InfoContentTitle>
-          <strong>Sobre a usados novo</strong>
-        </InfoContentTitle>
-
-        <InfoContentDuoImages>
-          <img src={SecureBanner} alt="Banner"/>
-          <img src={OficialBanner} alt="Banner"/>
-        </InfoContentDuoImages>
-
-        <InfoContentUnicImage src={CommentsBanner} alt="Banner"/>
-      </InfoContent>
-
-      <FooterComponent />
-
-      {/* <Shop>
+      <Shop>
         <img src={HyundaiImage} alt="Hyundai"/>
 
         <ShopInfos background={BackgroundForShop}>
@@ -268,8 +267,8 @@ internet, fale conosco e saiba mais</p>
 
       <FooterBar>
         <span>Copyright 2021 <strong>usadosnovo.com.br</strong> direitos reservados. Criado por <strong>@agrc.design</strong></span>
-      </FooterBar> */}
-    
+      </FooterBar>
+     */}
     </Container>
   );
 }

@@ -10,32 +10,14 @@ export const Container = styled.div`
 
 //Lobby
 
-export const Lobby = styled.div`
-  width: 100%;
-  min-height: 560px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  background-image: url(${props => props.background ? props.background : null});
-`;
-
-export const LobbyItem = styled.div`
-  padding: 1.6rem 2rem;
-  max-height: 11.25rem;
-  max-width: 8.85rem !important;
-  background-color: ${props => props.color ? props.color : "#fff"};
-`;
-
 //SearchSpace
 
-//1a1e3a
-
 export const SearchSpace = styled.div`
-  margin-top: 2.8rem;
+  margin-top: 5.2rem;
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 2rem 10rem;
+  max-width: 62rem;
 `;
 
 export const SearchHeader = styled.div`
@@ -44,12 +26,14 @@ export const SearchHeader = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 1px solid #c1c1c1;
+  border-bottom: 2px solid #858585;
+
 
   strong{
     text-transform: uppercase;
     font-size: 1.8rem;
-    border-bottom: 2px solid #52b95b;
+    padding-bottom: .25rem;
+    color: #343434;
   }
 `;
 
@@ -59,6 +43,9 @@ export const SearchHeaderItens = styled.div`
 
   span{
     margin-right: .5rem;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: #9a9999;
   }
 
   span + span {
@@ -71,7 +58,7 @@ export const SearchGrid = styled.div`
   margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  row-gap: 1.2rem;
+  gap: 1.2rem;
 `;
 
 export const SearchItem = styled.div`
@@ -85,11 +72,11 @@ export const SearchItem = styled.div`
   }
 
   strong{
-    padding: .25rem 0;
+    padding: .25rem 0 .1225rem;
     font-weight: 900;
     margin: 0.25rem 0;
 
-    border-bottom: 1px solid #f0bc2c;
+    /* border-bottom: 1px solid #f0bc2c; */
   }
 
   span{
@@ -97,6 +84,58 @@ export const SearchItem = styled.div`
     font-size: 0.8rem;
   }
 `;
+
+export const SearchBorder = styled.div`
+  width: 1.5rem;
+  margin: 0 auto .5rem;
+  border-bottom: 1px solid #858585;
+`;
+
+//Info Content
+
+export const InfoContent = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 62rem;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const InfoContentTitle = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 2px solid #858585;
+
+  margin-top: 2rem;
+
+  strong{
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    padding-bottom: .25rem;
+    color: #343434;
+  }
+`;
+
+export const InfoContentDuoImages = styled.div`
+  display: grid;
+  column-gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  margin: 2rem auto;
+  width: 100%;
+  img{
+    width: 100%;
+    height: 12.5rem;
+  }
+`;
+
+export const InfoContentUnicImage = styled.img`
+  width: 100%;
+  height: 12.5rem;
+`;
+
 
 //Shop
 
