@@ -22,10 +22,13 @@ export const Lobby = styled.div`
 export const LobbyItem = styled.div`
   padding: 1.6rem 2rem;
   max-height: 11.25rem;
+  max-width: 8.85rem !important;
   background-color: ${props => props.color ? props.color : "#fff"};
 `;
 
 //SearchSpace
+
+//1a1e3a
 
 export const SearchSpace = styled.div`
   margin-top: 2.8rem;

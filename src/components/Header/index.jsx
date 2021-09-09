@@ -1,72 +1,78 @@
-import { Header, CentralAttendanceHeader, Logo, CartHeader, InfoPhones, BoxLogo, SubHeader, ButtonsPages, PageOption, InputBoxes } from './styles';
+import { Container, Header, HeaderNavigation, HeaderNavigationLogo, Logo, HeaderNavigationLinks, HeaderNavigationButtons, HeaderNavigationButtonsAnnounce, HeaderNavigationButtonsEntry, HeaderSearch, HeaderSearchSelect, HeaderSearchInput, HeaderMenuCategory, HeaderMenuCategoryItem } from './styles';
 
-import { AiOutlineSearch, AiFillHeart, AiOutlineShoppingCart } from 'react-icons/ai';
-import { FaPhoneAlt } from 'react-icons/fa';
+import { GoSearch } from 'react-icons/go';
+import { GiOfficeChair } from 'react-icons/gi';
 
-import LogoImg from '../../assets/Logo.png'
+import { FaCarSide, FaHome, FaHelicopter } from 'react-icons/fa';
+import { MdPhoneIphone } from 'react-icons/md';
+import { IoBoatSharp } from 'react-icons/io5';
+import { HiDesktopComputer } from 'react-icons/hi';
+
+
+import LogoImg from '../../assets/logo/logoWhite.png'
 
 export function HeaderComponent() {
   return (
-    <>
+    <Container>
       <Header>
-        <CentralAttendanceHeader>
-          <FaPhoneAlt size={24} color="#78a832"/>
+        <HeaderNavigation>
+          <HeaderNavigationLogo>
+            <Logo src={LogoImg} alt="Usados e Novos"/>
+          </HeaderNavigationLogo>
 
-          <InfoPhones>
-            <strong>0800 500 500</strong>
-            <p>Central (Atendimento08:00 as 20:00)</p>
-          </InfoPhones>
-        </CentralAttendanceHeader>
+          <HeaderNavigationLinks>
+            <a href="#">Vender</a>
+            <a href="#">Comprar</a>
+            <a href="#">Simular Financiamento</a>
+            <a href="#">SAC</a>
+          </HeaderNavigationLinks>
 
-        <BoxLogo>
-          <Logo src={LogoImg} alt="Logo - Novos e Usados." />
-        </BoxLogo>
+          <HeaderNavigationButtons>
+            <HeaderNavigationButtonsAnnounce>
+              Anunciar
+            </HeaderNavigationButtonsAnnounce>
 
-        <CartHeader>
-          <AiFillHeart size={24}/>
-          <AiOutlineShoppingCart size={24}/>
-          <strong>R$ 00,00</strong>
-        </CartHeader>
+            <HeaderNavigationButtonsEntry>
+              Entrar
+            </HeaderNavigationButtonsEntry>
+          </HeaderNavigationButtons>
+        </HeaderNavigation>
+      
+        <HeaderSearch>
+          <HeaderSearchSelect>
+            <option value="a">Categorias</option>
+          </HeaderSearchSelect>
+          <HeaderSearchInput>
+            <input type="text" placeholder="Estou procurando por..."/>
+            <GoSearch color="#676767" size={15}/>
+          </HeaderSearchInput>
+        </HeaderSearch>
+      
+        <HeaderMenuCategory>
+          <HeaderMenuCategoryItem color="#f05f64">
+            <FaCarSide size={75} color="#fff"/>
+          </HeaderMenuCategoryItem>
+          <HeaderMenuCategoryItem color="#f0bc2c">
+            <MdPhoneIphone size={75} color="#fff"/>
+          </HeaderMenuCategoryItem>
+          <HeaderMenuCategoryItem color="#52b95b">
+            <FaHome size={75} color="#fff"/>
+          </HeaderMenuCategoryItem>
+          <HeaderMenuCategoryItem color="#16acde">
+            <IoBoatSharp size={75} color="#fff"/>
+          </HeaderMenuCategoryItem>
+          <HeaderMenuCategoryItem color="#f287b5">
+            <FaHelicopter size={75} color="#fff"/>
+          </HeaderMenuCategoryItem>
+          <HeaderMenuCategoryItem color="#733ee2">
+            <GiOfficeChair size={75} color="#fff"/>
+          </HeaderMenuCategoryItem>
+          <HeaderMenuCategoryItem color="#b0b69e">
+            <HiDesktopComputer size={75} color="#fff"/>
+          </HeaderMenuCategoryItem>
+        </HeaderMenuCategory>
       </Header>
-
-      <SubHeader>
-        <ButtonsPages>
-          <PageOption selected>
-            Home
-          </PageOption>
-          <PageOption>
-            Sobre
-          </PageOption>
-          <PageOption>
-            Comprar
-          </PageOption>
-          <PageOption>
-            Vender
-          </PageOption>
-          <PageOption>
-            Minha Loja
-          </PageOption>
-          <PageOption>
-            Trabalhe conosco
-          </PageOption>
-          <PageOption>
-            SAC
-          </PageOption>
-        </ButtonsPages>
-
-        <InputBoxes>
-          <select>
-            <option>Categorias</option>
-            <option>A</option>
-            <option>A</option>
-          </select>
-
-          <input type="text" placeholder="Pesquisar" />
-
-          <AiOutlineSearch color="#666" size={18} />
-        </InputBoxes>
-      </SubHeader>
-    </>
+    </Container>
   );
 }
       

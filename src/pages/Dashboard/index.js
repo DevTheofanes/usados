@@ -49,7 +49,7 @@ export function Dashboard() {
     <Container>
       <HeaderComponent />
 
-      <Lobby background={BackgroundDashboard}>
+      {/* <Lobby background={BackgroundDashboard}>
         <LobbyItem color="#f05f64">
           <FaCar size={132} color="#fff"/>
         </LobbyItem>
@@ -299,6 +299,7 @@ internet, fale conosco e saiba mais</p>
       <FooterBar>
         <span>Copyright 2021 <strong>usadosnovo.com.br</strong> direitos reservados. Criado por <strong>@agrc.design</strong></span>
       </FooterBar>
+     */}
     </Container>
   );
 }

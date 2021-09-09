@@ -2,6 +2,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300&display=swap');
     :root{
         --background-acess: rgb(35, 40, 45);
         --primaryColor: rgb(35, 40, 45);
@@ -29,6 +30,7 @@ export default createGlobalStyle`
 
     html {
         font-size:16px;
+        font-family: 'Roboto', sans-serif;
         @media (max-width:1080px){
             font-size: 93.75%;
         }
@@ -48,7 +50,8 @@ export default createGlobalStyle`
     }
 
     body, input, textarea, button{
-        font-family: 'Poppins', sans-serif;
+        /* font-family: 'Poppins', sans-serif; */
+        font-family: 'Roboto', sans-serif;
         font-weight: 400;
     }
 
