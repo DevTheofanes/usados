@@ -1,6 +1,8 @@
 import React from 'react';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { SiKeepassxc } from 'react-icons/si';
+import { MdEmail } from 'react-icons/md';
+import { RiWhatsappFill } from 'react-icons/ri';
 
 import { 
   Container,
@@ -22,7 +24,7 @@ import { FooterComponent } from '../../components/Footer';
 import BackgroundBanner from '../../assets/banners/backgroundBanner.jpg'
 import SignImage from '../../assets/outros/signImage.png'
 
-export function SignIn() {
+export function SignUp() {
   return (
     <Container>
       <HeaderComponent />
@@ -32,17 +34,27 @@ export function SignIn() {
           <Content>
             <Form>
               <FormOptions>
-                <FormOptionButton active={true}>
+                <FormOptionButton active={false}>
                   Entrar
                 </FormOptionButton>
 
-                <FormOptionButton active={false}>
+                <FormOptionButton active={true}>
                   Criar Conta
                 </FormOptionButton>
               </FormOptions>
               <FormInput>
-                <BsFillPersonFill color="#555454" size={20}/>
-                <input type="text" placeholder="E-mail" />
+                <SiKeepassxc color="#555454" size={20}/>
+                <input type="text" placeholder="Nome" />
+              </FormInput>
+
+              <FormInput>
+                <MdEmail color="#555454" size={20}/>
+                <input type="e-mail" placeholder="E-mail" />
+              </FormInput>
+
+              <FormInput>
+                <RiWhatsappFill color="#555454" size={20}/>
+                <input type="tel" placeholder="Whatsapp" />
               </FormInput>
 
               <FormInput>
@@ -51,15 +63,9 @@ export function SignIn() {
               </FormInput>
 
               <FormConfigs>
-                <FormConfigsButton>
-                  <input type="checkbox" name="" id="" />
-                  <label htmlFor="">Lembrar acesso</label>
-                </FormConfigsButton>
-
-                <a href="#">Esqueci a senha?</a>
               </FormConfigs>
 
-              <FormButton>Logar</FormButton>
+              <FormButton>Cadastrar</FormButton>
             </Form>
 
             <ContentImage>

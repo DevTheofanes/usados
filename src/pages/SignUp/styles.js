@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const SignPage = styled.div`
   background-image: url(${props => props.backgroundImage ? props.backgroundImage : null});
   background-size: cover; 
-  height: 52rem;
+  height: 56rem;
   width: 100%;
 
   display: grid;
