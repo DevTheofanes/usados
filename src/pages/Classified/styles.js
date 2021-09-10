@@ -14,19 +14,102 @@ export const Content = styled.div`
   width: 100%;
   max-width: 62rem;
   display: grid;
-  grid-template-columns: 2fr 5fr;
-
   margin-top: 2rem;
 `;
 
-export const SideBand = styled.div`
-`;
-
-export const ContentClassifieds = styled.div`
+export const ContentHeader = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
+  width: 100%;
 `;
+
+export const ContentHeaderLinks = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const ContentHeaderBack = styled.button`
+  display: flex;
+  align-items: center;
+
+  border: 0;
+  background-color: transparent;
+
+  a{
+    text-decoration: none;
+    color: #333;
+    font-size:1rem;
+  }
+
+  svg{
+    margin-right: .25rem;
+  }
+`;
+
+export const ContentHeaderLinksShopkeeper = styled.div`
+  display: flex;
+  align-items: center;
+
+  a{
+    text-decoration: none;
+    color: #333;
+    font-size:1rem;
+  }
+`;
+
+export const ContentHeaderButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+`;
+
+export const ContentHeaderButton = styled.button`
+  background-color: #1a1e3a;
+  height: 2rem;
+  color: #fff;
+
+  padding: 0 .5rem;
+  border: 0;
+
+  display:flex;
+  align-items: center;
+
+  svg{
+    margin-left: .25rem;
+  }
+`;
+
+export const ContentClassified = styled.div`
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  margin-top: 2rem;
+`;
+
+export const ContentClassifiedImages = styled.div`
+  display:flex;
+  flex-direction: column;
+`;
+
+export const ContentClassifiedImagePrimary = styled.div`
+  img{
+    width: 37.2rem;
+    height: 34.55rem;
+  }
+  height: 34.55rem;
+`;
+
+export const ContentClassifiedOthersImages = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  img{
+    width: 12.4rem;
+    height: 13.66rem;
+  }
+`;
+
 
 export const ClassifiedsBox = styled.div`
   background-color: #F4F4F4;
@@ -51,19 +134,20 @@ export const ClassifiedsContentImage = styled.div`
 export const ClassifiedsContentInfos = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1.275rem;
-  max-height: 17.375rem;
+  background-color: #F4F4F4;
 `;
 
 export const ClassifiedsContentIcon = styled.div`
   display: flex;
   justify-content: flex-end;
+  padding: 1.275rem;
 `;
 
 export const ClassifiedsContentInfoLine = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1.275rem;
 
   margin-top: 1rem;
 
@@ -87,30 +171,49 @@ export const ClassifiedsContentInfoLine = styled.div`
   }
 `; 
 
-
-export const ClassifiedsLinks = styled.div`
-  display: grid;
-  grid-template-columns: 4fr 1fr;
+export const ClassifiedsContentDescription = styled.div`
+  text-align: justify;
+  padding: 1.275rem;
+  margin: 1.8rem auto;
+  max-height: 16rem;
+  overflow: hidden;
+   text-overflow: Ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 11; 
+   /* line-height: X;        
+   max-height: X*N; */
 `;
 
-export const ClassifiedsLinksSeePhotos = styled.div`
-  height: 2rem;
-  background-color: #1a1e3a;
-
+export const ClassifiedsContentFooter = styled.div`
   display: flex;
   align-items: center;
+  width: 70%;
+  margin: 0 auto;
+  justify-content: space-between;
+  text-align:center;
+`;
 
-  padding-left: 8%;
+export const ContentClassifiedPayment = styled.div`
+  display:flex;
+  width: 100%;
+  flex-direction: column;
 
-  a{
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    /* font-size: 1.2rem; */
+  margin-top:2rem;
+`;
+
+export const ClassifiedPaymentContent = styled.div`
+  background-color: #fff;
+  padding: 2rem;
+  display:flex;
+  flex-direction: column;
+
+  h2{
+    margin: .5rem 0;
   }
 `;
 
-export const ClassifiedsLinksWhatsapp = styled.div`
+export const ClassifiedPaymentWhatsapp = styled.div`
   height: 2rem;
   background-color: #008D36;
 
@@ -118,94 +221,6 @@ export const ClassifiedsLinksWhatsapp = styled.div`
   align-items: center;
   justify-content: center;
 
-  a{
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    /* font-size: 1.2rem; */
-  }
-`;
-
-export const ClassifiedsPagesButtonsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin: 0 auto;
-  width: 50%;
-`;
-
-export const ClassifiedsPagesButton = styled.div`
-  background-color: #1a1e3a;
   color: #fff;
-  height: 2rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 0.25rem;
-  padding: 0 .5rem;
-
-  svg{
-    margin: 0 .25rem;
-  }
-`;
-
-export const ClassifiedsPagesQuantity = styled.div`
-  background-color: #1a1e3a;
-  color: #fff;
-  height: 2rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 0.25rem;
-  padding: 0 .5rem;
-`;
-
-export const SideBandFilters = styled.div`
-  background:  #F4F4F4;
-  border-radius: 0.25rem;
-  padding: 1rem;
-`;
-
-export const FiltersTitle = styled.div`
-  display: flex;
-  align-items: center;
-  
-  h3{
-    color: #1a1e3a;
-    margin-left: .5rem;
-  }
-`;
-
-export const FiltersItem = styled.div`
-  margin-top: .75rem;
-  display: flex;
-  flex-direction: column;
-
-  span{
-    margin-bottom: .45rem;
-  }
-
-  select{
-    border: 0;
-    background-color: transparent;
-  }
-`;
-
-export const SideBandPublicity = styled.div`
-  background:  #F4F4F4;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 43.81rem;
-  margin-top: 2rem;
-
-  span{
-    color: #888;
-  }
+  font-weight: 500;
 `;
