@@ -11,14 +11,14 @@ import
     HeaderNavigationButtonsEntry, 
     HeaderSearch, 
     HeaderSearchSelect, 
-    HeaderSearchInput, 
-    HeaderMenuCategory, 
-    HeaderMenuCategoryItem 
+    HeaderSearchInput,
+    HeaderInfos,
+    HeaderInfoLink,
   }
 from './styles';
 
 import { GoSearch } from 'react-icons/go';
-
+import { AiOutlineUser, AiOutlineHeart } from 'react-icons/ai';
 
 import LogoImg from '../../assets/logo/logoWhite.png'
 
@@ -58,6 +58,18 @@ export function HeaderLoggedComponent() {
             <GoSearch color="#676767" size={15}/>
           </HeaderSearchInput>
         </HeaderSearch>
+
+        <HeaderInfos>
+          <HeaderInfoLink>
+            <a href="#">Bem-Vindo, Ronald</a>
+            <AiOutlineUser color="#fff" size={20}/>
+          </HeaderInfoLink>
+
+          <HeaderInfoLink>
+            <a href="#">Meus favoritos</a>
+            <AiOutlineHeart color="#fff" size={20}/>
+          </HeaderInfoLink>
+        </HeaderInfos>
       </Header>
     </Container>
   );
