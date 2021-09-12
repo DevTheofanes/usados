@@ -38,17 +38,17 @@ export function Classified() {
           <ContentHeaderLinks>
             <ContentHeaderBack>
               <AiOutlineArrowLeft size={14} color="#888"/>
-              <a href="#">Voltar para classificados</a>
+              <a href="/classificados">Voltar para classificados</a>
             </ContentHeaderBack>
             <ContentHeaderLinksShopkeeper>
-              <a href="#">Perfil do Vendedor</a>
+              <a href="/perfil/lojista">Perfil do Vendedor</a>
               <IoIosArrowForward size={14} color="#888"/>
-              <a href="#">Avaliações do Vendedor</a>
+              <a href="/avaliacoes">Avaliações do Vendedor</a>
             </ContentHeaderLinksShopkeeper>
           </ContentHeaderLinks>
 
           <ContentHeaderButtonContainer>
-            <ContentHeaderButton>
+            <ContentHeaderButton href="/perfil/lojista">
               Ver mais anuncios dessa loja
               <AiOutlineArrowRight size={14} color="#fff"/>
             </ContentHeaderButton>

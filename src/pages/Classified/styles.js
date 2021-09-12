@@ -65,7 +65,7 @@ export const ContentHeaderButtonContainer = styled.div`
   margin-top: 1rem;
 `;
 
-export const ContentHeaderButton = styled.button`
+export const ContentHeaderButton = styled.a`
   background-color: #1a1e3a;
   height: 2rem;
   color: #fff;

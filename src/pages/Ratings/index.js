@@ -105,9 +105,9 @@ export function RatingsPage() {
             </RatingsStarsBox>
 
             <RatingsLinks>
-              <a href="#">Classificados</a>
+              <a href="/classificados">Classificados</a>
               <IoIosArrowForward color="#1a1e3a" size={14} />
-              <a href="#">Perfil do vendedor</a>
+              <a href="/perfil/lojista">Perfil do vendedor</a>
             </RatingsLinks>
           </RatingsHeader>
 

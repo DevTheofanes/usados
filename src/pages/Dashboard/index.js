@@ -31,7 +31,7 @@ export function Dashboard() {
         </SearchHeader>
 
         <SearchGrid>
-          <SearchItem>
+          <SearchItem href="/classificado">
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
             <SearchBorder />
@@ -39,7 +39,7 @@ export function Dashboard() {
             <span>R$ 134.990</span>
           </SearchItem>
 
-          <SearchItem>
+          <SearchItem href="/classificado">
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
             <SearchBorder />
@@ -47,7 +47,7 @@ export function Dashboard() {
             <span>R$ 134.990</span>
           </SearchItem>
 
-          <SearchItem>
+          <SearchItem href="/classificado">
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
             <SearchBorder />
@@ -55,7 +55,7 @@ export function Dashboard() {
             <span>R$ 134.990</span>
           </SearchItem>
 
-          <SearchItem>
+          <SearchItem href="/classificado">
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
             <SearchBorder />
@@ -63,7 +63,7 @@ export function Dashboard() {
             <span>R$ 134.990</span>
           </SearchItem>
 
-          <SearchItem>
+          <SearchItem href="/classificado">
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
             <SearchBorder />
@@ -71,7 +71,7 @@ export function Dashboard() {
             <span>R$ 134.990</span>
           </SearchItem>
 
-          <SearchItem>
+          <SearchItem href="/classificado">
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
             <SearchBorder />
@@ -79,7 +79,7 @@ export function Dashboard() {
             <span>R$ 134.990</span>
           </SearchItem>
 
-          <SearchItem>
+          <SearchItem href="/classificado">
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
             <SearchBorder />
@@ -87,7 +87,7 @@ export function Dashboard() {
             <span>R$ 134.990</span>
           </SearchItem>
 
-          <SearchItem>
+          <SearchItem href="/classificado">
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
             <strong>COROLLA XEI 2.0 2022</strong>
             <SearchBorder />

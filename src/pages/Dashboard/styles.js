@@ -61,10 +61,12 @@ export const SearchGrid = styled.div`
   gap: 1.2rem;
 `;
 
-export const SearchItem = styled.div`
+export const SearchItem = styled.a`
   display:flex;
   flex-direction: column;
   align-items: center;
+
+  color: #343434;
 
   img{
     width: 15rem;

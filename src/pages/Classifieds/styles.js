@@ -28,9 +28,10 @@ export const ContentClassifieds = styled.div`
   margin-left: 2rem;
 `;
 
-export const ClassifiedsBox = styled.div`
+export const ClassifiedsBox = styled.a`
   background-color: #F4F4F4;
   margin-bottom: 2rem;
+  color: #1a1e3a;
 `;
 
 export const ClassifiedsContent = styled.div`
@@ -45,6 +46,7 @@ export const ClassifiedsContentImage = styled.div`
   img{
     width: 17.375rem;
     height: 17.375rem;
+    /* object-fit: contain; */
   }
 `;
 

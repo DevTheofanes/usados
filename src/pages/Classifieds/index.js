@@ -28,8 +28,6 @@ import {
 import { HeaderLoggedComponent } from '../../components/HeaderLogged';
 import { FooterComponent } from '../../components/Footer';
 
-import BackgroundBanner from '../../assets/banners/backgroundBanner.jpg'
-
 export function ClassifiedsPage() {
   return (
     <Container>
@@ -75,7 +73,7 @@ export function ClassifiedsPage() {
         </SideBand>
 
         <ContentClassifieds>
-          <ClassifiedsBox>
+          <ClassifiedsBox href="/classificado">
             <ClassifiedsContent>
               <ClassifiedsContentImage>
                 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
@@ -138,7 +136,7 @@ export function ClassifiedsPage() {
             </ClassifiedsLinks>
           </ClassifiedsBox>
 
-          <ClassifiedsBox>
+          <ClassifiedsBox href="/classificado">
             <ClassifiedsContent>
               <ClassifiedsContentImage>
                 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
@@ -201,7 +199,7 @@ export function ClassifiedsPage() {
             </ClassifiedsLinks>
           </ClassifiedsBox>
 
-          <ClassifiedsBox>
+          <ClassifiedsBox href="/classificado">
             <ClassifiedsContent>
               <ClassifiedsContentImage>
                 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
@@ -264,7 +262,7 @@ export function ClassifiedsPage() {
             </ClassifiedsLinks>
           </ClassifiedsBox>
 
-          <ClassifiedsBox>
+          <ClassifiedsBox href="/classificado">
             <ClassifiedsContent>
               <ClassifiedsContentImage>
                 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
@@ -327,7 +325,7 @@ export function ClassifiedsPage() {
             </ClassifiedsLinks>
           </ClassifiedsBox>
 
-          <ClassifiedsBox>
+          <ClassifiedsBox href="/classificado">
             <ClassifiedsContent>
               <ClassifiedsContentImage>
                 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
@@ -390,7 +388,7 @@ export function ClassifiedsPage() {
             </ClassifiedsLinks>
           </ClassifiedsBox>
 
-          <ClassifiedsBox>
+          <ClassifiedsBox href="/classificado">
             <ClassifiedsContent>
               <ClassifiedsContentImage>
                 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
@@ -453,7 +451,7 @@ export function ClassifiedsPage() {
             </ClassifiedsLinks>
           </ClassifiedsBox>
 
-          <ClassifiedsBox>
+          <ClassifiedsBox href="/classificado">
             <ClassifiedsContent>
               <ClassifiedsContentImage>
                 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
