@@ -27,7 +27,7 @@ export function HeaderLoggedComponent() {
     <Container>
       <Header>
         <HeaderNavigation>
-          <HeaderNavigationLogo>
+          <HeaderNavigationLogo href="/">
             <Logo src={LogoImg} alt="Usados e Novos"/>
           </HeaderNavigationLogo>
 

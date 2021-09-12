@@ -31,7 +31,7 @@ export const HeaderNavigation = styled.div`
   align-items: center;
 `;
 
-export const HeaderNavigationLogo = styled.div`
+export const HeaderNavigationLogo = styled.a`
   display: flex;
   justify-content: flex-start;
 `;

@@ -6,6 +6,7 @@ import { SignUp } from '../pages/SignUp';
 import { ClassifiedsPage } from '../pages/Classifieds';
 import { Classified } from '../pages/Classified';
 import { RatingsPage } from '../pages/Ratings';
+import { ProfileShopPage } from '../pages/ProfileShop';
 
 export function Routes() {
   return (
@@ -16,6 +17,7 @@ export function Routes() {
         <Route path="/classificados" component={ClassifiedsPage} />
         <Route path="/classificado" component={Classified} />
         <Route path="/avaliacoes" component={RatingsPage} />
+        <Route path="/perfil/lojista" component={ProfileShopPage} />
     </Switch>
   );
 }

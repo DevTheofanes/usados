@@ -31,7 +31,7 @@ export const HeaderNavigation = styled.div`
   align-items: center;
 `;
 
-export const HeaderNavigationLogo = styled.div`
+export const HeaderNavigationLogo = styled.a`
   display: flex;
   justify-content: flex-start;
 `;
@@ -124,7 +124,7 @@ export const HeaderMenuCategory = styled.div`
   top: 170px;
 `;
 
-export const HeaderMenuCategoryItem = styled.div`
+export const HeaderMenuCategoryItem = styled.a`
   padding: 1.6rem 2rem;
   max-height: 8.4rem;
   max-width: 8.85rem;

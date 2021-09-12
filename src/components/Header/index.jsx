@@ -16,7 +16,7 @@ export function HeaderComponent() {
     <Container>
       <Header>
         <HeaderNavigation>
-          <HeaderNavigationLogo>
+          <HeaderNavigationLogo href="/">
             <Logo src={LogoImg} alt="Usados e Novos"/>
           </HeaderNavigationLogo>
 
@@ -49,25 +49,25 @@ export function HeaderComponent() {
         </HeaderSearch>
       
         <HeaderMenuCategory>
-          <HeaderMenuCategoryItem color="#f05f64">
+          <HeaderMenuCategoryItem href="/classificados" color="#f05f64">
             <FaCarSide size={75} color="#fff"/>
           </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem color="#f0bc2c">
+          <HeaderMenuCategoryItem href="/classificados" color="#f0bc2c">
             <MdPhoneIphone size={75} color="#fff"/>
           </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem color="#52b95b">
+          <HeaderMenuCategoryItem href="/classificados" color="#52b95b">
             <FaHome size={75} color="#fff"/>
           </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem color="#16acde">
+          <HeaderMenuCategoryItem href="/classificados" color="#16acde">
             <IoBoatSharp size={75} color="#fff"/>
           </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem color="#f287b5">
+          <HeaderMenuCategoryItem href="/classificados" color="#f287b5">
             <FaHelicopter size={75} color="#fff"/>
           </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem color="#733ee2">
+          <HeaderMenuCategoryItem href="/classificados" color="#733ee2">
             <GiOfficeChair size={75} color="#fff"/>
           </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem color="#b0b69e">
+          <HeaderMenuCategoryItem href="/classificados" color="#b0b69e">
             <HiDesktopComputer size={75} color="#fff"/>
           </HeaderMenuCategoryItem>
         </HeaderMenuCategory>
