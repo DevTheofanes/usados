@@ -7,12 +7,14 @@ import { ClassifiedsPage } from '../pages/Classifieds';
 import { Classified } from '../pages/Classified';
 import { RatingsPage } from '../pages/Ratings';
 import { ProfileShopPage } from '../pages/ProfileShop';
+import { AboutPage } from '../pages/About';
 
 export function Routes() {
   return (
     <Switch>
         <Route path="/" exact component={Dashboard} />
         <Route path="/login" component={SignIn} />
+        <Route path="/sobre" component={AboutPage} />
         <Route path="/cadastro" component={SignUp} />
         <Route path="/classificados" component={ClassifiedsPage} />
         <Route path="/classificado" component={Classified} />
