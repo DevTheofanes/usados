@@ -7,7 +7,6 @@ import {
   ContentHeader,
   FormColumn,
   FormInput,
-  FormInputBanner,
   FormInputCheckBox,
   FormInputMoreImage,
   FormInputMoreImagesContainer,
