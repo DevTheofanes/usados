@@ -10,6 +10,7 @@ import { ProfileShopPage } from '../pages/ProfileShop';
 import { AboutPage } from '../pages/About';
 import { SacPage } from '../pages/Sac';
 import { SignUpShop } from '../pages/SignUpShop';
+import { NewClassified } from '../pages/NewClassified';
 
 export function Routes() {
   return (
@@ -21,7 +22,8 @@ export function Routes() {
         <Route path="/cadastro" exact component={SignUp} />
         <Route path="/cadastro/lojista" component={SignUpShop} />
         <Route path="/classificados" component={ClassifiedsPage} />
-        <Route path="/classificado" component={Classified} />
+        <Route path="/classificado" exact component={Classified} />
+        <Route path="/classificado/novo" component={NewClassified} />
         <Route path="/avaliacoes" component={RatingsPage} />
         <Route path="/perfil/lojista" component={ProfileShopPage} />
     </Switch>
