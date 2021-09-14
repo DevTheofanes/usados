@@ -9,29 +9,32 @@ import { IoLogoWhatsapp } from 'react-icons/io5';
 import { RiInstagramFill } from 'react-icons/ri';
 
 import { 
+  ButtonRating,
   Container, 
   Content,
   Profile,
   ProfileHeader,
   ProfileHeaderBanner,
   ProfileHeaderBar,
-  ProfileHeaderBarInfos,
-  ProfileHeaderBarInfosDetails,
   ProfileHeaderBarInfosIcon,
-  ProfileHeaderBarInfosLikes,
-  ProfileHeaderBarInfosText,
+  ProfileHeaderButton,
   ProfileHeaderRatings,
   ProfileHeaderRatingsContent,
   ProfileImages,
   ProfileItem,
   ProfileItemLikes,
   ProfileList,
+  RatingsContainer,
   SideBar,
   SideBarContent,
+  SideBarIcons,
   SideBarInfo,
+  SideBarInfosIcon,
   SideBarInfoTitle,
   SideBarPerfilImage,
   SideBarPublicity,
+  SideBarRatings,
+  SideBarRatingsContainer,
   TopBarColor,
 } from './styles';
 
@@ -51,6 +54,24 @@ export function ProfileShopPage() {
             <h3>MercadoCar</h3>
             <span>A melhor loja para seus carros</span>
           </SideBarPerfilImage>
+
+          <RatingsContainer>
+            <SideBarRatings>
+              <SideBarRatingsContainer>
+                <BsStarFill color="#f2be17" size={26} />
+                <BsStarFill color="#f2be17" size={26} />
+                <BsStarFill color="#f2be17" size={26} />
+                <BsStarHalf color="#f2be17" size={26} />
+                <BsStar color="#f2be17" size={26} />
+              </SideBarRatingsContainer>
+
+              <p><strong>45</strong> Avaliações <br /></p>
+            </SideBarRatings>
+
+            <ButtonRating>
+              Avalie Perfil
+            </ButtonRating>
+          </RatingsContainer>
 
           <SideBarContent>
             <SideBarInfo>
@@ -96,6 +117,16 @@ export function ProfileShopPage() {
               </SideBarInfoTitle>
               <p>vendas@mercadocar.com</p>
             </SideBarInfo>
+
+            <SideBarIcons>
+              <SideBarInfosIcon>
+                <IoLogoWhatsapp color="#fff" size={20} />
+              </SideBarInfosIcon>
+
+              <SideBarInfosIcon>
+                <RiInstagramFill color="#fff" size={20} />
+              </SideBarInfosIcon>
+              </SideBarIcons>
           </SideBarContent>
         
           <SideBarPublicity>
@@ -108,46 +139,6 @@ export function ProfileShopPage() {
             <ProfileHeaderBanner>
               <img src="https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=749&q=80" alt="Banner Lojista" />
             </ProfileHeaderBanner>
-
-            <ProfileHeaderBar>
-              <ProfileHeaderBarInfos>
-                <ProfileHeaderBarInfosLikes>
-                  <ProfileHeaderBarInfosIcon>
-                    <BiLike color="#fff" size={24} />
-                  </ProfileHeaderBarInfosIcon>
-
-                  <ProfileHeaderBarInfosText>
-                    <strong>800</strong> Seguidores <br/>
-                    <strong>45</strong> Avaliações <br/>
-                  </ProfileHeaderBarInfosText>
-                </ProfileHeaderBarInfosLikes>
-
-                <ProfileHeaderBarInfosDetails>
-                  <ProfileHeaderBarInfosText>
-                    <strong>100</strong> Vendas <br/>
-                    Desde 2021
-                  </ProfileHeaderBarInfosText>
-
-                  <ProfileHeaderBarInfosIcon>
-                    <IoLogoWhatsapp color="#fff" size={24} />
-                  </ProfileHeaderBarInfosIcon>
-
-                  <ProfileHeaderBarInfosIcon>
-                    <RiInstagramFill color="#fff" size={24} />
-                  </ProfileHeaderBarInfosIcon>
-                </ProfileHeaderBarInfosDetails>
-              </ProfileHeaderBarInfos>
-
-              <ProfileHeaderRatings>
-                <ProfileHeaderRatingsContent>
-                  <BsStarFill color="#f2be17" size={24}/>
-                  <BsStarFill color="#f2be17" size={24}/>
-                  <BsStarFill color="#f2be17" size={24}/>
-                  <BsStarHalf color="#f2be17" size={24}/>
-                  <BsStar color="#f2be17" size={24}/>
-                </ProfileHeaderRatingsContent>
-              </ProfileHeaderRatings>
-            </ProfileHeaderBar>
           </ProfileHeader>
         
           <ProfileList>
@@ -171,13 +162,6 @@ export function ProfileShopPage() {
                 Estaremos sempre à disposição para tornar seu sonho realidade!<br/>
                 (91) 99191-7857
               </p>
-
-              <ProfileItemLikes>
-                <strong>Curtido por 20 pessoas</strong>
-                <ProfileHeaderBarInfosIcon>
-                  <BiLike color="#fff" size={24} />
-                </ProfileHeaderBarInfosIcon>
-              </ProfileItemLikes>
             </ProfileItem>
           
             <ProfileItem>
@@ -200,13 +184,6 @@ export function ProfileShopPage() {
                 Estaremos sempre à disposição para tornar seu sonho realidade!<br/>
                 (91) 99191-7857
               </p>
-
-              <ProfileItemLikes>
-                <strong>Curtido por 20 pessoas</strong>
-                <ProfileHeaderBarInfosIcon>
-                  <BiLike color="#fff" size={24} />
-                </ProfileHeaderBarInfosIcon>
-              </ProfileItemLikes>
             </ProfileItem>
           
             <ProfileItem>
@@ -229,13 +206,6 @@ export function ProfileShopPage() {
                 Estaremos sempre à disposição para tornar seu sonho realidade!<br/>
                 (91) 99191-7857
               </p>
-
-              <ProfileItemLikes>
-                <strong>Curtido por 20 pessoas</strong>
-                <ProfileHeaderBarInfosIcon>
-                  <BiLike color="#fff" size={24} />
-                </ProfileHeaderBarInfosIcon>
-              </ProfileItemLikes>
             </ProfileItem>
           
             <ProfileItem>
@@ -258,13 +228,6 @@ export function ProfileShopPage() {
                 Estaremos sempre à disposição para tornar seu sonho realidade!<br/>
                 (91) 99191-7857
               </p>
-
-              <ProfileItemLikes>
-                <strong>Curtido por 20 pessoas</strong>
-                <ProfileHeaderBarInfosIcon>
-                  <BiLike color="#fff" size={24} />
-                </ProfileHeaderBarInfosIcon>
-              </ProfileItemLikes>
             </ProfileItem>
           
           

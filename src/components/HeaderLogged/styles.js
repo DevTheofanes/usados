@@ -27,7 +27,7 @@ export const Header = styled.div`
 export const HeaderNavigation = styled.div`
   display: grid;
   width: 100%;
-  grid-template-columns: 4.4fr 5.2fr 1.4fr;
+  grid-template-columns: 4.4fr 5.2fr 1.8fr;
   align-items: center;
 `;
 
@@ -77,6 +77,16 @@ export const HeaderNavigationButtonsEntry = styled.button`
   border-radius: .25rem;
   padding: .2rem .8rem;
   border: 0;
+  font-weight: 900;
+`;
+
+export const HeaderNavigationButton = styled.button`
+  background-color: #f2be17;
+  color:  #1a1e3a;
+  border-radius: .25rem;
+  padding: .2rem .4rem;
+  border: 0;
+  font-size: 1rem;
   font-weight: 900;
 `;
 

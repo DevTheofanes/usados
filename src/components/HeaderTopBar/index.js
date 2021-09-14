@@ -13,6 +13,7 @@ import
 from './styles';
 
 import LogoImg from '../../assets/logo/logoWhite.png'
+import { HeaderNavigationButton } from '../Header/styles';
 
 export function HeaderTopBarComponent() {
   return (
@@ -24,13 +25,13 @@ export function HeaderTopBarComponent() {
           </HeaderNavigationLogo>
 
           <HeaderNavigationLinks>
-            <a href="#">Vender</a>
+            {/* <a href="#">Vender</a> */}
             <a href="#">Comprar</a>
             <a href="#">Simular Financiamento</a>
             <a href="#">SAC</a>
           </HeaderNavigationLinks>
 
-          <HeaderNavigationButtons>
+          {/* <HeaderNavigationButtons>
             <HeaderNavigationButtonsAnnounce>
               Anunciar
             </HeaderNavigationButtonsAnnounce>
@@ -38,7 +39,11 @@ export function HeaderTopBarComponent() {
             <HeaderNavigationButtonsEntry>
               Entrar
             </HeaderNavigationButtonsEntry>
-          </HeaderNavigationButtons>
+          </HeaderNavigationButtons> */}
+
+          <HeaderNavigationButton>
+            Sou anunciante
+          </HeaderNavigationButton>
         </HeaderNavigation>
       </Header>
     </Container>

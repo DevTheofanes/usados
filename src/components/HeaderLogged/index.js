@@ -21,6 +21,7 @@ import { GoSearch } from 'react-icons/go';
 import { AiOutlineUser, AiOutlineHeart } from 'react-icons/ai';
 
 import LogoImg from '../../assets/logo/logoWhite.png'
+import { HeaderNavigationButton } from '../Header/styles';
 
 export function HeaderLoggedComponent() {
   return (
@@ -32,13 +33,13 @@ export function HeaderLoggedComponent() {
           </HeaderNavigationLogo>
 
           <HeaderNavigationLinks>
-            <a href="#">Vender</a>
+            {/* <a href="#">Vender</a> */}
             <a href="#">Comprar</a>
             <a href="#">Simular Financiamento</a>
             <a href="#">SAC</a>
           </HeaderNavigationLinks>
 
-          <HeaderNavigationButtons>
+          {/* <HeaderNavigationButtons>
             <HeaderNavigationButtonsAnnounce>
               Anunciar
             </HeaderNavigationButtonsAnnounce>
@@ -46,7 +47,11 @@ export function HeaderLoggedComponent() {
             <HeaderNavigationButtonsEntry>
               Entrar
             </HeaderNavigationButtonsEntry>
-          </HeaderNavigationButtons>
+          </HeaderNavigationButtons> */}
+
+          <HeaderNavigationButton>
+            Sou anunciante
+          </HeaderNavigationButton>
         </HeaderNavigation>
       
         <HeaderSearch>

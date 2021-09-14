@@ -1,4 +1,4 @@
-import { Container, Header, HeaderNavigation, HeaderNavigationLogo, Logo, HeaderNavigationLinks, HeaderNavigationButtons, HeaderNavigationButtonsAnnounce, HeaderNavigationButtonsEntry, HeaderSearch, HeaderSearchSelect, HeaderSearchInput, HeaderMenuCategory, HeaderMenuCategoryItem } from './styles';
+import { Container, Header, HeaderNavigation, HeaderNavigationLogo, Logo, HeaderNavigationLinks, HeaderNavigationButtons, HeaderNavigationButtonsAnnounce, HeaderNavigationButtonsEntry, HeaderSearch, HeaderSearchSelect, HeaderSearchInput, HeaderMenuCategory, HeaderMenuCategoryItem, HeaderNavigationButton } from './styles';
 
 import { GoSearch } from 'react-icons/go';
 import { GiOfficeChair } from 'react-icons/gi';
@@ -21,12 +21,12 @@ export function HeaderComponent() {
           </HeaderNavigationLogo>
 
           <HeaderNavigationLinks>
-            <a href="#">Vender</a>
+            {/* <a href="#">Vender</a> */}
             <a href="#">Comprar</a>
             <a href="#">Simular Financiamento</a>
             <a href="#">SAC</a>
           </HeaderNavigationLinks>
-
+{/* 
           <HeaderNavigationButtons>
             <HeaderNavigationButtonsAnnounce>
               Anunciar
@@ -35,7 +35,11 @@ export function HeaderComponent() {
             <HeaderNavigationButtonsEntry>
               Entrar
             </HeaderNavigationButtonsEntry>
-          </HeaderNavigationButtons>
+          </HeaderNavigationButtons> */}
+
+          <HeaderNavigationButton>
+            Sou anunciante
+          </HeaderNavigationButton>
         </HeaderNavigation>
       
         <HeaderSearch>

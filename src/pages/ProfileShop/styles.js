@@ -62,7 +62,8 @@ export const SideBarPerfilImage = styled.div`
 
 export const SideBarContent = styled.div`
   background-color: #F4F4F4;
-  margin-top: 15rem;
+  margin-top: 17.5rem;
+  margin-top: 1.5rem;
   border-radius: .75rem;
   padding: 1.5rem 1rem;
 
@@ -80,6 +81,38 @@ export const SideBarInfo = styled.div`
     font-size: 0.8rem;
     margin-top:.25rem;
   }
+`;
+
+export const SideBarRatings = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+`;
+
+export const RatingsContainer = styled.div`
+  margin-top: 14rem;
+`;
+
+export const SideBarRatingsContainer = styled.div``;
+
+export const ButtonRating = styled.div`
+  border: 0;
+  border-radius: .5rem;
+  background-color:  #1a1e3a;
+  padding: 1rem;
+
+  color: #fff;
+  font-weight: bold;
+
+  max-width: 8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* justify-self: end; */
+
+  margin: 1rem auto 0;
 `;
 
 export const SideBarInfoTitle = styled.div`
@@ -103,6 +136,26 @@ export const SideBarPublicity = styled.div`
   background-color: #F4F4F4;
 `;
 
+export const SideBarIcons = styled.div`
+  display: flex;
+  align-items: center;
+  width: 58%;
+  justify-content: space-between;
+`;
+
+export const SideBarInfosIcon = styled.div`
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background-color:  #1a1e3a;
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 0 !important;
+`;
+
 //Profile
 
 export const Profile = styled.div``;
@@ -119,19 +172,6 @@ export const ProfileHeaderBanner = styled.div`
   }
 `;
 
-export const ProfileHeaderBar = styled.div`
-  margin-top: 15rem;
-
-  display: grid;
-  grid-template-columns: 5fr 2fr;
-  align-items: center;
-`;
-
-export const ProfileHeaderBarInfos = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
 export const ProfileHeaderBarInfosIcon = styled.div`
   width: 3.2rem;
   height: 3.2rem;
@@ -143,30 +183,39 @@ export const ProfileHeaderBarInfosIcon = styled.div`
   justify-content: center;
 `;
 
-export const ProfileHeaderBarInfosText = styled.div`
-  text-align:center;
-`;    
+export const ProfileHeaderBar = styled.div`
+  margin-top: 15rem;
 
-export const ProfileHeaderBarInfosLikes = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
   align-items: center;
-  
-  div{
-    margin-right: 1rem;
-  }
-`;
-
-export const ProfileHeaderBarInfosDetails = styled.div`
-  display: flex;
-  align-items: center;
-
-  div{
-    margin-left: 1rem;
-  }
 `;
 
 export const ProfileHeaderRatings = styled.div`
   display: flex;
+  justify-self: start;
+  flex-direction: column;
+
+  p{
+    margin-top: .5rem;
+    font-weight: normal;
+  }
+`;
+
+export const ProfileHeaderButton = styled.button`
+  border: 0;
+  border-radius: .5rem;
+  background-color:  #1a1e3a;
+  padding: 1rem;
+
+  color: #fff;
+  font-weight: bold;
+
+  max-width: 8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   justify-self: end;
 `;
 
@@ -179,7 +228,7 @@ export const ProfileHeaderRatingsContent = styled.div`
 export const ProfileList = styled.div`
   max-height: 60rem;
   overflow: auto;
-  margin-top: 2rem;
+  margin-top: 15rem;
   padding-right: 1rem;
   
 `;
