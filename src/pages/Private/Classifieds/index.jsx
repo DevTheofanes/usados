@@ -12,10 +12,8 @@ import { DashboardContainer } from '../../../components/Dashboard';
 export function DashboardClassifieds() {
   return (
     <DashboardContainer>
-      {/* <h2>Roi</h2> */}
+      <h2>Roi</h2>
     </DashboardContainer>
-
-    // <h2>A</h2>
   );
 }
       

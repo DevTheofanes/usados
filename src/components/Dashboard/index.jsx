@@ -9,6 +9,7 @@ from './styles';
 
 import { DashboardBar } from './DashboardBar';
 import { DashboardTopInfos } from './DashboardTopInfos';
+import { DashboardPublicity } from './DashboardPublicity';
 
 export const DashboardContainer = props => {
   const { children } = props;
@@ -22,6 +23,8 @@ export const DashboardContainer = props => {
 
         {children}
       </Content>
+
+      <DashboardPublicity />
     </Container>
   );
 }
