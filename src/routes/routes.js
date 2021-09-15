@@ -12,6 +12,7 @@ import { SacPage } from '../pages/Sac';
 import { SignUpShop } from '../pages/SignUpShop';
 import { NewClassified } from '../pages/NewClassified';
 import { DashboardClassifieds } from '../pages/Private/Classifieds';
+import { DashboardPosts } from '../pages/Private/Posts';
 
 export function Routes() {
   return (
@@ -29,6 +30,7 @@ export function Routes() {
         <Route path="/perfil/lojista" component={ProfileShopPage} />
 
         <Route path="/dashboard/classificados" component={DashboardClassifieds} />
+        <Route path="/dashboard/posts" component={DashboardPosts} />
     </Switch>
   );
 }
