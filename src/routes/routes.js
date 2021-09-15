@@ -11,6 +11,7 @@ import { AboutPage } from '../pages/About';
 import { SacPage } from '../pages/Sac';
 import { SignUpShop } from '../pages/SignUpShop';
 import { NewClassified } from '../pages/NewClassified';
+import { DashboardClassifieds } from '../pages/Private/Classifieds';
 
 export function Routes() {
   return (
@@ -26,6 +27,8 @@ export function Routes() {
         <Route path="/classificado/novo" component={NewClassified} />
         <Route path="/avaliacoes" component={RatingsPage} />
         <Route path="/perfil/lojista" component={ProfileShopPage} />
+
+        <Route path="/dashboard/classificados" component={DashboardClassifieds} />
     </Switch>
   );
 }
