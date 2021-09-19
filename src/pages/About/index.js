@@ -1,5 +1,7 @@
 import React from 'react';
-import { FiCheckSquare } from 'react-icons/fi';
+import { FiCheckSquare, FiTarget } from 'react-icons/fi';
+import { FaHandsHelping, FaRegPaperPlane, FaAward } from 'react-icons/fa';
+import { RiMoneyDollarCircleLine } from 'react-icons/ri';
 
 import { 
   Container,
@@ -10,7 +12,15 @@ import {
   ListAbout,
   AboutInfos,
   AboutInfosContainer,
-  AboutInfoItem
+  AboutInfoItem,
+  HelpContainer,
+  InfoTitle,
+  InfosItens,
+  InfoContainer,
+  TipsContainer,
+  SellContainer,
+  PlansContainer,
+  Box
 } from './styles';
 
 import { HeaderComponent } from '../../components/Header';
@@ -104,6 +114,152 @@ export function AboutPage() {
               </AboutInfoItem>
             </AboutInfosContainer>
           </AboutInfos>
+
+          <HelpContainer>
+            <InfoTitle>
+              <FaHandsHelping size={60}/>
+              <h4>AJUDA E CONTATOS</h4>
+            </InfoTitle>
+
+            <InfoContainer>
+              <InfosItens>
+                <strong>Fale conosco pelo fone</strong>
+                <p>Nossos consultores estão a sua disposição e irão lhe auxiliar da melhor maneira possivel para que a sua experiência seja boa e com resultados dentro da nossa plataforma.</p>
+              </InfosItens>
+
+              <InfosItens>
+                <strong>Fale conosco pelo fone</strong>
+                <p>De Segunda à Sexta das 8h as 18hrs através do nosso Call Center 0800 000 000 aguardamos o seu contato.</p>
+              </InfosItens>
+            </InfoContainer>
+          </HelpContainer>
+
+          <TipsContainer>
+            <InfoTitle>
+              <FiTarget size={60}/>
+              <h4>DICAS DE USO</h4>
+            </InfoTitle>
+
+            <InfoContainer>
+              <InfosItens>
+                <strong>Como fotogradar o produto</strong>
+                <p>Nossos consultores estão a sua disposição e irão lhe auxiliar da melhor maneira possivel para que a sua experiência seja boa e com resultados dentro da nossa plataforma.</p>
+              </InfosItens>
+
+              <InfosItens>
+                <strong>Fale conosco pelo fone</strong>
+                <p>De Segunda à Sexta das 8h as 18hrs através do nosso Call Center 0800 000 000 aguardamos o seu contato.</p>
+              </InfosItens>
+            </InfoContainer>
+
+            <InfoTitle>
+              <FaRegPaperPlane size={60}/>
+              <h4>COMO PATROCINAR O ANUNCIO</h4>
+            </InfoTitle>
+
+            <InfoContainer>
+              <InfosItens>
+                <strong>Como fotogradar o produto</strong>
+                <p>Nossos consultores estão a sua disposição e irão lhe auxiliar da melhor maneira possivel para que a sua experiência seja boa e com resultados dentro da nossa plataforma.</p>
+              </InfosItens>
+
+              <InfosItens>
+                <strong>Fale conosco pelo fone</strong>
+                <p>De Segunda à Sexta das 8h as 18hrs através do nosso Call Center 0800 000 000 aguardamos o seu contato.</p>
+              </InfosItens>
+            </InfoContainer>
+          </TipsContainer>
+
+          <SellContainer>
+            <InfoTitle>
+              <div>
+                <FaAward size={60}/>
+                <h4>VENDER NA USADOSNOVO.COM.BR</h4>
+              </div>
+            </InfoTitle>
+
+            <InfoContainer>
+              <InfosItens>
+                <strong>Como fotogradar o produto</strong>
+                <p>Nossos consultores estão a sua disposição e irão lhe auxiliar da melhor maneira possivel para que a sua experiência seja boa e com resultados dentro da nossa plataforma.</p>
+              </InfosItens>
+
+              <InfosItens>
+                <strong>Fale conosco pelo fone</strong>
+                <p>De Segunda à Sexta das 8h as 18hrs através do nosso Call Center 0800 000 000 aguardamos o seu contato.</p>
+              </InfosItens>
+            </InfoContainer>
+
+            <InfoTitle>
+              <FaRegPaperPlane size={60}/>
+              <h4>COMO PATROCINAR O ANUNCIO</h4>
+            </InfoTitle>
+
+            <InfoContainer>
+              <InfosItens>
+                <strong>Como fotogradar o produto</strong>
+                <p>Nossos consultores estão a sua disposição e irão lhe auxiliar da melhor maneira possivel para que a sua experiência seja boa e com resultados dentro da nossa plataforma.</p>
+              </InfosItens>
+
+              <InfosItens>
+                <strong>Fale conosco pelo fone</strong>
+                <p>De Segunda à Sexta das 8h as 18hrs através do nosso Call Center 0800 000 000 aguardamos o seu contato.</p>
+              </InfosItens>
+            </InfoContainer>
+          </SellContainer>
+
+
+          <PlansContainer>
+            <InfoTitle>
+              <RiMoneyDollarCircleLine size={60}/>
+              <h4>NOSSOS PLANOS</h4>
+            </InfoTitle>
+
+            <InfoContainer>
+              <InfosItens>
+                <strong>Essencial</strong>
+                <p>Nossos consultores estão a sua disposição e irão lhe auxiliar da melhor maneira possivel para que a sua experiência seja boa e com resultados dentro da nossa plataforma.</p>
+              </InfosItens>
+
+              <InfosItens>
+                <strong>Expert</strong>
+                <p>De Segunda à Sexta das 8h as 18hrs através do nosso Call Center 0800 000 000 aguardamos o seu contato.</p>
+              </InfosItens>
+            </InfoContainer>
+
+            <InfoContainer>
+              <InfosItens>
+                <strong>Plano Pro</strong>
+                <p>Nossos consultores estão a sua disposição e irão lhe auxiliar da melhor maneira possivel para que a sua experiência seja boa e com resultados dentro da nossa plataforma.</p>
+              </InfosItens>
+
+              <InfosItens>
+                <strong>Sou um titulo</strong>
+                <p>De Segunda à Sexta das 8h as 18hrs através do nosso Call Center 0800 000 000 aguardamos o seu contato.</p>
+              </InfosItens>
+            </InfoContainer>
+
+            <InfoContainer>
+              <InfosItens>
+                <strong>Sou um titulo</strong>
+                <p>Nossos consultores estão a sua disposição e irão lhe auxiliar da melhor maneira possivel para que a sua experiência seja boa e com resultados dentro da nossa plataforma.</p>
+              </InfosItens>
+
+              <InfosItens>
+                <strong>Sou um titulo</strong>
+                <p>De Segunda à Sexta das 8h as 18hrs através do nosso Call Center 0800 000 000 aguardamos o seu contato.</p>
+              </InfosItens>
+            </InfoContainer>
+
+            <InfoTitle>
+              <div>
+                <FaRegPaperPlane size={60}/>
+                <h4>COMO ANUNCIAR</h4>
+              </div>
+            </InfoTitle>
+
+            <Box />
+          </PlansContainer>
       <FooterComponent />
     </Container>
   );

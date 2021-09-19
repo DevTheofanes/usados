@@ -13,6 +13,7 @@ import { SignUpShop } from '../pages/SignUpShop';
 import { NewClassified } from '../pages/NewClassified';
 import { DashboardClassifieds } from '../pages/Private/Classifieds';
 import { DashboardPosts } from '../pages/Private/Posts';
+import { NewRating } from '../pages/NewRating';
 
 export function Routes() {
   return (
@@ -26,7 +27,8 @@ export function Routes() {
         <Route path="/classificados" component={ClassifiedsPage} />
         <Route path="/classificado" exact component={Classified} />
         <Route path="/classificado/novo" component={NewClassified} />
-        <Route path="/avaliacoes" component={RatingsPage} />
+        <Route path="/avaliacoes" exact component={RatingsPage} />
+        <Route path="/avaliacoes/novo" component={NewRating} />
         <Route path="/perfil/lojista" component={ProfileShopPage} />
 
         <Route path="/dashboard/classificados" component={DashboardClassifieds} />

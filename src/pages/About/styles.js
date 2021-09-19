@@ -89,3 +89,98 @@ export const AboutInfoItem = styled.div`
     margin-bottom: .5rem;
   }
 `;
+
+
+export const HelpContainer = styled.div`
+  width: 100%;
+  background-color: #f2be17;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+export const TipsContainer = styled.div`
+  width: 100%;
+  background-color: #1a1e3a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+export const SellContainer = styled.div`
+  width: 100%;
+  background-color: #666;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+export const PlansContainer = styled.div`
+  width: 100%;
+  /* background-color: #666; */
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+export const InfoTitle = styled.div`
+  width: 62rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem 0;
+  
+  h4{
+    font-size: 1.6rem;
+    margin-left: .75rem;
+  }
+
+  div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h4{
+      margin: 0;
+      margin-top: .75rem;
+    }
+  }
+`;
+
+export const InfoContainer = styled.div`
+  max-width: 50rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+`;
+
+export const InfosItens = styled.div`
+  /* width: 62rem; */
+
+  strong{
+    font-size: 1.2rem;
+  }
+
+  p{
+    margin-top: 1rem;
+    margin-bottom: 6rem;
+    font-size: .9rem;
+  }
+`;
+
+
+
+export const Box = styled.div`
+  background-color: #999;
+  border-radius: 1rem;
+  width: 62rem;
+  height: 20rem;
+`;
