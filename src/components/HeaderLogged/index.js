@@ -34,9 +34,9 @@ export function HeaderLoggedComponent() {
 
           <HeaderNavigationLinks>
             {/* <a href="#">Vender</a> */}
-            <a href="#">Comprar</a>
+            <a href="/classificados">Comprar</a>
             <a href="#">Simular Financiamento</a>
-            <a href="#">SAC</a>
+            <a href="/sac">SAC</a>
           </HeaderNavigationLinks>
 
           {/* <HeaderNavigationButtons>
@@ -49,7 +49,7 @@ export function HeaderLoggedComponent() {
             </HeaderNavigationButtonsEntry>
           </HeaderNavigationButtons> */}
 
-          <HeaderNavigationButton>
+          <HeaderNavigationButton href="/cadastro/lojista">
             Sou anunciante
           </HeaderNavigationButton>
         </HeaderNavigation>

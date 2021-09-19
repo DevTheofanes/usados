@@ -20,13 +20,13 @@ import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
 import { FooterComponent } from '../../components/Footer';
 
 
-export function SignUpShop() {
+export function AccountUpdate() {
   return (
     <Container>
       <HeaderTopBarComponent />
         <Content>
           <ContentHeader>
-            Cadastro da sua loja
+            Mudar informações de sua loja
           </ContentHeader>
 
           <SignUpContainer>
@@ -113,7 +113,7 @@ export function SignUpShop() {
 
           <FormSubmit>
             <FormSubmitButton>
-              Criar Conta
+              Editar Conta
             </FormSubmitButton>
           </FormSubmit>
         </Content>

@@ -80,8 +80,9 @@ export const HeaderNavigationButtonsEntry = styled.button`
   font-weight: 900;
 `;
 
-export const HeaderNavigationButton = styled.button`
+export const HeaderNavigationButton = styled.a`
   background-color: #f2be17;
+  text-align:center;
   color:  #1a1e3a;
   border-radius: .25rem;
   padding: .2rem .4rem;

@@ -47,7 +47,7 @@ export const ButtonsContainer = styled.div`
   display: flex;
 `;
 
-export const ButtonEdit = styled.button`
+export const ButtonEdit = styled.a`
   border: 0;
   background-color: #1a1e3a;
   color: #fff;

@@ -95,7 +95,7 @@ export const SearchBorder = styled.div`
 
 //Info Content
 
-export const InfoContent = styled.div`
+export const InfoContent = styled.a`
   display: flex;
   width: 100%;
   max-width: 62rem;

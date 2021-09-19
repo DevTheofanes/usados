@@ -68,7 +68,7 @@ export function ProfileShopPage() {
               <p><strong>45</strong> Avaliações <br /></p>
             </SideBarRatings>
 
-            <ButtonRating>
+            <ButtonRating href="/avaliacoes/novo">
               Avalie Perfil
             </ButtonRating>
           </RatingsContainer>

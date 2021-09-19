@@ -16,9 +16,9 @@ export function DashboardClassifieds() {
   return (
     <DashboardContainer>
       <DashboardContainerButtons>
-        <button>
+        <a href="/classificado/novo">
           Novo Anúncio
-        </button>
+        </a>
       </DashboardContainerButtons>
 
       <DashboardContainerTable title="classified">

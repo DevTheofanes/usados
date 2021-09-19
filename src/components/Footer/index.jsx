@@ -12,11 +12,11 @@ export function FooterComponent() {
       <Container>
         <FooterNavigation>
           <FooterNavigationLinks>
-            <a href="#">Ajuda e contato</a>
-            <a href="#">Dicas de Uso</a>
-            <a href="#">Vender na UsadosNovo</a>
-            <a href="#">Plano</a>
-            <a href="#">Como Anunciar</a>
+            <a href="/sobre">Ajuda e contato</a>
+            <a href="/sobre">Dicas de Uso</a>
+            <a href="/sobre">Vender na UsadosNovo</a>
+            <a href="/sobre">Plano</a>
+            <a href="/sobre">Como Anunciar</a>
           </FooterNavigationLinks>
 
           <FooterNavigationRedesSociais>

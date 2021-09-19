@@ -14,6 +14,8 @@ import { NewClassified } from '../pages/NewClassified';
 import { DashboardClassifieds } from '../pages/Private/Classifieds';
 import { DashboardPosts } from '../pages/Private/Posts';
 import { NewRating } from '../pages/NewRating';
+import { AccountUpdate } from '../pages/AccountUpdate';
+import { EditClassified } from '../pages/EditClassified';
 
 export function Routes() {
   return (
@@ -33,6 +35,8 @@ export function Routes() {
 
         <Route path="/dashboard/classificados" component={DashboardClassifieds} />
         <Route path="/dashboard/posts" component={DashboardPosts} />
+        <Route path="/dashboard/account" component={AccountUpdate} />
+        <Route path="/dashboard/classificado" component={EditClassified} />
     </Switch>
   );
 }

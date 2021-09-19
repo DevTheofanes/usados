@@ -97,7 +97,7 @@ export function Dashboard() {
         </SearchGrid>
       </SearchSpace>
     
-      <InfoContent>
+      <InfoContent href="/sobre">
         <InfoContentTitle>
           <strong>Sobre a usados novo</strong>
         </InfoContentTitle>

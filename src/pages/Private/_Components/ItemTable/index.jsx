@@ -26,7 +26,7 @@ export const DashboardItemTable = props => {
       <p>Postado em 15/02/2021</p>
 
       <ButtonsContainer>
-        <ButtonEdit>
+        <ButtonEdit href="/dashboard/classificado">
           Editar {title === "classified" ? "anúncio" : "postagem"}
         </ButtonEdit>
 

@@ -132,7 +132,7 @@ export const FormInputBanner = styled.div`
   }
 `;
 
-export const FormInputProfile = styled.div`
+export const FormInputPrimary = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -162,8 +162,8 @@ export const FormInputProfile = styled.div`
     background-color: #f3f3f3;
     opacity: .9;
     border: 1px solid #a3a3a2;
-    width: 40%;
-    height: 8.6rem;
+    /* width: 40%/; */
+    height: 14rem;
     border-radius: .25rem;
 
     display: flex;
@@ -184,6 +184,48 @@ export const FormInputProfile = styled.div`
   }
 `;
 
+export const FormInputCheckBox = styled.div`
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 1rem;
+
+  span{
+    font-size: .7rem;
+    color: #9d9b9c;
+    margin-left: .25rem;
+  }  
+
+  input{
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+`;
+
+export const FormInputMoreImagesContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+`;
+
+export const FormInputMoreImage = styled.div`
+  input[type="file"] {
+    display: none;
+  }
+
+  label{
+    background-color: #f3f3f3;
+    opacity: .9;
+    border: 1px solid #a3a3a2;
+    /* width: 40%/; */
+    height: 8rem;
+    border-radius: .25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+`;
 
 export const FormSubmit = styled.div` 
   display: flex;

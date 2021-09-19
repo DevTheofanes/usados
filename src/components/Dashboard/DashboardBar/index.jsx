@@ -19,17 +19,17 @@ export function DashboardBar() {
     <Container>
       <Logo src={LogoImg} alt="Logo"/>
 
-      <LinkPage href="">
+      <LinkPage href="/dashboard/posts">
         <BsFilePost color="#fff" size={20}/>
         <span>Minhas Postagens</span>
       </LinkPage>
 
-      <LinkPage href="">
+      <LinkPage href="/dashboard/classificados">
         <AiOutlineFolderOpen color="#fff" size={20}/>
         <span>Meus anúncios</span>
       </LinkPage>
 
-      <LinkPage href="">
+      <LinkPage href="/dashboard/account">
         <GrDocumentConfig color="#fff" stroke="#fff" size={20}/>
         <span>Configurações da minha conta</span>
       </LinkPage>

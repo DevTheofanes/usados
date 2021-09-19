@@ -96,7 +96,7 @@ export const RatingsContainer = styled.div`
 
 export const SideBarRatingsContainer = styled.div``;
 
-export const ButtonRating = styled.div`
+export const ButtonRating = styled.a`
   border: 0;
   border-radius: .5rem;
   background-color:  #1a1e3a;

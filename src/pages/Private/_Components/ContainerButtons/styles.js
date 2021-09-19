@@ -21,4 +21,19 @@ export const Container = styled.div`
     font-weight: bold;
     font-size: .7rem;
   }
+
+  a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #111;
+    background-color: #ffde00;
+    border: 0;
+    border-radius: .5rem;
+    width: 10rem;
+    height: 1.8rem;
+    font-weight: bold;
+    font-size: .7rem;
+  }
 `;
