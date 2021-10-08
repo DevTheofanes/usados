@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { MdPhotoSizeSelectActual } from 'react-icons/md';
+import { toast } from 'react-toastify';
 
 import { 
   Container,
@@ -18,9 +19,92 @@ import {
 
 import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
 import { FooterComponent } from '../../components/Footer';
-
+import { useUser } from '../../hooks/useUser';
+import api from '../../services/api';
 
 export function SignUpShop() {
+  const { handleRegister } = useUser();
+
+  const [name, setName] = useState("")
+  const [slogan, setSlogan] = useState("")
+  const [address, setAddress] = useState("")
+  const [email, setEmail] = useState("")
+  const [whatsapp, setWhatsapp] = useState("")
+  const [site, setSite] = useState("")
+  const [cnpj, setCnpj] = useState("")
+  const [category, setCategory] = useState("")
+  const [instagram, setInstagram] = useState("")
+
+  const [profile, setProfile] = useState("")
+  const [profileCover, setProfileCover] = useState("")
+  const [description, setDescription] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+
+  async function getUrl(image){
+    const data = new FormData();
+    data.append('image', image);
+
+    const response = await api.post("/files/url", data)
+    
+    return response.data;
+  }
+
+  function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
+  async function handleSignUp(){
+    if(!name || !slogan || !address || !email || !whatsapp || !site || !cnpj || !category || !instagram ||!profile || !profileCover || !description ||!password || !confirmPassword){
+      return toast.warn("Preencha todos os campos.")
+    }
+
+    if(password.length < 6){
+      return toast.warn("A senha deve ter pelo menos 6 digitos.")
+    }
+
+    if(password !== confirmPassword){
+      return toast.warn("As senhas não se coincidem.")
+    }
+
+    if(!isNumber(whatsapp)){
+      return toast.warn("Confirme seu whatsapp.")
+    }
+
+    if(whatsapp.length !== 11){
+      return toast.warn("Confirme seu whatsapp.")
+    }
+
+    if(!isNumber(cnpj)){
+      return toast.warn("Confirme seu cnpj.")
+    }
+
+    if(cnpj.length !== 14){
+      return toast.warn("Confirme seu cnpj.")
+    }
+
+    const profileUrl = await getUrl(profile)
+    const profileCoverUrl = await getUrl(profileCover)
+
+    const data = {
+      name,
+      slogan,
+      address,
+      email,
+      whatsapp,
+      site, 
+      cnpj,
+      category,
+      instagram,
+      profileUrl,
+      profileCoverUrl,
+      description,
+      password
+    }
+
+    handleRegister(data)
+  }
+
   return (
     <Container>
       <HeaderTopBarComponent />
@@ -33,47 +117,47 @@ export function SignUpShop() {
             <FormColumn>
               <FormInput>
                 <span>Nome fantasia </span>
-                <input type="text" />
+                <input value={name} onChange={e => setName(e.target.value)} type="text" />
               </FormInput>
 
               <FormInput>
                 <span>Slogan da loja </span>
-                <input type="text" />
+                <input value={slogan} onChange={e => setSlogan(e.target.value)} type="text" />
               </FormInput>
 
               <FormInput>
                 <span>Endereço da loja fisica </span>
-                <input type="text" />
+                <input value={address} onChange={e => setAddress(e.target.value)} type="text" />
               </FormInput>
 
               <FormInput>
                 <span>E-mail da loja </span>
-                <input type="text" />
+                <input value={email} onChange={e => setEmail(e.target.value)} type="text" />
               </FormInput>
 
               <FormInput>
                 <span>Whatsapp </span>
-                <input type="text" />
+                <input value={whatsapp} onChange={e => setWhatsapp(e.target.value)} type="text" />
               </FormInput>
 
               <FormInput>
                 <span>Site </span>
-                <input type="text" />
+                <input value={site} onChange={e => setSite(e.target.value)} type="text" />
               </FormInput>
 
               <FormInput>
                 <span>CNPJ </span>
-                <input type="text" />
+                <input value={cnpj} onChange={e => setCnpj(e.target.value)} type="text" />
               </FormInput>
 
               <FormInput>
                 <span>Segmento de atuação </span>
-                <input type="text" />
+                <input value={category} onChange={e => setCategory(e.target.value)} type="text" />
               </FormInput>
 
               <FormInput>
-                <span>Link para o Instragam </span>
-                <input type="text" />
+                <span>Link para o Instagram </span>
+                <input value={instagram} onChange={e => setInstagram(e.target.value)} type="text" />
               </FormInput>
             </FormColumn>
             
@@ -83,7 +167,7 @@ export function SignUpShop() {
                 <label for="perfil">
                   <MdPhotoSizeSelectActual color="#999" size={40}/>
                 </label>
-                <input type="file" id="perfil" name="perfil"/>
+                <input onChange={(e) => setProfile(e.target.files[0])} type="file" id="perfil" name="perfil"/>
               </FormInputProfile>
 
               <FormInputBanner>
@@ -91,28 +175,28 @@ export function SignUpShop() {
                 <label for="arquivo">
                   <MdPhotoSizeSelectActual color="#999" size={64}/>
                 </label>
-                <input type="file" id="arquivo" name="arquivo"/>
+                <input onChange={(e) => setProfileCover(e.target.files[0])} type="file" id="arquivo" name="arquivo"/>
               </FormInputBanner>
               
               <FormInput>
                 <span>Fale um pouco sobre sua empresa </span>
-                <textarea name="" id="" cols="30" rows="3"></textarea>
+                <textarea name="" id="" cols="30" rows="3" value={description} onChange={e => setDescription(e.target.value)}></textarea>
               </FormInput>
 
               <FormInput>
                 <span>Senha </span>
-                <input type="password" />
+                <input value={password} onChange={e => setPassword(e.target.value)} type="password" />
               </FormInput>
 
               <FormInput>
                 <span>Confirme a senha </span>
-                <input type="password" />
+                <input value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} type="password" />
               </FormInput>
             </FormColumn>
           </SignUpContainer>
 
           <FormSubmit>
-            <FormSubmitButton>
+            <FormSubmitButton onClick={() => handleSignUp()}>
               Criar Conta
             </FormSubmitButton>
           </FormSubmit>

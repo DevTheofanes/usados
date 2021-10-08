@@ -47,7 +47,7 @@ export function UserContextProvider({children}){
 
   async function handleRegister(data){
     try {
-      const response = await api.post('/users', data)
+      const response = await api.post('/user', data)
       
       handleSession({
         email: data.email,
