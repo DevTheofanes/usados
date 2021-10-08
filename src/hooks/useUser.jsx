@@ -11,19 +11,14 @@ export function UserContextProvider({children}){
 
   const [user, setUser] = useState({})
   const [token, setToken] = useState("")
-  const [manager, setManager] = useState(false)
 
   useEffect(() =>{
     async function loadData() {
-      const userData = await JSON.parse(localStorage.getItem('@voucolar/user'))
-      const tokenData = await JSON.parse(localStorage.getItem('@voucolar/token'))
+      const userData = await JSON.parse(localStorage.getItem('@novosUsados/user'))
+      const tokenData = await JSON.parse(localStorage.getItem('@novosUsados/token'))
   
       setUser(userData)
       setToken(tokenData)
-
-      if(userData?.manager){
-        setManager(true)
-      }
       
       api.defaults.headers.authorization = tokenData;
     }
@@ -32,24 +27,18 @@ export function UserContextProvider({children}){
     // api.defaults.headers.authorization = `Bearer ${tokenData}`;
   }, [])
 
-  async function handleSession(data,){
+  async function handleSession(data){
     try {
-      const response = await api.post('/session', data)
+      const response = await api.post('/login', data)
       toast.success(`Seja bem-vindo ${response.data.user.name}`)
 
       setUser(response.data.user)
       setToken(response.data.token)
       
-      localStorage.setItem('@voucolar/user', JSON.stringify(response.data.user));
-      localStorage.setItem('@voucolar/token', JSON.stringify(String(response.data.token)));
+      localStorage.setItem('@novosUsados/user', JSON.stringify(response.data.user));
+      localStorage.setItem('@novosUsados/token', JSON.stringify(String(response.data.token)));
 
-      if(response.data.user.manager){
-        setManager(true)
-        return history.push("/acess/dashboard")
-      }
-
-
-      history.push("/");
+      history.push("/dashboard/classificados");
     } catch (error) {
       toast.error(error.response.data.error)
       console.log(error.response.data)
@@ -72,8 +61,8 @@ export function UserContextProvider({children}){
   }
 
   function LogoutSession(){
-    localStorage.removeItem('@voucolar/user')
-    localStorage.removeItem('@voucolar/token')
+    localStorage.removeItem('@novosUsados/user')
+    localStorage.removeItem('@novosUsados/token')
 
     setUser(null)
     setToken("")
@@ -82,7 +71,7 @@ export function UserContextProvider({children}){
   }
 
   return (
-    <UserContext.Provider value={{ host, user, token, manager, handleSession, handleRegister, LogoutSession }}>
+    <UserContext.Provider value={{ host, user, token, handleSession, handleRegister, LogoutSession }}>
       {children}
     </UserContext.Provider>
   )

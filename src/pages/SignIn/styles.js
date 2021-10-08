@@ -29,7 +29,8 @@ export const Form = styled.div`
 
 export const FormOptions = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: 1fr;
 `;
 
 export const FormOptionButton = styled.button`
@@ -60,13 +61,15 @@ export const FormInput = styled.div`
   }
 `;
 
-export const FormButton = styled.div`
+export const FormButton = styled.button`
   background-color: #1a1e3a;
   display: flex;
   height: 3.2rem;
   align-items: center;
   justify-content: center;
   color:#fff;
+  width: 100%;
+  border:0;
   text-transform: uppercase;
   font-weight: 500;
 `;

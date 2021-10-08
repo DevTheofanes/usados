@@ -7,13 +7,13 @@ import Global from "./styles/Global";
 import { Routes } from "./routes/routes";
 
 // import { CartContextProvider } from './hooks/useCart'
-// import { UserContextProvider } from "./hooks/useUser";
+import { UserContextProvider } from "./hooks/useUser";
 
 Modal.setAppElement('#root')
 
 function App() {
   return (
-    // <UserContextProvider>
+    <UserContextProvider>
       <Router history={history}>
         {/* <CartContextProvider> */}
           <Global />
@@ -21,7 +21,7 @@ function App() {
           <ToastContainer autoClose={1500}/>
         {/* </CartContextProvider> */}
       </Router>
-    // </UserContextProvider>
+    </UserContextProvider>
   );
 }
 

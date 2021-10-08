@@ -69,8 +69,8 @@ export const SearchItem = styled.a`
   color: #343434;
 
   img{
-    width: 15rem;
-    height: 14rem;
+    width: 14rem;
+    height: 13rem;
   }
 
   strong{
