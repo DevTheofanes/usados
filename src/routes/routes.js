@@ -29,9 +29,9 @@ export function Routes() {
         <Route path="/classificados" component={ClassifiedsPage} />
         <Route path="/classificado" exact component={Classified} />
         <Route path="/classificado/novo" component={NewClassified} />
-        <Route path="/avaliacoes" exact component={RatingsPage} />
+        <Route path="/perfil/lojista/:id/avaliacoes" exact component={RatingsPage} />
         <Route path="/avaliacoes/novo" component={NewRating} />
-        <Route path="/perfil/lojista/:id" component={ProfileShopPage} />
+        <Route path="/perfil/lojista/:id" exact component={ProfileShopPage} />
 
         <Route path="/dashboard/classificados" component={DashboardClassifieds} />
         <Route path="/dashboard/posts" component={DashboardPosts} />

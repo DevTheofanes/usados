@@ -65,6 +65,7 @@ export const SideBarContent = styled.div`
   margin-top: 15rem;
   border-radius: .75rem;
   padding: 1.5rem 1rem;
+  height: 28rem;
 
   div+div{
     margin-top: 1.5rem;
@@ -138,6 +139,7 @@ export const RatingsList = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   margin: 2rem 0;
+  margin-top: 3.8rem;
 `;
 
 export const RatingItem = styled.div`
@@ -153,7 +155,15 @@ export const RatingItem = styled.div`
     margin-top: 1rem;
     font-size: .8rem;
     text-align: justify;
-    height: 6rem;
+    /* height: 8rem; */
+
+    max-width: 12.375rem;
+
+    overflow: hidden; // Removendo barra de rolagem
+    text-overflow: ellipsis; // Adicionando "..." ao final
+    display: -webkit-box;
+    -webkit-line-clamp: 10; // Quantidade de linhas
+    -webkit-box-orient: vertical; 
   }
 
   label{
@@ -181,12 +191,16 @@ export const RatingItemHeaderAvatar = styled.div`
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
+    
   }
 `;
 
 export const RatingItemUserInfos = styled.div`
   display: flex;
   align-items: center;
+  width: 100%;
+
+  margin-left: 5px;
 `;
 
 export const RatingItemUserInfosContent = styled.div`
@@ -194,4 +208,8 @@ export const RatingItemUserInfosContent = styled.div`
   align-items: center;
   flex-direction: column;
   margin-left: .5rem;
+
+  strong{
+    text-align:center;
+  }
 `;
