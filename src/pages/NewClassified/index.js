@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdPhotoSizeSelectActual } from 'react-icons/md';
 
 import { 
@@ -21,9 +21,101 @@ import {
 
 import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
 import { FooterComponent } from '../../components/Footer';
+import api from '../../services/api';
+import history from '../../services/history';
+import { toast } from 'react-toastify';
 
 
 export function NewClassified() {
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
+  const [value, setValue] = useState("")
+  const [category, setCategory] = useState("")
+  const [uf, setUf] = useState("")
+  const [methodPay, setMethodPay] = useState("")
+
+  const [isNew, setIsNew] = useState(true)
+  const [isDelivered, setIsDelivered] = useState(false)
+  const [isPix, setIsPix] = useState(false)
+
+  const [mainImage, setMainImage] = useState("")
+  const [aImage, setAImage] = useState("")
+  const [bImage, setBImage] = useState("")
+  const [cImage, setCImage] = useState("")
+  const [dImage, setDImage] = useState("")
+  const [eImage, setEImage] = useState("")
+  const [fImage, setFImage] = useState("")
+
+  async function getUrl(image){
+    const data = new FormData();
+    data.append('image', image);
+
+    const response = await api.post("/files/url", data)
+    
+    return response.data;
+  }
+
+  async function postClassified(data){
+    try {
+      const response = await api.post('/user/1/classified', data)
+      toast.success(`${response.data.title} criado com sucesso!`)
+      
+      history.push("/");
+    } catch (error) {
+      toast.error(error.response.data.error)
+      console.log(error.response.data)
+    }
+  }
+
+  async function handleNewClassified(){
+    if(!title || !description || !category || !uf || !value || !methodPay || !mainImage){
+      return toast.warn("Preencha todos os campos.")
+    }
+
+    const mainImageUrl = await getUrl(mainImage)
+
+    let data = {
+      title, 
+      description, 
+      category, 
+      uf, 
+      value, 
+      methodPay, 
+      isNew, 
+      isDelivered, 
+      isPix, 
+      mainImageUrl,
+    }
+
+    if(aImage){
+      data.aImageUrl = await getUrl(aImage)
+    }
+
+    if(bImage){
+      data.bImageUrl = await getUrl(bImage)
+    }
+
+    if(cImage){
+      data.cImageUrl = await getUrl(cImage)
+    }
+
+    if(dImage){
+      data.dImageUrl = await getUrl(dImage)
+    }
+
+    if(eImage){
+      data.eImageUrl = await getUrl(eImage)
+    }
+
+    if(fImage){
+      data.fImageUrl = await getUrl(fImage)
+    }
+
+    console.log(data)
+
+    await postClassified(data)
+  }
+
   return (
     <Container>
       <HeaderTopBarComponent />
@@ -36,53 +128,53 @@ export function NewClassified() {
             <FormColumn>
               <FormInput>
                 <span>Título </span>
-                <input type="text" />
+                <input value={title} onChange={e => setTitle(e.target.value)} type="text" />
               </FormInput>
 
               <FormInput>
                 <span>Descrição </span>
-                <textarea name="" id="" cols="30" rows="3"></textarea>
+                <textarea cols="30" rows="3" value={description} onChange={e => setDescription(e.target.value)}></textarea>
               </FormInput>
 
               <FormInput>
                 <span>Categoria</span>
-                <input type="text" />
+                <input value={category} onChange={e => setCategory(e.target.value)} type="text" />
               </FormInput>
 
               <FormInput>
                 <span>Localização</span>
-                <input type="text" />
+                <input value={uf} onChange={e => setUf(e.target.value)} type="text" />
               </FormInput>
 
               <FormInput>
                 <span>Valor R$ </span>
-                <input type="text" />
+                <input value={value} onChange={e => setValue(e.target.value)} type="number" />
               </FormInput>
 
               <FormInput>
                 <span>Forma de pagamento </span>
-                <input type="text" />
+                <input value={methodPay} onChange={e => setMethodPay(e.target.value)} type="text" />
               </FormInput>
 
               <br/>
 
               <FormInputCheckBox>
-                <input type="checkbox" name="Novo" id="Novo" />
+                <input type="checkbox" name="Novo" id="Novo" checked={isNew} onChange={() => setIsNew(!isNew)}/>
                 <span>Novo</span>
               </FormInputCheckBox>
 
               <FormInputCheckBox>
-                <input type="checkbox" name="Novo" id="Novo" />
+                <input type="checkbox" name="Novo" id="Novo" checked={!isNew} onChange={() => setIsNew(!isNew)}/>
                 <span>Usado</span>
               </FormInputCheckBox>
 
               <FormInputCheckBox>
-                <input type="checkbox" name="Novo" id="Novo" />
+                <input type="checkbox" name="Novo" id="Novo" onChange={() => setIsDelivered(!isDelivered)} />
                 <span>Faço entrega</span>
               </FormInputCheckBox>
 
               <FormInputCheckBox>
-                <input type="checkbox" name="Novo" id="Novo" />
+                <input type="checkbox" name="Novo" id="Novo" onChange={() => setIsPix(!isPix)} />
                 <span>Aceito Pix</span>
               </FormInputCheckBox>
             </FormColumn>
@@ -93,7 +185,7 @@ export function NewClassified() {
                 <label for="perfil">
                   <MdPhotoSizeSelectActual color="#999" size={52}/>
                 </label>
-                <input type="file" id="perfil" name="perfil"/>
+                <input type="file" id="perfil" name="perfil" onChange={(e) => setMainImage(e.target.files[0])}/>
               </FormInputPrimary>
 
               <FormInputMoreImagesContainer>
@@ -104,42 +196,42 @@ export function NewClassified() {
                   <label for="arquivo">
                     <MdPhotoSizeSelectActual color="#999" size={32}/>
                   </label>
-                  <input type="file" id="arquivo" name="arquivo"/>
+                  <input type="file" onChange={(e) => setAImage(e.target.files[0])} id="arquivo" name="arquivo"/>
                 </FormInputMoreImage>
 
                 <FormInputMoreImage>
                   <label for="arquivo">
                     <MdPhotoSizeSelectActual color="#999" size={32}/>
                   </label>
-                  <input type="file" id="arquivo" name="arquivo"/>
+                  <input type="file" onChange={(e) => setBImage(e.target.files[0])} id="arquivo" name="arquivo"/>
                 </FormInputMoreImage>
 
                 <FormInputMoreImage>
                   <label for="arquivo">
                     <MdPhotoSizeSelectActual color="#999" size={32}/>
                   </label>
-                  <input type="file" id="arquivo" name="arquivo"/>
+                  <input type="file" onChange={(e) => setCImage(e.target.files[0])} id="arquivo" name="arquivo"/>
                 </FormInputMoreImage>
 
                 <FormInputMoreImage>
                   <label for="arquivo">
                     <MdPhotoSizeSelectActual color="#999" size={32}/>
                   </label>
-                  <input type="file" id="arquivo" name="arquivo"/>
+                  <input type="file" onChange={(e) => setDImage(e.target.files[0])} id="arquivo" name="arquivo"/>
                 </FormInputMoreImage>
 
                 <FormInputMoreImage>
                   <label for="arquivo">
                     <MdPhotoSizeSelectActual color="#999" size={32}/>
                   </label>
-                  <input type="file" id="arquivo" name="arquivo"/>
+                  <input type="file" onChange={(e) => setEImage(e.target.files[0])} id="arquivo" name="arquivo"/>
                 </FormInputMoreImage>
 
                 <FormInputMoreImage>
                   <label for="arquivo">
                     <MdPhotoSizeSelectActual color="#999" size={32}/>
                   </label>
-                  <input type="file" id="arquivo" name="arquivo"/>
+                  <input type="file" onChange={(e) => setFImage(e.target.files[0])} id="arquivo" name="arquivo"/>
                 </FormInputMoreImage>
               </FormInputMoreImagesContainer>
           </FormColumn>
@@ -151,7 +243,7 @@ export function NewClassified() {
             <span>Declaro que as informações fornecidas são verdadeiras.</span>
           </FormSubmitAcceptTerms>
 
-          <FormSubmitButton>
+          <FormSubmitButton onClick={() => handleNewClassified()}>
             Anunciar
           </FormSubmitButton>
         </FormSubmit>
