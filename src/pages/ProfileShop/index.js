@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { useParams } from 'react-router';
+import { toast } from 'react-toastify';
+
 import { AiOutlineUser } from 'react-icons/ai';
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
-import { BiLike } from 'react-icons/bi';
 import { FiMousePointer, FiMail } from 'react-icons/fi';
 import { GrLocation } from 'react-icons/gr';
 import { TiRssOutline } from 'react-icons/ti';
@@ -15,14 +17,8 @@ import {
   Profile,
   ProfileHeader,
   ProfileHeaderBanner,
-  ProfileHeaderBar,
-  ProfileHeaderBarInfosIcon,
-  ProfileHeaderButton,
-  ProfileHeaderRatings,
-  ProfileHeaderRatingsContent,
   ProfileImages,
   ProfileItem,
-  ProfileItemLikes,
   ProfileList,
   RatingsContainer,
   SideBar,
@@ -42,7 +38,32 @@ import { HeaderLoggedComponent } from '../../components/HeaderLogged';
 import { FooterComponent } from '../../components/Footer';
 import { PublicityFooter } from '../../components/PublicityFooter';
 
+import api from '../../services/api';
+import history from '../../services/history';
+
 export function ProfileShopPage() {
+  let { id } = useParams()
+
+  const [shop, setShop] = useState({})
+  const [ratings, setRatings] = useState([])
+
+  async function loadInfos(){
+    try {
+      const response = await api.get(`/user/${id}`)
+      const responseRatings = await api.get(`/user/${id}/ratings`)
+      setShop(response.data)
+      setRatings(responseRatings.data.length)
+    } catch (error) {
+      toast.error(error.response.data.error)
+      history.push("/")
+      console.log(error.response.data)
+    }
+  }
+  
+  useEffect(()=> {
+    loadInfos()
+  }, [, id])
+
   return (
     <Container>
       <HeaderLoggedComponent />
@@ -51,8 +72,8 @@ export function ProfileShopPage() {
         <SideBar>
           <SideBarPerfilImage>
             <img src="https://images.unsplash.com/photo-1631287381310-925554130169?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=625&q=80" alt="" />
-            <h3>MercadoCar</h3>
-            <span>A melhor loja para seus carros</span>
+            <h3>{shop.name}</h3>
+            <span>{shop.slogan}</span>
           </SideBarPerfilImage>
 
           <RatingsContainer>
@@ -65,7 +86,7 @@ export function ProfileShopPage() {
                 <BsStar color="#f2be17" size={26} />
               </SideBarRatingsContainer>
 
-              <p><strong>45</strong> Avaliações <br /></p>
+              <p><strong>{ratings}</strong> Avaliações <br /></p>
             </SideBarRatings>
 
             <ButtonRating href="/avaliacoes/novo">
@@ -87,7 +108,7 @@ export function ProfileShopPage() {
                 <FiMousePointer size={20} color="#000" />
                 Sobre
               </SideBarInfoTitle>
-              <p>Mais uma venda bem sucedida feita aqui na Macedor Car! Nosso cliente amigo saiu daqui muito satisfeito com seu novo veiculo quer ter essa experiência e sair de um carro novo pagando pouco?</p>
+              <p>{shop.description}</p>
             </SideBarInfo>
 
             <SideBarInfo>
@@ -96,9 +117,7 @@ export function ProfileShopPage() {
                 Endereço
               </SideBarInfoTitle>
               <p>
-                Av. Franscisco, Caldeira Castelo <br/>
-                Branco, 1876, - Fatima, Belém, <br/>
-                PA, 66063-223
+                {shop.address}
               </p>
             </SideBarInfo>
 
@@ -107,7 +126,7 @@ export function ProfileShopPage() {
                 <TiRssOutline size={20} color="#000" />
                 Site
               </SideBarInfoTitle>
-              <p>www.marcedocar.com.br</p>
+              <p>{shop.site}</p>
             </SideBarInfo>
 
             <SideBarInfo>
@@ -115,7 +134,7 @@ export function ProfileShopPage() {
                 <FiMail size={20} color="#000" />
                 E-mail
               </SideBarInfoTitle>
-              <p>vendas@mercadocar.com</p>
+              <p>{shop.email}</p>
             </SideBarInfo>
 
             <SideBarIcons>
