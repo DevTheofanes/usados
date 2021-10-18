@@ -1,4 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router';
+
+import { toast } from 'react-toastify';
+
 import { AiOutlineHeart, AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { IoIosArrowForward } from 'react-icons/io';
 
@@ -27,8 +31,29 @@ import {
 
 import { HeaderLoggedComponent } from '../../components/HeaderLogged';
 import { FooterComponent } from '../../components/Footer';
+import { useUser } from '../../hooks/useUser';
+import api from '../../services/api';
 
 export function Classified() {
+  const { id } = useParams()
+  const { host } = useUser();
+
+  const [classified, setClassified] = useState({})
+
+  useEffect(() => {
+    async function loadClassified(){
+      try {
+        const response = await api.get(`/classified/${id}`)
+        setClassified(response.data)
+      } catch (error) {
+        toast.warn(error.response.data.error)
+        console.log(error.response.data)
+      }
+    }
+
+    loadClassified()
+  }, [])
+
   return (
     <Container>
       <HeaderLoggedComponent />
@@ -41,14 +66,14 @@ export function Classified() {
               <a href="/classificados">Voltar para classificados</a>
             </ContentHeaderBack>
             <ContentHeaderLinksShopkeeper>
-              <a href="/perfil/lojista">Perfil do Vendedor</a>
+              <a href={`/perfil/lojista/${classified.profileShop}`}>Perfil do Vendedor</a>
               <IoIosArrowForward size={14} color="#888"/>
-              <a href="/avaliacoes">Avaliações do Vendedor</a>
+              <a href={`/perfil/lojista/${classified.profileShop}/avaliacoes`}>Avaliações do Vendedor</a>
             </ContentHeaderLinksShopkeeper>
           </ContentHeaderLinks>
 
           <ContentHeaderButtonContainer>
-            <ContentHeaderButton href="/perfil/lojista">
+            <ContentHeaderButton href={`/perfil/lojista/${classified.profileShop}`}>
               Ver mais anuncios dessa loja
               <AiOutlineArrowRight size={14} color="#fff"/>
             </ContentHeaderButton>
@@ -58,13 +83,13 @@ export function Classified() {
         <ContentClassified>
           <ContentClassifiedImages>
             <ContentClassifiedImagePrimary>
-              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
+              <img src={`${host}/files/${classified.mainImageUrl}`} alt={classified.title} />
             </ContentClassifiedImagePrimary>
 
             <ContentClassifiedOthersImages>
-              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
-              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
-              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" />
+              <img src={`${host}/files/${classified.aImageUrl}`} alt={classified.title} />
+              <img src={`${host}/files/${classified.bImageUrl}`} alt={classified.title} />
+              <img src={`${host}/files/${classified.cImageUrl}`} alt={classified.title} />
             </ContentClassifiedOthersImages>
           </ContentClassifiedImages>
         
@@ -75,9 +100,9 @@ export function Classified() {
 
             <ClassifiedsContentInfoLine>
               <h1>
-                Honda Civic Ex 2.0
+                {classified.title}
                 <br />
-                Lojista Honda Motors
+                Lojista {classified.shop ? classified.shop.name : null}
               </h1>
 
               <strong>
@@ -88,30 +113,35 @@ export function Classified() {
             </ClassifiedsContentInfoLine>
 
             <ClassifiedsContentDescription>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              {classified.description}
             </ClassifiedsContentDescription>
 
             <ClassifiedsContentFooter>
               <span>
                 Avaliações
                 <br/>
-                <strong>45</strong>
+                <strong>{classified.shop ? classified.shop.ratings : null}</strong>
               </span>
 
               <span>
                 Localização
                 <br/>
-                <strong>São Paulo - SP</strong>
+                <strong>{classified.shop ? classified.shop.address : null}</strong>
               </span>
             </ClassifiedsContentFooter>
 
             <ContentClassifiedPayment>
               <ClassifiedPaymentContent>
-                <strong>Pagamento à Vista</strong>
-                <h2>R$27.000,00</h2>
-                <span>Descrição do pagamento</span>
-                <span>Descrição do pagamento</span>
-                <span>Descrição do pagamento</span>
+                <strong>Valor</strong>
+                <h2>
+                  {
+                    new Intl.NumberFormat('pt-BR', {
+                      style: "currency",
+                      currency: "BRL"
+                    }).format(classified.value)
+                  }
+                </h2>
+                <span>{classified.methodPay}</span>
               </ClassifiedPaymentContent>
 
               <ClassifiedPaymentWhatsapp>
