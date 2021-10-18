@@ -40,9 +40,11 @@ import { PublicityFooter } from '../../components/PublicityFooter';
 
 import api from '../../services/api';
 import history from '../../services/history';
+import {useUser} from '../../hooks/useUser'
 
 export function ProfileShopPage() {
   let { id } = useParams()
+  const { host } = useUser();
 
   const [shop, setShop] = useState({})
   const [ratings, setRatings] = useState([])
@@ -71,7 +73,7 @@ export function ProfileShopPage() {
       <Content>
         <SideBar>
           <SideBarPerfilImage>
-            <img src="https://images.unsplash.com/photo-1631287381310-925554130169?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=625&q=80" alt="" />
+            <img src={`${host}/files/${shop.profileUrl}`} alt={shop.name} />
             <h3>{shop.name}</h3>
             <span>{shop.slogan}</span>
           </SideBarPerfilImage>
@@ -156,7 +158,7 @@ export function ProfileShopPage() {
         <Profile>
           <ProfileHeader>
             <ProfileHeaderBanner>
-              <img src="https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=749&q=80" alt="Banner Lojista" />
+              <img src={`${host}/files/${shop.profileCoverUrl}`} alt={shop.name} />
             </ProfileHeaderBanner>
           </ProfileHeader>
         
