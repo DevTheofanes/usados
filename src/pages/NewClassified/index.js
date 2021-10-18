@@ -24,9 +24,12 @@ import { FooterComponent } from '../../components/Footer';
 import api from '../../services/api';
 import history from '../../services/history';
 import { toast } from 'react-toastify';
+import { useUser } from '../../hooks/useUser';
 
 
 export function NewClassified() {
+  const { user } = useUser();
+
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [value, setValue] = useState("")
@@ -57,7 +60,7 @@ export function NewClassified() {
 
   async function postClassified(data){
     try {
-      const response = await api.post('/user/1/classified', data)
+      const response = await api.post(`/user/${user.id}/classified`, data)
       toast.success(`${response.data.title} criado com sucesso!`)
       
       history.push("/");
