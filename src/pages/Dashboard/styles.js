@@ -83,6 +83,11 @@ export const SearchItem = styled.a`
 
   span{
     color: #666;
+    width: 20ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
     font-size: 0.8rem;
   }
 `;
