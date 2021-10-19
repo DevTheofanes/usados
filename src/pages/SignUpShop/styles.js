@@ -75,6 +75,16 @@ export const FormInput = styled.div`
     padding: .5rem;
   }
 
+  select{
+    background-color: #f3f3f3;
+    opacity: .9;
+    border: 1px solid #a3a3a2;
+
+    font-size: 1rem;
+    color: #1a1e3a;
+    padding: .5rem;
+  }
+
   input[type="password"] {
     width: 50%;
   }

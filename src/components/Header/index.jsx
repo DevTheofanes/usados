@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react'
+
 import { Container, Header, HeaderNavigation, HeaderNavigationLogo, Logo, HeaderNavigationLinks, HeaderNavigationButtons, HeaderNavigationButtonsAnnounce, HeaderNavigationButtonsEntry, HeaderSearch, HeaderSearchSelect, HeaderSearchInput, HeaderMenuCategory, HeaderMenuCategoryItem, HeaderNavigationButton } from './styles';
 
 import { GoSearch } from 'react-icons/go';
@@ -10,8 +12,21 @@ import { HiDesktopComputer } from 'react-icons/hi';
 
 
 import LogoImg from '../../assets/logo/logoWhite.png'
+import api from '../../services/api';
 
 export function HeaderComponent() {
+  const [ categories, setCategories ] = useState([])
+  const [ categorySelected, setCategorySelected ] = useState([])
+
+  useEffect(() => {
+    async function loadCategories(){
+      const response = await api.get("/categories")
+      setCategories(response.data)
+    }
+
+    loadCategories()
+  }, [])
+
   return (
     <Container>
       <Header>
@@ -43,8 +58,13 @@ export function HeaderComponent() {
         </HeaderNavigation>
       
         <HeaderSearch>
-          <HeaderSearchSelect>
+          <HeaderSearchSelect onChange={(e) => setCategorySelected(e.target.value)}>
             <option value="a">Categorias</option>
+            {
+              categories.map(category => (
+                <option key={category.id} value={category.id}>{category.name}</option>
+              ))
+            }
           </HeaderSearchSelect>
           <HeaderSearchInput>
             <input type="text" placeholder="Estou procurando por..."/>

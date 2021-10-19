@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { MdPhotoSizeSelectActual } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
@@ -40,6 +40,17 @@ export function SignUpShop() {
   const [description, setDescription] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+  const [ categories, setCategories ] = useState([])
+
+  useEffect(() => {
+    async function loadCategories(){
+      const response = await api.get("/categories")
+      setCategories(response.data)
+    }
+
+    loadCategories()
+  }, [])
+
 
   async function getUrl(image){
     const data = new FormData();
@@ -57,6 +68,10 @@ export function SignUpShop() {
   async function handleSignUp(){
     if(!name || !slogan || !address || !email || !whatsapp || !site || !cnpj || !category || !instagram ||!profile || !profileCover || !description ||!password || !confirmPassword){
       return toast.warn("Preencha todos os campos.")
+    }
+
+    if(category === "a"){
+      return toast.warn("Selecione uma categoria.")
     }
 
     if(password.length < 6){
@@ -152,7 +167,14 @@ export function SignUpShop() {
 
               <FormInput>
                 <span>Segmento de atuação </span>
-                <input value={category} onChange={e => setCategory(e.target.value)} type="text" />
+                <select onChange={(e) => setCategory(e.target.value)}>
+                  <option value="a">Categorias</option>
+                  {
+                    categories.map(category => (
+                      <option key={category.id} value={category.id}>{category.name}</option>
+                    ))
+                  }
+                </select>
               </FormInput>
 
               <FormInput>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdPhotoSizeSelectActual } from 'react-icons/md';
 
 import { 
@@ -48,6 +48,16 @@ export function NewClassified() {
   const [dImage, setDImage] = useState("")
   const [eImage, setEImage] = useState("")
   const [fImage, setFImage] = useState("")
+  const [ categories, setCategories ] = useState([])
+
+  useEffect(() => {
+    async function loadCategories(){
+      const response = await api.get("/categories")
+      setCategories(response.data)
+    }
+
+    loadCategories()
+  }, [])
 
   async function getUrl(image){
     const data = new FormData();
@@ -73,6 +83,10 @@ export function NewClassified() {
   async function handleNewClassified(){
     if(!title || !description || !category || !uf || !value || !methodPay || !mainImage){
       return toast.warn("Preencha todos os campos.")
+    }
+
+    if(category === "a"){
+      return toast.warn("Selecione uma categoria.")
     }
 
     const mainImageUrl = await getUrl(mainImage)
@@ -141,7 +155,16 @@ export function NewClassified() {
 
               <FormInput>
                 <span>Categoria</span>
-                <input value={category} onChange={e => setCategory(e.target.value)} type="text" />
+                {/* <input value={category} onChange={e => setCategory(e.target.value)} type="text" /> */}
+
+                <select onChange={(e) => setCategory(e.target.value)}>
+                  <option value="a">Categorias</option>
+                  {
+                    categories.map(category => (
+                      <option key={category.id} value={category.id}>{category.name}</option>
+                    ))
+                  }
+                </select>
               </FormInput>
 
               <FormInput>
