@@ -140,11 +140,11 @@ export function ProfileShopPage() {
             </SideBarInfo>
 
             <SideBarIcons>
-              <SideBarInfosIcon>
+              <SideBarInfosIcon target="_blank" href={`https://api.whatsapp.com/send?phone=55${shop.whatsapp}&text=Olá ${shop.name}, encontrei seu perfil no NovosUsados.com você poderia me ajudar?`}>
                 <IoLogoWhatsapp color="#fff" size={20} />
               </SideBarInfosIcon>
 
-              <SideBarInfosIcon>
+              <SideBarInfosIcon target="_blank" href={shop.instagram}>
                 <RiInstagramFill color="#fff" size={20} />
               </SideBarInfosIcon>
               </SideBarIcons>

@@ -143,7 +143,7 @@ export const SideBarIcons = styled.div`
   justify-content: space-between;
 `;
 
-export const SideBarInfosIcon = styled.div`
+export const SideBarInfosIcon = styled.a`
   width: 2.8rem;
   height: 2.8rem;
   border-radius: 50%;
