@@ -72,7 +72,7 @@ export function RatingsPage() {
       <Content>
         <SideBar>
           <SideBarPerfilImage>
-            <img src="https://images.unsplash.com/photo-1631287381310-925554130169?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=625&q=80" alt="" />
+            <img src={`${host}/files/${shop.profileUrl}`} alt={shop.name} />
             <h3>{shop.name}</h3>
             <span>{shop.slogan}</span>
           </SideBarPerfilImage>
