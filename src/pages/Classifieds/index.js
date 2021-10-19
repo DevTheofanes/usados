@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { toast } from 'react-toastify';
+
 import { AiOutlineHeart, AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { BiFilterAlt } from 'react-icons/bi';
 
@@ -28,7 +30,28 @@ import {
 import { HeaderLoggedComponent } from '../../components/HeaderLogged';
 import { FooterComponent } from '../../components/Footer';
 
+import api from '../../services/api';
+import { useUser } from '../../hooks/useUser';
+
 export function ClassifiedsPage() {
+  const { host } = useUser()
+
+  const [classifieds, setClassifieds] = useState([])
+
+  useEffect(() => {
+    async function loadClassifieds(){
+     try {
+       const response = await api.get("/classifieds")
+       setClassifieds(response.data)
+     } catch (error) {
+        toast.warn(error.response.data.error)
+        console.log(error.response.data.error)
+     }
+    }
+
+    loadClassifieds()
+  }, [])
+
   return (
     <Container>
       <HeaderLoggedComponent />
@@ -73,447 +96,77 @@ export function ClassifiedsPage() {
         </SideBand>
 
         <ContentClassifieds>
-          <ClassifiedsBox href="/classificado">
-            <ClassifiedsContent>
-              <ClassifiedsContentImage>
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
-              </ClassifiedsContentImage>
-
-              <ClassifiedsContentInfos>
-                <ClassifiedsContentIcon>
-                  <AiOutlineHeart />
-                </ClassifiedsContentIcon>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    Honda Civic Ex 2.0
-                    <br/>
-                    Lojista Honda Motors
-                  </h1>
-
-                  <strong>
-                    Hoje
-                    <br/>
-                    14h20
-                  </strong>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <p>
-                  Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI.
-                  </p>
-
-                  <span>
-                    Avaliações
-                    <br/>
-                    <strong>24</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    R$ 45.000,00
-                  </h1>
-
-                  <span>
-                    Localização
-                    <br/>
-                    <strong>São Paulo</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-              </ClassifiedsContentInfos>
-            </ClassifiedsContent>
-          
-            <ClassifiedsLinks>
-              <ClassifiedsLinksSeePhotos>
-                <a href="#">Ver Galeria de Fotos</a>
-              </ClassifiedsLinksSeePhotos>
-
-              <ClassifiedsLinksWhatsapp>
-                <a href="#">Whatsapp</a>
-              </ClassifiedsLinksWhatsapp>
-            </ClassifiedsLinks>
-          </ClassifiedsBox>
-
-          <ClassifiedsBox href="/classificado">
-            <ClassifiedsContent>
-              <ClassifiedsContentImage>
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
-              </ClassifiedsContentImage>
-
-              <ClassifiedsContentInfos>
-                <ClassifiedsContentIcon>
-                  <AiOutlineHeart />
-                </ClassifiedsContentIcon>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    Honda Civic Ex 2.0
-                    <br/>
-                    Lojista Honda Motors
-                  </h1>
-
-                  <strong>
-                    Hoje
-                    <br/>
-                    14h20
-                  </strong>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <p>
-                  Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI.
-                  </p>
-
-                  <span>
-                    Avaliações
-                    <br/>
-                    <strong>24</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    R$ 45.000,00
-                  </h1>
-
-                  <span>
-                    Localização
-                    <br/>
-                    <strong>São Paulo</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-              </ClassifiedsContentInfos>
-            </ClassifiedsContent>
-          
-            <ClassifiedsLinks>
-              <ClassifiedsLinksSeePhotos>
-                <a href="#">Ver Galeria de Fotos</a>
-              </ClassifiedsLinksSeePhotos>
-
-              <ClassifiedsLinksWhatsapp>
-                <a href="#">Whatsapp</a>
-              </ClassifiedsLinksWhatsapp>
-            </ClassifiedsLinks>
-          </ClassifiedsBox>
-
-          <ClassifiedsBox href="/classificado">
-            <ClassifiedsContent>
-              <ClassifiedsContentImage>
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
-              </ClassifiedsContentImage>
-
-              <ClassifiedsContentInfos>
-                <ClassifiedsContentIcon>
-                  <AiOutlineHeart />
-                </ClassifiedsContentIcon>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    Honda Civic Ex 2.0
-                    <br/>
-                    Lojista Honda Motors
-                  </h1>
-
-                  <strong>
-                    Hoje
-                    <br/>
-                    14h20
-                  </strong>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <p>
-                  Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI.
-                  </p>
-
-                  <span>
-                    Avaliações
-                    <br/>
-                    <strong>24</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    R$ 45.000,00
-                  </h1>
-
-                  <span>
-                    Localização
-                    <br/>
-                    <strong>São Paulo</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-              </ClassifiedsContentInfos>
-            </ClassifiedsContent>
-          
-            <ClassifiedsLinks>
-              <ClassifiedsLinksSeePhotos>
-                <a href="#">Ver Galeria de Fotos</a>
-              </ClassifiedsLinksSeePhotos>
-
-              <ClassifiedsLinksWhatsapp>
-                <a href="#">Whatsapp</a>
-              </ClassifiedsLinksWhatsapp>
-            </ClassifiedsLinks>
-          </ClassifiedsBox>
-
-          <ClassifiedsBox href="/classificado">
-            <ClassifiedsContent>
-              <ClassifiedsContentImage>
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
-              </ClassifiedsContentImage>
-
-              <ClassifiedsContentInfos>
-                <ClassifiedsContentIcon>
-                  <AiOutlineHeart />
-                </ClassifiedsContentIcon>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    Honda Civic Ex 2.0
-                    <br/>
-                    Lojista Honda Motors
-                  </h1>
-
-                  <strong>
-                    Hoje
-                    <br/>
-                    14h20
-                  </strong>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <p>
-                  Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI.
-                  </p>
-
-                  <span>
-                    Avaliações
-                    <br/>
-                    <strong>24</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    R$ 45.000,00
-                  </h1>
-
-                  <span>
-                    Localização
-                    <br/>
-                    <strong>São Paulo</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-              </ClassifiedsContentInfos>
-            </ClassifiedsContent>
-          
-            <ClassifiedsLinks>
-              <ClassifiedsLinksSeePhotos>
-                <a href="#">Ver Galeria de Fotos</a>
-              </ClassifiedsLinksSeePhotos>
-
-              <ClassifiedsLinksWhatsapp>
-                <a href="#">Whatsapp</a>
-              </ClassifiedsLinksWhatsapp>
-            </ClassifiedsLinks>
-          </ClassifiedsBox>
-
-          <ClassifiedsBox href="/classificado">
-            <ClassifiedsContent>
-              <ClassifiedsContentImage>
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
-              </ClassifiedsContentImage>
-
-              <ClassifiedsContentInfos>
-                <ClassifiedsContentIcon>
-                  <AiOutlineHeart />
-                </ClassifiedsContentIcon>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    Honda Civic Ex 2.0
-                    <br/>
-                    Lojista Honda Motors
-                  </h1>
-
-                  <strong>
-                    Hoje
-                    <br/>
-                    14h20
-                  </strong>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <p>
-                  Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI.
-                  </p>
-
-                  <span>
-                    Avaliações
-                    <br/>
-                    <strong>24</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    R$ 45.000,00
-                  </h1>
-
-                  <span>
-                    Localização
-                    <br/>
-                    <strong>São Paulo</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-              </ClassifiedsContentInfos>
-            </ClassifiedsContent>
-          
-            <ClassifiedsLinks>
-              <ClassifiedsLinksSeePhotos>
-                <a href="#">Ver Galeria de Fotos</a>
-              </ClassifiedsLinksSeePhotos>
-
-              <ClassifiedsLinksWhatsapp>
-                <a href="#">Whatsapp</a>
-              </ClassifiedsLinksWhatsapp>
-            </ClassifiedsLinks>
-          </ClassifiedsBox>
-
-          <ClassifiedsBox href="/classificado">
-            <ClassifiedsContent>
-              <ClassifiedsContentImage>
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
-              </ClassifiedsContentImage>
-
-              <ClassifiedsContentInfos>
-                <ClassifiedsContentIcon>
-                  <AiOutlineHeart />
-                </ClassifiedsContentIcon>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    Honda Civic Ex 2.0
-                    <br/>
-                    Lojista Honda Motors
-                  </h1>
-
-                  <strong>
-                    Hoje
-                    <br/>
-                    14h20
-                  </strong>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <p>
-                  Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI.
-                  </p>
-
-                  <span>
-                    Avaliações
-                    <br/>
-                    <strong>24</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    R$ 45.000,00
-                  </h1>
-
-                  <span>
-                    Localização
-                    <br/>
-                    <strong>São Paulo</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-              </ClassifiedsContentInfos>
-            </ClassifiedsContent>
-          
-            <ClassifiedsLinks>
-              <ClassifiedsLinksSeePhotos>
-                <a href="#">Ver Galeria de Fotos</a>
-              </ClassifiedsLinksSeePhotos>
-
-              <ClassifiedsLinksWhatsapp>
-                <a href="#">Whatsapp</a>
-              </ClassifiedsLinksWhatsapp>
-            </ClassifiedsLinks>
-          </ClassifiedsBox>
-
-          <ClassifiedsBox href="/classificado">
-            <ClassifiedsContent>
-              <ClassifiedsContentImage>
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="image" />
-              </ClassifiedsContentImage>
-
-              <ClassifiedsContentInfos>
-                <ClassifiedsContentIcon>
-                  <AiOutlineHeart />
-                </ClassifiedsContentIcon>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    Honda Civic Ex 2.0
-                    <br/>
-                    Lojista Honda Motors
-                  </h1>
-
-                  <strong>
-                    Hoje
-                    <br/>
-                    14h20
-                  </strong>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <p>
-                  Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI.
-                  </p>
-
-                  <span>
-                    Avaliações
-                    <br/>
-                    <strong>24</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-                <ClassifiedsContentInfoLine>
-                  <h1>
-                    R$ 45.000,00
-                  </h1>
-
-                  <span>
-                    Localização
-                    <br/>
-                    <strong>São Paulo</strong>
-                  </span>
-                </ClassifiedsContentInfoLine>
-
-              </ClassifiedsContentInfos>
-            </ClassifiedsContent>
-          
-            <ClassifiedsLinks>
-              <ClassifiedsLinksSeePhotos>
-                <a href="#">Ver Galeria de Fotos</a>
-              </ClassifiedsLinksSeePhotos>
-
-              <ClassifiedsLinksWhatsapp>
-                <a href="#">Whatsapp</a>
-              </ClassifiedsLinksWhatsapp>
-            </ClassifiedsLinks>
-          </ClassifiedsBox>
-        
+          {
+            classifieds.map(classified => (
+              <ClassifiedsBox key={classified.id} href={`/classificado/${classified.id}`}>
+              <ClassifiedsContent>
+                <ClassifiedsContentImage>
+                  <img src={`${host}/files/${classified.mainImageUrl}`} alt={classified.title} />
+                </ClassifiedsContentImage>
+  
+                <ClassifiedsContentInfos>
+                  <ClassifiedsContentIcon>
+                    <AiOutlineHeart />
+                  </ClassifiedsContentIcon>
+  
+                  <ClassifiedsContentInfoLine>
+                    <h1>
+                      {classified.title}
+                      <br/>
+                      Lojista Honda Motors
+                    </h1>
+  
+                    <strong>
+                      Postado
+                      <br/>
+                      {classified.createdAt}
+                    </strong>
+                  </ClassifiedsContentInfoLine>
+  
+                  <ClassifiedsContentInfoLine>
+                    <p>
+                      {classified.description}
+                    </p>
+  
+                    <span>
+                      Avaliações
+                      <br/>
+                      <strong>24</strong>
+                    </span>
+                  </ClassifiedsContentInfoLine>
+  
+                  <ClassifiedsContentInfoLine>
+                    <h1>
+                      {
+                        new Intl.NumberFormat('pt-BR', {
+                          style: "currency",
+                          currency: "BRL"
+                        }).format(classified.value)
+                      }
+                    </h1>
+  
+                    <span>
+                      Localização
+                      <br/>
+                      <strong>{classified.uf}</strong>
+                    </span>
+                  </ClassifiedsContentInfoLine>
+  
+                </ClassifiedsContentInfos>
+              </ClassifiedsContent>
+            
+              <ClassifiedsLinks>
+                <ClassifiedsLinksSeePhotos>
+                  <a href="#">Ver Galeria de Fotos</a>
+                </ClassifiedsLinksSeePhotos>
+  
+                <ClassifiedsLinksWhatsapp>
+                  <a href="#">Whatsapp</a>
+                </ClassifiedsLinksWhatsapp>
+              </ClassifiedsLinks>
+            </ClassifiedsBox>
+            ))
+          }      
           <ClassifiedsPagesButtonsContainer>
             <ClassifiedsPagesButton>
               <AiOutlineArrowLeft color="#fff" size={12}/>
