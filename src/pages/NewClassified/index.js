@@ -73,7 +73,7 @@ export function NewClassified() {
       const response = await api.post(`/user/${user.id}/classified`, data)
       toast.success(`${response.data.title} criado com sucesso!`)
       
-      history.push("/");
+      history.push("/dashboard/classificados");
     } catch (error) {
       toast.error(error.response.data.error)
       console.log(error.response.data)

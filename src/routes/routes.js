@@ -36,7 +36,7 @@ export function Routes() {
         <Route path="/dashboard/classificados" component={DashboardClassifieds} />
         <Route path="/dashboard/posts" component={DashboardPosts} />
         <Route path="/dashboard/account" component={AccountUpdate} />
-        <Route path="/dashboard/classificado" component={EditClassified} />
+        <Route path="/dashboard/classificado/:id" component={EditClassified} />
     </Switch>
   );
 }

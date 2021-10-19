@@ -54,6 +54,16 @@ export const FormInput = styled.div`
     color: #9d9b9c;
   }
 
+  select{
+    background-color: #f3f3f3;
+    opacity: .9;
+    border: 1px solid #a3a3a2;
+
+    font-size: 1rem;
+    color: #1a1e3a;
+    padding: .5rem;
+  }
+
   input{
     background-color: #f3f3f3;
     opacity: .9;
