@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { MdPhotoSizeSelectActual } from 'react-icons/md';
+import Popup from 'reactjs-popup';
 import { toast } from 'react-toastify';
+
+import { MdPhotoSizeSelectActual } from 'react-icons/md';
+import { IoWarningOutline } from "react-icons/io5";
 
 import {
   Container,
@@ -12,6 +15,10 @@ import {
   FormInputProfile,
   FormSubmit,
   FormSubmitButton,
+  ModalButtonsContainer,
+  ModalContainer,
+  ModalContent,
+  ModalHeaderIcon,
   SignUpContainer,
 
 } from './styles';
@@ -113,7 +120,7 @@ export function AccountUpdate() {
     }
   }
 
-  async function handleUpdateAccount() {
+  async function handleUpdateAccount(close) {
     if (!name || !slogan || !address || !whatsapp || !site || !category || !instagram || !description) {
       return toast.warn("Preencha todos os campos.")
     }
@@ -146,6 +153,7 @@ export function AccountUpdate() {
     }
 
     update(data)
+    close()
   }
 
   return (
@@ -245,9 +253,36 @@ export function AccountUpdate() {
         </SignUpContainer>
 
         <FormSubmit>
-          <FormSubmitButton onClick={() => handleUpdateAccount()}>
-            Salvar alterações
-          </FormSubmitButton>
+
+
+          <Popup nested modal trigger={(
+            <FormSubmitButton>
+              Salvar alterações
+            </FormSubmitButton>
+          )}
+          >
+            {
+              close => (
+                <ModalContainer>
+                  <ModalHeaderIcon>
+                    <IoWarningOutline color="#fff" size={56} />
+                  </ModalHeaderIcon>
+
+                  <ModalContent>
+                    <p>Se você confirmar, os dados seram aleterados em nosso banco de dados, aconselhamos a sempre revisar os dados antes de fazer alguma alteração.</p>
+
+                    <h4>Você deseja continuar?</h4>
+
+                    <ModalButtonsContainer>
+                      <button onClick={close}>Cancelar</button>
+
+                      <button className="btnConfirm" onClick={() => handleUpdateAccount(close)}>Confirmar</button>
+                    </ModalButtonsContainer>
+                  </ModalContent>
+                </ModalContainer>
+              )
+            }
+          </Popup>
         </FormSubmit>
       </Content>
       <FooterComponent />

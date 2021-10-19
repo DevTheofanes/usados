@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from 'react';
+import Popup from 'reactjs-popup';
 import { useParams } from 'react-router';
+
+import { IoWarningOutline } from "react-icons/io5";
 import { MdPhotoSizeSelectActual } from 'react-icons/md';
 
 import {
@@ -15,6 +18,10 @@ import {
   FormSubmit,
   FormSubmitAcceptTerms,
   FormSubmitButton,
+  ModalButtonsContainer,
+  ModalContainer,
+  ModalContent,
+  ModalHeaderIcon,
   SignUpContainer,
 
 } from './styles';
@@ -125,7 +132,7 @@ export function EditClassified() {
     }
   }
 
-  async function handleUpdateClassified() {
+  async function handleUpdateClassified(close) {
     if (!title || !description || !category || !uf || !value || !methodPay) {
       return toast.warn("Preencha todos os campos.")
     }
@@ -174,6 +181,7 @@ export function EditClassified() {
       data.fImageUrl = await getUrl(fImage)
     }
 
+    close()
     await putClassified(data)
   }
 
@@ -312,9 +320,36 @@ export function EditClassified() {
             <span>Declaro que as informações fornecidas são verdadeiras.</span>
           </FormSubmitAcceptTerms>
 
-          <FormSubmitButton onClick={() => handleUpdateClassified()}>
-            Salvar
-          </FormSubmitButton>
+
+
+          <Popup nested modal trigger={(
+            <FormSubmitButton>
+              Salvar
+            </FormSubmitButton>
+          )}
+          >
+            {
+              close => (
+                <ModalContainer>
+                  <ModalHeaderIcon>
+                    <IoWarningOutline color="#fff" size={56} />
+                  </ModalHeaderIcon>
+
+                  <ModalContent>
+                    <p>Se você confirmar, os dados seram aleterados em nosso banco de dados, aconselhamos a sempre revisar os dados antes de fazer alguma alteração.</p>
+
+                    <h4>Você deseja continuar?</h4>
+
+                    <ModalButtonsContainer>
+                      <button onClick={close}>Cancelar</button>
+
+                      <button className="btnConfirm" onClick={() => handleUpdateClassified(close)}>Confirmar</button>
+                    </ModalButtonsContainer>
+                  </ModalContent>
+                </ModalContainer>
+              )
+            }
+          </Popup>
         </FormSubmit>
       </Content>
       <FooterComponent />

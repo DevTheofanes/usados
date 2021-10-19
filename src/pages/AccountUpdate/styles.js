@@ -238,3 +238,65 @@ export const FormSubmitButton = styled.button`
   border-radius: .5rem;
 
 `;
+
+//Modal
+
+export const ModalContainer = styled.div`
+  background-color: #FEFFFF;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* padding: 1.5rem; */
+  color: #111;
+  border-radius: 8px;
+`;
+
+export const ModalHeaderIcon = styled.div`
+  display: flex;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  border-radius: 8px 8px 0 0;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 6rem;
+  background: linear-gradient(45deg, #FFDA2F, #F7ED00);
+`;
+
+export const ModalContent = styled.div`
+  padding: 1.5rem;
+  max-width: 20rem;
+
+  p{
+    font-size: .8rem;
+    text-align: center;
+  }
+
+  h4{
+    margin-top: .8rem;
+    font-size: .92rem;
+    text-align: center;
+  }
+
+  .btnConfirm{
+    background-color: #4cd691;
+  }
+`;
+
+export const ModalButtonsContainer = styled.div`
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+
+  button{
+    border: 0;
+    background-color: #1a1e3a;
+    color: #fff;
+    font-weight: 500;
+    font-size: .8rem;
+    height: 1.8rem;
+    /* letter-spacing: .6px; */
+    width: 4.2rem;
+    border-radius: .25rem;
+  }
+`;
+
