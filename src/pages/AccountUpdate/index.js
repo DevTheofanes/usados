@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdPhotoSizeSelectActual } from 'react-icons/md';
+import { toast } from 'react-toastify';
 
-import { 
+import {
   Container,
   Content,
   ContentHeader,
@@ -12,113 +13,254 @@ import {
   FormSubmit,
   FormSubmitButton,
   SignUpContainer,
-  
+
 } from './styles';
 
 
 import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
 import { FooterComponent } from '../../components/Footer';
+import { useUser } from '../../hooks/useUser';
+import api from '../../services/api';
+import history from '../../services/history';
+
+
 
 
 export function AccountUpdate() {
+  const { user } = useUser();
+
+  const [name, setName] = useState("")
+  const [slogan, setSlogan] = useState("")
+  const [address, setAddress] = useState("")
+  // const [email, setEmail] = useState("")
+  const [whatsapp, setWhatsapp] = useState("")
+  const [site, setSite] = useState("")
+  // const [cnpj, setCnpj] = useState("")
+  const [category, setCategory] = useState("")
+  const [instagram, setInstagram] = useState("")
+
+  const [profile, setProfile] = useState("")
+  const [profileCover, setProfileCover] = useState("")
+  const [description, setDescription] = useState("")
+  // const [password, setPassword] = useState("")
+  // const [confirmPassword, setConfirmPassword] = useState("")
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    async function loadData() {
+      //UserData
+      setName(user.name)
+      setSlogan(user.slogan)
+      setAddress(user.address)
+      setWhatsapp(user.whatsapp)
+      setSite(user.site)
+      setCategory(user.category)
+      setInstagram(user.instagram)
+      setDescription(user.description)
+
+      //Categories
+      const {data} = await api.get("/categories")
+      setCategories(data)
+
+      let categoriesArray = []
+      let firstCategorie = {}
+
+      for (const categoryItem of data) {
+        if(String(categoryItem.id) === user.category){
+          firstCategorie = categoryItem
+        }else{
+          categoriesArray.push(categoryItem)
+        }
+      }
+
+      categoriesArray.push(firstCategorie)
+
+      categoriesArray.reverse()
+
+      if(categoriesArray){
+        setCategories(categoriesArray)
+      }else{
+        setCategories(data)
+      }
+    }
+
+    loadData()
+  }, [user])
+
+
+  async function getUrl(image) {
+    const data = new FormData();
+    data.append('image', image);
+
+    const response = await api.post("/files/url", data)
+
+    return response.data;
+  }
+
+  function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
+  async function update(data){
+    try {
+      const response = await api.put(`/user/${user.id}`, data)
+      toast.success(`${response.data.name} sua loja foi atualizada com sucesso.`)
+      history.push("/dashboard/classificados")
+      localStorage.setItem('@novosUsados/user', JSON.stringify(response.data));
+    } catch (error) {
+      toast.error(error.response.data.error)
+      console.log(error.response.data.error)
+    }
+  }
+
+  async function handleUpdateAccount() {
+    if (!name || !slogan || !address || !whatsapp || !site || !category || !instagram || !description) {
+      return toast.warn("Preencha todos os campos.")
+    }
+
+    if (!isNumber(whatsapp)) {
+      return toast.warn("Confirme seu whatsapp.")
+    }
+
+    if (whatsapp.length !== 11) {
+      return toast.warn("Confirme seu whatsapp.")
+    }
+
+    const data = {
+      name,
+      slogan,
+      address,
+      whatsapp,
+      site,
+      category,
+      instagram,
+      description,
+    }
+
+    if(profile){
+      data.profileUrl = await getUrl(profile)
+    }
+
+    if(profileCover){
+      data.profileCoverUrl = await getUrl(profileCover)
+    }
+
+    update(data)
+  }
+
   return (
     <Container>
       <HeaderTopBarComponent />
-        <Content>
-          <ContentHeader>
-            Mudar informações de sua loja
-          </ContentHeader>
+      <Content>
+        <ContentHeader>
+          Mudar informações de sua loja
+        </ContentHeader>
 
-          <SignUpContainer>
-            <FormColumn>
-              <FormInput>
-                <span>Nome fantasia </span>
-                <input type="text" />
-              </FormInput>
+        <SignUpContainer>
+          <FormColumn>
+            <FormInput>
+              <span>Nome fantasia </span>
+              <input value={name} onChange={e => setName(e.target.value)} type="text" />
+            </FormInput>
 
-              <FormInput>
-                <span>Slogan da loja </span>
-                <input type="text" />
-              </FormInput>
+            <FormInput>
+              <span>Slogan da loja </span>
+              <input value={slogan} onChange={e => setSlogan(e.target.value)} type="text" />
+            </FormInput>
 
-              <FormInput>
-                <span>Endereço da loja fisica </span>
-                <input type="text" />
-              </FormInput>
+            <FormInput>
+              <span>Endereço da loja fisica </span>
+              <input value={address} onChange={e => setAddress(e.target.value)} type="text" />
+            </FormInput>
 
-              <FormInput>
-                <span>E-mail da loja </span>
-                <input type="text" />
-              </FormInput>
+            {/* <FormInput>
+              <span>E-mail da loja </span>
+              <input value={email} onChange={e => setEmail(e.target.value)} type="text" />
+            </FormInput> */}
 
-              <FormInput>
-                <span>Whatsapp </span>
-                <input type="text" />
-              </FormInput>
+            <FormInput>
+              <span>Whatsapp </span>
+              <input value={whatsapp} onChange={e => setWhatsapp(e.target.value)} type="text" />
+            </FormInput>
 
-              <FormInput>
-                <span>Site </span>
-                <input type="text" />
-              </FormInput>
+            <FormInput>
+              <span>Site </span>
+              <input value={site} onChange={e => setSite(e.target.value)} type="text" />
+            </FormInput>
 
-              <FormInput>
-                <span>CNPJ </span>
-                <input type="text" />
-              </FormInput>
+            {/* <FormInput>
+              <span>CNPJ </span>
+              <input value={cnpj} onChange={e => setCnpj(e.target.value)} type="text" />
+            </FormInput> */}
 
-              <FormInput>
-                <span>Segmento de atuação </span>
-                <input type="text" />
-              </FormInput>
+            <FormInput>
+              <span>Segmento de atuação </span>
+              <select onChange={(e) => setCategory(e.target.value)}>
+                {
+                  categories.map(category => (
+                    <option key={category.id} value={category.id}>{category.name}</option>
+                  ))
+                }
+              </select>
+            </FormInput>
 
-              <FormInput>
-                <span>Link para o Instragam </span>
-                <input type="text" />
-              </FormInput>
-            </FormColumn>
-            
-            <FormColumn>
-              <FormInputProfile>
-                <span>Foto de perfil </span>
-                <label for="perfil">
-                  <MdPhotoSizeSelectActual color="#999" size={40}/>
-                </label>
-                <input type="file" id="perfil" name="perfil"/>
-              </FormInputProfile>
+            <FormInput>
+              <span>Link para o Instagram </span>
+              <input value={instagram} onChange={e => setInstagram(e.target.value)} type="text" />
+            </FormInput>
+          </FormColumn>
 
-              <FormInputBanner>
-                <span>Foto de capa de perfil </span>
-                <label for="arquivo">
-                  <MdPhotoSizeSelectActual color="#999" size={64}/>
-                </label>
-                <input type="file" id="arquivo" name="arquivo"/>
-              </FormInputBanner>
-              
-              <FormInput>
-                <span>Fale um pouco sobre sua empresa </span>
-                <textarea name="" id="" cols="30" rows="3"></textarea>
-              </FormInput>
+          <FormColumn>
+            <FormInputProfile>
+              <span>Foto de perfil </span>
+              <label for="perfil">
+                <MdPhotoSizeSelectActual color="#999" size={40} />
+              </label>
+              <input onChange={(e) => setProfile(e.target.files[0])} type="file" id="perfil" name="perfil" />
+            </FormInputProfile>
 
-              <FormInput>
-                <span>Senha </span>
-                <input type="password" />
-              </FormInput>
+            <FormInputBanner>
+              <span>Foto de capa de perfil </span>
+              <label for="arquivo">
+                <MdPhotoSizeSelectActual color="#999" size={64} />
+              </label>
+              <input onChange={(e) => setProfileCover(e.target.files[0])} type="file" id="arquivo" name="arquivo" />
+            </FormInputBanner>
 
-              <FormInput>
-                <span>Confirme a senha </span>
-                <input type="password" />
-              </FormInput>
-            </FormColumn>
-          </SignUpContainer>
+            <FormInput>
+              <span>Fale um pouco sobre sua empresa </span>
+              <textarea name="" id="" cols="30" rows="3" value={description} onChange={e => setDescription(e.target.value)}></textarea>
+            </FormInput>
 
-          <FormSubmit>
-            <FormSubmitButton>
-              Editar Conta
-            </FormSubmitButton>
-          </FormSubmit>
-        </Content>
+            {/* <FormInput>
+              <span>Senha </span>
+              <input value={password} onChange={e => setPassword(e.target.value)} type="password" />
+            </FormInput>
+
+            <FormInput>
+              <span>Confirme a senha </span>
+              <input value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} type="password" />
+            </FormInput> */}
+          </FormColumn>
+        </SignUpContainer>
+
+        <FormSubmit>
+          <FormSubmitButton onClick={() => handleUpdateAccount()}>
+            Salvar alterações
+          </FormSubmitButton>
+        </FormSubmit>
+      </Content>
       <FooterComponent />
     </Container>
   );
 }
+
+
+
+
+
+
+
+
+
 

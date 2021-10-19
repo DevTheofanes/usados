@@ -64,6 +64,16 @@ export const FormInput = styled.div`
     padding: .5rem;
   }
 
+  select{
+    background-color: #f3f3f3;
+    opacity: .9;
+    border: 1px solid #a3a3a2;
+
+    font-size: 1rem;
+    color: #1a1e3a;
+    padding: .5rem;
+  }
+
   textarea{
     background-color: #f3f3f3;
     opacity: .9;
@@ -213,7 +223,7 @@ export const FormSubmitAcceptTerms = styled.div`
 
 export const FormSubmitButton = styled.button`
   width: 8rem;
-  height: 2rem;
+  height: 3.2rem;
 
   background-color: #4cd691;
   display: flex;
