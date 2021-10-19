@@ -213,7 +213,7 @@ export const ClassifiedPaymentContent = styled.div`
   }
 `;
 
-export const ClassifiedPaymentWhatsapp = styled.div`
+export const ClassifiedPaymentWhatsapp = styled.a`
   height: 2rem;
   background-color: #008D36;
 

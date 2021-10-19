@@ -144,7 +144,10 @@ export function Classified() {
                 <span>{classified.methodPay}</span>
               </ClassifiedPaymentContent>
 
-              <ClassifiedPaymentWhatsapp>
+              <ClassifiedPaymentWhatsapp 
+                target="_blank" 
+                href={classified.shop ? `https://api.whatsapp.com/send?phone=55${classified.shop.whatsapp}&text=Olá ${classified.shop.name}, encontrei seu produto ${classified.title} na NovosUsados.com, ele ainda está disponivel?` : null}
+              >
                 Whatsapp
               </ClassifiedPaymentWhatsapp>
             </ContentClassifiedPayment>
