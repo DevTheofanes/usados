@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: space-between;
   flex-direction: column;
   box-sizing: border-box;
-  
+
   width: 100%;
   padding: 1.6rem 2rem;
   /* background-color: #1a1e3a; */

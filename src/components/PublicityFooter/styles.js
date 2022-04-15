@@ -9,5 +9,4 @@ export const Container = styled.div`
   height: 10rem;
   width: 100%;
   max-width: 62rem;
-
 `;

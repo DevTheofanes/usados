@@ -9,8 +9,8 @@ export const Container = styled.div`
 `;
 
 export const SignPage = styled.div`
-  background-image: url(${props => props.backgroundImage ? props.backgroundImage : null});
-  background-size: cover; 
+  background-image: url(${(props) => (props.backgroundImage ? props.backgroundImage : null)});
+  background-size: cover;
   height: 52rem;
   width: 100%;
 
@@ -37,7 +37,7 @@ export const FormOptionButton = styled.button`
   text-transform: uppercase;
   border: 0;
   height: 3rem;
-  background-color: ${props => props.active ? "#fff" : "#e9e8e8"};
+  background-color: ${(props) => (props.active ? '#fff' : '#e9e8e8')};
   margin-bottom: 2rem;
 `;
 
@@ -105,8 +105,8 @@ export const FormConfigsButton = styled.div`
 
 export const ContentImage = styled.div`
   margin-top: 2rem;
-  
+
   img{
-    width: 25.2rem;  
+    width: 25.2rem;
   }
 `;

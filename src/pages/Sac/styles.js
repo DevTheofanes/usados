@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Page = styled.div`
-  background-image: url(${props => props.backgroundImage ? props.backgroundImage : null});
+  background-image: url(${(props) => (props.backgroundImage ? props.backgroundImage : null)});
   background-position-x: center;
   background-size: 500rem auto;
   max-height: 46rem;

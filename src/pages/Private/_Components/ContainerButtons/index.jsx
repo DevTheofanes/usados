@@ -1,20 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-import 
-  { 
-    Container,
-  }
-from './styles';
+import { Container } from './styles';
 
-
-export const DashboardContainerButtons = props => {
+export function DashboardContainerButtons(props) {
   const { children } = props;
 
-  return (
-    <Container>
-      {children}
-    </Container>
-  );
+  return <Container>{children}</Container>;
 }
-      
-      

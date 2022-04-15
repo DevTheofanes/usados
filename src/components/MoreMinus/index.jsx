@@ -1,13 +1,17 @@
 import React from 'react';
-import { QuantityButtons, MinusButton, InputQuantity, PlusButton, Button } from './styles'
+import {
+  QuantityButtons, MinusButton, InputQuantity, PlusButton, Button,
+} from './styles';
 
-export const More = props => {
-  const { onClickMinus, onClickPlus, value, onClickBuy } = props;
-  return(
+export function More(props) {
+  const {
+    onClickMinus, onClickPlus, value, onClickBuy,
+  } = props;
+  return (
     <>
       <QuantityButtons>
-        <MinusButton onClick={onClickMinus} >-</MinusButton>
-        <InputQuantity type="number" value={value} disabled/>
+        <MinusButton onClick={onClickMinus}>-</MinusButton>
+        <InputQuantity type="number" value={value} disabled />
         <PlusButton onClick={onClickPlus}>+</PlusButton>
       </QuantityButtons>
 
@@ -17,5 +21,5 @@ export const More = props => {
         ) : null
       }
     </>
-  )
+  );
 }

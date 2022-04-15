@@ -6,13 +6,13 @@ export const Container = styled.form`
         padding: 0 1.5rem;
         height: 4rem;
         border-radius: 0.25rem;
-        
+
         border: 1px solid #d7d7d7;
         background-color:#e7e9ee;
 
         font-weight:400;
-        font-size: 1rem; 
-        
+        font-size: 1rem;
+
         &::placeholder{
             color: var(--text-body);
         }
@@ -33,12 +33,12 @@ export const Container = styled.form`
             padding: 0 0.5rem;
             height: 4.5rem;
             border-radius: 0.25rem;
-            
+
             border: 1px solid #c1c1c1;
             background-color: var(--background);
             font-weight:400;
-            font-size: 1rem; 
-            
+            font-size: 1rem;
+
             &::placeholder{
                 color: #c1c1c1;
             }
@@ -70,9 +70,9 @@ export const HeaderModal = styled.div`
         color: #fff;
         border-radius: 0.5rem;
         padding: 0.25rem;
-        background-color: ${props => props.statusColor ? props.statusColor : "#000"};
+        background-color: ${(props) => (props.statusColor ? props.statusColor : '#000')};
     }
-    
+
 `;
 
 export const FieldsContainer = styled.div`
@@ -107,12 +107,12 @@ export const FieldInput = styled.div`
         padding: 0 0.5rem;
         height: 2.8rem;
         border-radius: 0.25rem;
-        
+
         border: 1px solid #c1c1c1;
         background-color: var(--background);
         font-weight:400;
-        font-size: 1rem; 
-        
+        font-size: 1rem;
+
         &::placeholder{
             color: #c1c1c1;
         }
@@ -123,12 +123,12 @@ export const FieldInput = styled.div`
         padding: 0 0.5rem;
         height: 2.8rem;
         border-radius: 0.25rem;
-        
+
         border: 1px solid #c1c1c1;
         background-color: var(--background);
         font-weight:400;
-        font-size: 1rem; 
-        
+        font-size: 1rem;
+
         &::placeholder{
             color: #c1c1c1;
         }
@@ -137,8 +137,8 @@ export const FieldInput = styled.div`
     .file{
         margin-top: 0.5rem;
         padding-top: 0.5rem;
-      
-    }   
+
+    }
 
     .file::-webkit-file-upload-button {
         border: 0;
@@ -148,7 +148,7 @@ export const FieldInput = styled.div`
         cursor: pointer;
     }
 
-    
+
 `;
 
 export const ButtonsContainer = styled.div`
@@ -167,7 +167,7 @@ export const ButtonsContainer = styled.div`
         color: #fff;
 
         transition: filter 0.2s;
-        
+
 
         &:hover{
             filter: brightness(0.9)

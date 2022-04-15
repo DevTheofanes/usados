@@ -1,7 +1,7 @@
 import React from 'react';
 
-// import 
-//   { 
+// import
+//   {
 //     Container,
 //     Content,
 //   }
@@ -30,5 +30,3 @@ export function DashboardPosts() {
     </DashboardContainer>
   );
 }
-      
-      

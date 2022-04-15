@@ -110,7 +110,6 @@ export const ContentClassifiedOthersImages = styled.div`
   }
 `;
 
-
 export const ClassifiedsBox = styled.div`
   background-color: #F4F4F4;
   margin-bottom: 2rem;
@@ -169,7 +168,7 @@ export const ClassifiedsContentInfoLine = styled.div`
   strong{
     text-align: right
   }
-`; 
+`;
 
 export const ClassifiedsContentDescription = styled.div`
   text-align: justify;
@@ -180,8 +179,8 @@ export const ClassifiedsContentDescription = styled.div`
    text-overflow: Ellipsis;
    display: -webkit-box;
    -webkit-box-orient: vertical;
-   -webkit-line-clamp: 11; 
-   /* line-height: X;        
+   -webkit-line-clamp: 11;
+   /* line-height: X;
    max-height: X*N; */
 `;
 

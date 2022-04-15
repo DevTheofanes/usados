@@ -1,13 +1,13 @@
-var axios = require("axios").default;
+const axios = require('axios').default;
 
-export async function calculateFrete(args, setValue, setDays){
+export async function calculateFrete(args, setValue, setDays) {
   const acessCorreios = {
-    codeEmpresa: "08082650",
-    codeSenha: "564321",
-    cepOrigem: '70002900',   
-  }
+    codeEmpresa: '08082650',
+    codeSenha: '564321',
+    cepOrigem: '70002900',
+  };
 
-  var options = {
+  const options = {
     method: 'GET',
     url: 'https://cors-anywhere.herokuapp.com/http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx',
     params: {
@@ -26,30 +26,28 @@ export async function calculateFrete(args, setValue, setDays){
       nCdServico: args.option,
       nVlDiametro: '0',
       StrRetorno: 'xml',
-      nIndicaCalculo: '3'
+      nIndicaCalculo: '3',
     },
     // headers: {cookie: 'ASP.NET_SessionId=b5iatd2f1mjkqsur0d4s3llk'}
   };
-  
-  await axios.request(options).then(function (response) {
-    const data = response.data.split("</")
 
-    const value = data[1].split(">")
-    const days = data[2].split(">")
+  await axios.request(options).then((response) => {
+    const data = response.data.split('</');
 
-    const valueTwo = value[2].split(",")
+    const value = data[1].split('>');
+    const days = data[2].split('>');
+
+    const valueTwo = value[2].split(',');
 
     const result = {
       value: valueTwo[0],
-      days: days[2]
-    }
-  
-    setValue(result.value)
-    setDays(result.days)
+      days: days[2],
+    };
 
-  }).catch(function (error) {
+    setValue(result.value);
+    setDays(result.days);
+  }).catch((error) => {
     console.error(error);
-    return error
+    return error;
   });
 }
-

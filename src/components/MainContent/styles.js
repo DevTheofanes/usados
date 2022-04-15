@@ -31,7 +31,6 @@ export const Container = styled.div`
   }
 `;
 
-
 export const CategoriesBox = styled.div`
   width: 16%;
   margin-top: 1.875rem;
@@ -73,12 +72,12 @@ export const CategoriesBoxForPhone = styled.div`
     padding: 0 0.5rem;
     height: 2rem;
     border-radius: 0.25rem;
-       
+
     border: 1px solid #c1c1c1;
     background-color: var(--shape);
     font-weight:400;
-    font-size: 1rem; 
-        
+    font-size: 1rem;
+
     &::placeholder{
       color: #c1c1c1;
     }

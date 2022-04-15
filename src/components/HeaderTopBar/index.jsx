@@ -1,18 +1,18 @@
-import 
-  { 
-    Container,
-    Header, 
-    HeaderNavigation, 
-    HeaderNavigationLogo, 
-    Logo, 
-    HeaderNavigationLinks, 
-    HeaderNavigationButtons, 
-    HeaderNavigationButtonsAnnounce, 
-    HeaderNavigationButtonsEntry, 
-  }
-from './styles';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react';
+import {
+  Container,
+  Header,
+  HeaderNavigation,
+  HeaderNavigationLogo,
+  Logo,
+  HeaderNavigationLinks,
+  // HeaderNavigationButtons,
+  // HeaderNavigationButtonsAnnounce,
+  // HeaderNavigationButtonsEntry,
+} from './styles';
 
-import LogoImg from '../../assets/logo/logoWhite.png'
+import LogoImg from '../../assets/logo/logoWhite.png';
 import { HeaderNavigationButton } from '../Header/styles';
 
 export function HeaderTopBarComponent() {
@@ -21,7 +21,7 @@ export function HeaderTopBarComponent() {
       <Header>
         <HeaderNavigation>
           <HeaderNavigationLogo href="/">
-            <Logo src={LogoImg} alt="Usados e Novos"/>
+            <Logo src={LogoImg} alt="Usados e Novos" />
           </HeaderNavigationLogo>
 
           <HeaderNavigationLinks>
@@ -49,5 +49,3 @@ export function HeaderTopBarComponent() {
     </Container>
   );
 }
-      
-      

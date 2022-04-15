@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: ${props => props.border ? null : "0 10rem"};
+  padding: ${(props) => (props.border ? null : '0 10rem')};
 
   margin-top: 1rem;
   padding-bottom: 1rem;
-  border-bottom: ${props => props.border ? "2px solid #A16695" : null};
+  border-bottom: ${(props) => (props.border ? '2px solid #A16695' : null)};
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -33,7 +33,7 @@ export const Container = styled.div`
     a + a{
       margin-left: 0.75rem;
       display: flex;
-      
+
       span{
         display: flex;
         align-items: center;
@@ -48,7 +48,7 @@ export const Container = styled.div`
         font-size: 0.75rem;
       }
     }
-    
+
   }
 
   @media (max-width:800px){

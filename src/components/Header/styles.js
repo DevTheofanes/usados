@@ -55,7 +55,6 @@ export const HeaderNavigationLinks = styled.div`
   }
 `;
 
-
 export const HeaderNavigationButtons = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -124,13 +123,12 @@ export const HeaderSearchInput = styled.div`
   }
 `;
 
-
 export const HeaderMenuCategory = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  background-image: url(${props => props.background ? props.background : null});
-  
+  background-image: url(${(props) => (props.background ? props.background : null)});
+
   position:absolute;
   top: 170px;
 `;
@@ -141,9 +139,8 @@ export const HeaderMenuCategoryItem = styled.a`
   max-width: 8.85rem;
   height: 8.4rem;
   width: 8.85rem;
-  background-color: ${props => props.color ? props.color : "#fff"};
+  background-color: ${(props) => (props.color ? props.color : '#fff')};
 `;
-
 
 export const CentralAttendanceHeader = styled.div`
   width: 400px;
@@ -206,8 +203,8 @@ export const ButtonsPages = styled.div`
 export const PageOption = styled.div`
   text-transform: uppercase;
   font-size: .8rem;
-  font-weight: ${props => props.selected ? "bold" : "normal"};
-  border-top: ${props => props.selected ? "2px solid #78a832" : "1px solid #fff"};
+  font-weight: ${(props) => (props.selected ? 'bold' : 'normal')};
+  border-top: ${(props) => (props.selected ? '2px solid #78a832' : '1px solid #fff')};
 `;
 
 export const InputBoxes = styled.div`

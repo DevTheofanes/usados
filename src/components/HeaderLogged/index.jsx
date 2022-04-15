@@ -1,26 +1,25 @@
-import 
-  { 
-    Container,
-    Header, 
-    HeaderNavigation, 
-    HeaderNavigationLogo, 
-    Logo, 
-    HeaderNavigationLinks, 
-    HeaderNavigationButtons, 
-    HeaderNavigationButtonsAnnounce, 
-    HeaderNavigationButtonsEntry, 
-    HeaderSearch, 
-    HeaderSearchSelect, 
-    HeaderSearchInput,
-    HeaderInfos,
-    HeaderInfoLink,
-  }
-from './styles';
-
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react';
 import { GoSearch } from 'react-icons/go';
 import { AiOutlineUser, AiOutlineHeart } from 'react-icons/ai';
+import {
+  Container,
+  Header,
+  HeaderNavigation,
+  HeaderNavigationLogo,
+  Logo,
+  HeaderNavigationLinks,
+  // HeaderNavigationButtons,
+  // HeaderNavigationButtonsAnnounce,
+  // HeaderNavigationButtonsEntry,
+  HeaderSearch,
+  HeaderSearchSelect,
+  HeaderSearchInput,
+  HeaderInfos,
+  HeaderInfoLink,
+} from './styles';
 
-import LogoImg from '../../assets/logo/logoWhite.png'
+import LogoImg from '../../assets/logo/logoWhite.png';
 import { HeaderNavigationButton } from '../Header/styles';
 
 export function HeaderLoggedComponent() {
@@ -29,7 +28,7 @@ export function HeaderLoggedComponent() {
       <Header>
         <HeaderNavigation>
           <HeaderNavigationLogo href="/">
-            <Logo src={LogoImg} alt="Usados e Novos"/>
+            <Logo src={LogoImg} alt="Usados e Novos" />
           </HeaderNavigationLogo>
 
           <HeaderNavigationLinks>
@@ -53,31 +52,29 @@ export function HeaderLoggedComponent() {
             Sou anunciante
           </HeaderNavigationButton>
         </HeaderNavigation>
-      
+
         <HeaderSearch>
           <HeaderSearchSelect>
             <option value="a">Categorias</option>
           </HeaderSearchSelect>
           <HeaderSearchInput>
-            <input type="text" placeholder="Estou procurando por..."/>
-            <GoSearch color="#676767" size={15}/>
+            <input type="text" placeholder="Estou procurando por..." />
+            <GoSearch color="#676767" size={15} />
           </HeaderSearchInput>
         </HeaderSearch>
 
         <HeaderInfos>
           <HeaderInfoLink>
             <a href="#">Bem-Vindo, Ronald</a>
-            <AiOutlineUser color="#fff" size={20}/>
+            <AiOutlineUser color="#fff" size={20} />
           </HeaderInfoLink>
 
           <HeaderInfoLink>
             <a href="#">Meus favoritos</a>
-            <AiOutlineHeart color="#fff" size={20}/>
+            <AiOutlineHeart color="#fff" size={20} />
           </HeaderInfoLink>
         </HeaderInfos>
       </Header>
     </Container>
   );
 }
-      
-      

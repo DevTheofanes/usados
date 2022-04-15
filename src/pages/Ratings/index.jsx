@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
 
@@ -9,8 +9,8 @@ import { GrLocation } from 'react-icons/gr';
 import { TiRssOutline } from 'react-icons/ti';
 import { IoIosArrowForward } from 'react-icons/io';
 
-import { 
-  Container, 
+import {
+  Container,
   Content,
   Ratings,
   RatingsHeader,
@@ -28,7 +28,7 @@ import {
   RatingItemHeader,
   RatingItemUserInfos,
   RatingItemUserInfosContent,
-  RatingItemHeaderAvatar, 
+  RatingItemHeaderAvatar,
 } from './styles';
 
 import { HeaderLoggedComponent } from '../../components/HeaderLogged';
@@ -39,31 +39,32 @@ import { PublicityFooter } from '../../components/PublicityFooter';
 import api from '../../services/api';
 import history from '../../services/history';
 
-import {useUser} from '../../hooks/useUser'
+import { useUser } from '../../hooks/useUser';
 
 export function RatingsPage() {
-  let { id } = useParams()
-  let { host } = useUser()
+  const { id } = useParams();
+  const { host } = useUser();
 
-  const [shop, setShop] = useState({})
-  const [ratings, setRatings] = useState([])
+  const [shop, setShop] = useState({});
+  const [ratings, setRatings] = useState([]);
 
-  async function loadInfos(){
+  async function loadInfos() {
     try {
-      const response = await api.get(`/user/${id}`)
-      const responseRatings = await api.get(`/user/${id}/ratings`)
-      setShop(response.data)
-      setRatings(responseRatings.data)
+      const response = await api.get(`/user/${id}`);
+      const responseRatings = await api.get(`/user/${id}/ratings`);
+      setShop(response.data);
+      setRatings(responseRatings.data);
     } catch (error) {
-      toast.error(error.response.data.error)
-      history.push("/")
-      console.log(error.response.data)
+      toast.error(error.response.data.error);
+      history.push('/');
+      console.log(error.response.data);
     }
   }
-  
-  useEffect(()=> {
-    loadInfos()
-  }, [, id])
+
+  useEffect(() => {
+    loadInfos();
+  // eslint-disable-next-line no-sparse-arrays
+  }, [, id]);
 
   return (
     <Container>
@@ -125,11 +126,11 @@ export function RatingsPage() {
           <RatingsHeader>
             <RatingsStarsBox>
               <RatingsStars>
-                <BsStarFill color="#f2be17" size={24}/>
-                <BsStarFill color="#f2be17" size={24}/>
-                <BsStarFill color="#f2be17" size={24}/>
-                <BsStarHalf color="#f2be17" size={24}/>
-                <BsStar color="#f2be17" size={24}/>
+                <BsStarFill color="#f2be17" size={24} />
+                <BsStarFill color="#f2be17" size={24} />
+                <BsStarFill color="#f2be17" size={24} />
+                <BsStarHalf color="#f2be17" size={24} />
+                <BsStar color="#f2be17" size={24} />
               </RatingsStars>
             </RatingsStarsBox>
 
@@ -142,7 +143,7 @@ export function RatingsPage() {
 
           <RatingsList>
             {
-              ratings.map(rating => (
+              ratings.map((rating) => (
                 <RatingItem>
                   <RatingItemHeader>
                     <RatingItemHeaderAvatar>
@@ -153,26 +154,26 @@ export function RatingsPage() {
                       <RatingItemUserInfosContent>
                         <strong>{rating.name}</strong>
                         <div>
-                          <BsStarFill color="#f2be17" size={16}/>
-                          <BsStarFill color="#f2be17" size={16}/>
-                          <BsStarFill color="#f2be17" size={16}/>
-                          <BsStarHalf color="#f2be17" size={16}/>
-                          <BsStar color="#f2be17" size={16}/>
+                          <BsStarFill color="#f2be17" size={16} />
+                          <BsStarFill color="#f2be17" size={16} />
+                          <BsStarFill color="#f2be17" size={16} />
+                          <BsStarHalf color="#f2be17" size={16} />
+                          <BsStar color="#f2be17" size={16} />
                         </div>
                       </RatingItemUserInfosContent>
                     </RatingItemUserInfos>
                   </RatingItemHeader>
-    
+
                   <p>{rating.comments}</p>
                 </RatingItem>
               ))
             }
           </RatingsList>
 
-          <PaginationButtonsComponent/>
+          <PaginationButtonsComponent />
         </Ratings>
       </Content>
-      <PublicityFooter/>
+      <PublicityFooter />
       <FooterComponent />
     </Container>
   );

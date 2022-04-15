@@ -11,7 +11,6 @@ export const Container = styled.div`
   position: relative;
 `;
 
-
 export const TopBarColor = styled.div`
   height: 4rem;
   width: 100%;
@@ -39,7 +38,7 @@ export const SideBarPerfilImage = styled.div`
   flex-direction: column;
   position: absolute;
   top: 180px;
-  
+
   img{
     width: 13rem;
     height: 13rem;
@@ -156,7 +155,7 @@ export const SideBarInfosIcon = styled.a`
   margin-top: 0 !important;
 `;
 
-//Profile
+// Profile
 
 export const Profile = styled.div``;
 
@@ -230,7 +229,7 @@ export const ProfileList = styled.div`
   overflow: auto;
   margin-top: 15rem;
   padding-right: 1rem;
-  
+
 `;
 
 export const ProfileItem = styled.div`
@@ -279,4 +278,3 @@ export const ProfileItemLikes = styled.div`
     margin-left: 1rem;
   }
 `;
-

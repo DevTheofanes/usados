@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { 
+import {
   Container,
 } from './styles';
 
 import { HeaderComponent } from '../../components/Header';
 
-import BackgroundDashboard from '../../assets/backgroundDashboard.png'
-import BackgroundForShop from '../../assets/backgroundForShop.png'
-import BackgroundForServices from '../../assets/backgroundForServices.png'
-import HyundaiImage from '../../assets/hyundaiImage.png'
-import Signature from '../../assets/signature.png'
-import LogoImg from '../../assets/Logo.png'
+// import BackgroundDashboard from '../../assets/backgroundDashboard.png';
+// import BackgroundForShop from '../../assets/backgroundForShop.png';
+// import BackgroundForServices from '../../assets/backgroundForServices.png';
+// import HyundaiImage from '../../assets/hyundaiImage.png';
+// import Signature from '../../assets/signature.png';
+// import LogoImg from '../../assets/Logo.png';
 
 export function Dashboard() {
   return (
@@ -110,15 +110,15 @@ export function Dashboard() {
           </SearchItem>
         </SearchGrid>
       </SearchSpace>
-    
+
       <Shop>
         <img src={HyundaiImage} alt="Hyundai"/>
 
         <ShopInfos background={BackgroundForShop}>
           <h6>Loja Oficial Hyundai Unique</h6>
-          <p>Temos a nossa loja online no site UsadosNovo.com.br e o retorno 
-tem sido incrivel. Foi necessário destinar consultores de vendas 
-especificos para atender as demandas do site. Indicamos e 
+          <p>Temos a nossa loja online no site UsadosNovo.com.br e o retorno
+tem sido incrivel. Foi necessário destinar consultores de vendas
+especificos para atender as demandas do site. Indicamos e
 confiamos na imparcialidade e confiança do site. </p>
           <ShopInfosBottom>
             <img src={Signature} alt="Assinatura" />
@@ -173,8 +173,8 @@ confiamos na imparcialidade e confiança do site. </p>
             <span>Acessar Loja</span>
           </OfficialStoreItem>
         </OfficialStoreGrid>
-      </OfficialStore> 
-      
+      </OfficialStore>
+
       <OthersServices background={BackgroundForServices}>
         <OthersServicesTitle>
           <strong>OUTROS SERVIÇOS</strong>
@@ -210,7 +210,7 @@ confiamos na imparcialidade e confiança do site. </p>
       <Footer>
         <FooterInfo>
           <img src={LogoImg} alt="Logo - Novos e Usados." />
-          <p>O maior e mais confiavel site de compra e vendas da 
+          <p>O maior e mais confiavel site de compra e vendas da
 internet, fale conosco e saiba mais</p>
 
           <FooterInfoContact>
@@ -228,7 +228,7 @@ internet, fale conosco e saiba mais</p>
             <span>Brasil</span>
           </FooterInfoContact>
         </FooterInfo>
-      
+
         <FooterAdditional>
           <strong>Institucional</strong>
           <div>
@@ -243,7 +243,7 @@ internet, fale conosco e saiba mais</p>
 
         <FooterAdditional>
           <strong>Serviços</strong>
-          
+
           <div>
             <span>Marketing</span>
             <span>Sistema Interno</span>
@@ -266,7 +266,9 @@ internet, fale conosco e saiba mais</p>
       </Footer>
 
       <FooterBar>
-        <span>Copyright 2021 <strong>usadosnovo.com.br</strong> direitos reservados. Criado por <strong>@agrc.design</strong></span>
+        <span>Copyright 2021
+        <strong>usadosnovo.com.br</strong>
+        direitos reservados. Criado por <strong>@agrc.design</strong></span>
       </FooterBar>
      */}
     </Container>

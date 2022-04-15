@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   max-height: 67vh;
   /* overflow: hidden; */
-  
+
 
   margin: 0 auto;
   padding: 1rem 0 0 0;

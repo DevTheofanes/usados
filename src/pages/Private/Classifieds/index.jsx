@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-// import 
-//   { 
+// import
+//   {
 //     Container,
 //     Content,
 //   }
@@ -17,23 +17,23 @@ import { useUser } from '../../../hooks/useUser';
 import api from '../../../services/api';
 
 export function DashboardClassifieds() {
-  const [classifieds, setClassifieds] = useState([])
-  const {  user } = useUser();
+  const [classifieds, setClassifieds] = useState([]);
+  const { user } = useUser();
 
   useEffect(() => {
-    async function loadClassifieds(){
+    async function loadClassifieds() {
       try {
-        const response = await api.get(`/user/${user.id}/classifieds`)
-        console.log(response.data)
-        setClassifieds(response.data)
+        const response = await api.get(`/user/${user.id}/classifieds`);
+        console.log(response.data);
+        setClassifieds(response.data);
       } catch (error) {
-        toast.warn("Algo deu errado, tente novamente mais tarde.")
-        console.log(error.response.data)
+        toast.warn('Algo deu errado, tente novamente mais tarde.');
+        console.log(error.response.data);
       }
     }
 
-    loadClassifieds()
-  }, [user])
+    loadClassifieds();
+  }, [user]);
 
   return (
     <DashboardContainer>
@@ -45,8 +45,8 @@ export function DashboardClassifieds() {
 
       <DashboardContainerTable title="classified">
         {
-          classifieds.map(classified =>(
-            <DashboardItemTable key={classified.id} title="classified" classified={classified}/>
+          classifieds.map((classified) => (
+            <DashboardItemTable key={classified.id} title="classified" classified={classified} />
           ))
         }
         {/* <DashboardItemTable title="classified" />
@@ -56,5 +56,3 @@ export function DashboardClassifieds() {
     </DashboardContainer>
   );
 }
-      
-      

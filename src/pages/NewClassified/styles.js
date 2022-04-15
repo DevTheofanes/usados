@@ -8,7 +8,6 @@ export const Container = styled.div`
   box-sizing: border-box;
 `;
 
-
 export const Content = styled.div`
   margin-top: 10rem;
 
@@ -204,7 +203,7 @@ export const FormInputCheckBox = styled.div`
     font-size: .7rem;
     color: #9d9b9c;
     margin-left: .25rem;
-  }  
+  }
 
   input{
     height: 1.25rem;
@@ -237,7 +236,7 @@ export const FormInputMoreImage = styled.div`
 
 `;
 
-export const FormSubmit = styled.div` 
+export const FormSubmit = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -255,7 +254,7 @@ export const FormSubmitAcceptTerms = styled.div`
     font-size: 1rem;
     color: #9d9b9c;
     margin-left: .25rem;
-  }  
+  }
 
   input{
     height: 1.25rem;

@@ -9,8 +9,8 @@ export const Container = styled.div`
 `;
 
 export const SignPage = styled.div`
-  background-image: url(${props => props.backgroundImage ? props.backgroundImage : null});
-  background-size: cover; 
+  background-image: url(${(props) => (props.backgroundImage ? props.backgroundImage : null)});
+  background-size: cover;
   height: 52rem;
   width: 100%;
 
@@ -63,7 +63,6 @@ export const LogoIcon = styled.div`
   }
 `;
 
-
 export const AboutInfos = styled.div`
   max-width: 62rem;
   /* display: grid;
@@ -73,7 +72,7 @@ export const AboutInfos = styled.div`
   margin-bottom: 3.2rem;
 `;
 
-export const AboutInfosContainer= styled.div`
+export const AboutInfosContainer = styled.div`
   display: flex;
   /* flex-direction: column; */
   align-items: flex-start;
@@ -90,7 +89,6 @@ export const AboutInfoItem = styled.div`
     margin-bottom: .5rem;
   }
 `;
-
 
 export const HelpContainer = styled.div`
   width: 100%;
@@ -137,7 +135,7 @@ export const InfoTitle = styled.div`
   align-items: center;
   justify-content: center;
   margin: 4rem 0;
-  
+
   h4{
     font-size: 1.6rem;
     margin-left: .75rem;
@@ -176,8 +174,6 @@ export const InfosItens = styled.div`
     font-size: .9rem;
   }
 `;
-
-
 
 export const Box = styled.div`
   background-color: #999;

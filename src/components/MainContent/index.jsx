@@ -1,32 +1,37 @@
-import { useEffect, useState } from "react";
-import { Container, CategoriesBox, Content, CategoriesBoxForPhone } from "./styles";
+import React, { useEffect, useState } from 'react';
+import {
+  Container,
+  CategoriesBox,
+  Content,
+  CategoriesBoxForPhone,
+} from './styles';
 
-import api from '../../services/api'
-import { useUser } from "../../hooks/useUser";
-import history from "../../services/history";
+import api from '../../services/api';
+import { useUser } from '../../hooks/useUser';
+import history from '../../services/history';
 
-export function MainContent({children}) {
-  const { token } = useUser()
+export function MainContent({ children }) {
+  const { token } = useUser();
 
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
 
-  async function loadCategories(){
-    const response = await api.get(`/categories`)
+  async function loadCategories() {
+    const response = await api.get('/categories');
 
-    setCategories(response.data)
+    setCategories(response.data);
   }
 
   useEffect(() => {
-    // api.defaults.headers.authorization = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibWFuYWdlciI6dHJ1ZSwiaWF0IjoxNjE3Mzg2OTcwLCJleHAiOjE2MTc5OTE3NzB9.7mgIVGLdY16EYXFEu6rrx1-ciBEFjmxBvqAUTJlWThs`;
     loadCategories();
-  }, [token])
+  }, [token]);
 
-  function navigateTo(route){
-    if(route === "0"){
+  function navigateTo(route) {
+    if (route === '0') {
       return;
     }
-    
-    history.push(route)
+
+    history.push(route);
+    // eslint-disable-next-line no-undef
     window.location.reload();
     // history.go(route)
   }
@@ -37,34 +42,26 @@ export function MainContent({children}) {
         <h1>Categorias</h1>
 
         <div>
-          {
-            categories.map((category) =>{
-              return(
-                <a key={category.id} href={`/category/${category.id}`}>{category.name}</a>
-              )
-            })  
-          }
+          {categories.map((category) => (
+            <a key={category.id} href={`/category/${category.id}`}>
+              {category.name}
+            </a>
+          ))}
         </div>
       </CategoriesBox>
 
       <CategoriesBoxForPhone>
-        <select onChange={e => navigateTo(e.target.value)}>
-            <option value="0">Categorias</option>
-            {
-              categories.map((category) =>{
-                return(
-                  <option key={category.id} value={`/category/${category.id}`}>{category.name}</option>
-                )
-              })
-            }   
+        <select onChange={(e) => navigateTo(e.target.value)}>
+          <option value="0">Categorias</option>
+          {categories.map((category) => (
+            <option key={category.id} value={`/category/${category.id}`}>
+              {category.name}
+            </option>
+          ))}
         </select>
       </CategoriesBoxForPhone>
 
-      <Content>
-        {children}
-      </Content>
+      <Content>{children}</Content>
     </Container>
   );
 }
-      
-      

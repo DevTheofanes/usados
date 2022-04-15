@@ -1,17 +1,12 @@
 import React from 'react';
 
-import 
-  { 
-    Container,
-    Content,
-  }
-from './styles';
+import { Container, Content } from './styles';
 
 import { DashboardBar } from './DashboardBar';
 import { DashboardTopInfos } from './DashboardTopInfos';
 import { DashboardPublicity } from './DashboardPublicity';
 
-export const DashboardContainer = props => {
+export function DashboardContainer(props) {
   const { children } = props;
 
   return (
@@ -19,7 +14,7 @@ export const DashboardContainer = props => {
       <DashboardBar />
 
       <Content>
-        <DashboardTopInfos/>
+        <DashboardTopInfos />
 
         {children}
       </Content>
@@ -28,5 +23,3 @@ export const DashboardContainer = props => {
     </Container>
   );
 }
-      
-      

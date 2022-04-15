@@ -146,7 +146,6 @@ box-sizing: border-box;
  }
 `;
 
-
 export const Button = styled.button`
 background-color: #36b5b0;
 margin-right: 0;

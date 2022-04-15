@@ -58,7 +58,7 @@ export const ButtonEdit = styled.a`
 
 export const ButtonDelete = styled.button`
   margin: 0 1rem;
-  
+
   border: 0;
   background-color: #e30613;
   color: #fff;
@@ -68,7 +68,6 @@ export const ButtonDelete = styled.button`
   font-size: .8rem;
 
 `;
-
 
 export const ModalConfirmDeleteContainer = styled.div`
   background-color: #FEFFFF;

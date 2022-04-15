@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
 import { toast } from 'react-toastify';
@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { AiOutlineHeart, AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { IoIosArrowForward } from 'react-icons/io';
 
-import { 
+import {
   ClassifiedPaymentContent,
   ClassifiedPaymentWhatsapp,
   ClassifiedsContentDescription,
@@ -14,19 +14,19 @@ import {
   ClassifiedsContentIcon,
   ClassifiedsContentInfoLine,
   ClassifiedsContentInfos,
-  Container, 
-  Content, 
-  ContentClassified, 
-  ContentClassifiedImagePrimary, 
-  ContentClassifiedImages, 
-  ContentClassifiedOthersImages, 
-  ContentClassifiedPayment, 
-  ContentHeader, 
-  ContentHeaderBack, 
-  ContentHeaderButton, 
-  ContentHeaderButtonContainer, 
-  ContentHeaderLinks, 
-  ContentHeaderLinksShopkeeper, 
+  Container,
+  Content,
+  ContentClassified,
+  ContentClassifiedImagePrimary,
+  ContentClassifiedImages,
+  ContentClassifiedOthersImages,
+  ContentClassifiedPayment,
+  ContentHeader,
+  ContentHeaderBack,
+  ContentHeaderButton,
+  ContentHeaderButtonContainer,
+  ContentHeaderLinks,
+  ContentHeaderLinksShopkeeper,
 } from './styles';
 
 import { HeaderLoggedComponent } from '../../components/HeaderLogged';
@@ -35,24 +35,24 @@ import { useUser } from '../../hooks/useUser';
 import api from '../../services/api';
 
 export function Classified() {
-  const { id } = useParams()
+  const { id } = useParams();
   const { host } = useUser();
 
-  const [classified, setClassified] = useState({})
+  const [classified, setClassified] = useState({});
 
   useEffect(() => {
-    async function loadClassified(){
+    async function loadClassified() {
       try {
-        const response = await api.get(`/classified/${id}`)
-        setClassified(response.data)
+        const response = await api.get(`/classified/${id}`);
+        setClassified(response.data);
       } catch (error) {
-        toast.warn(error.response.data.error)
-        console.log(error.response.data)
+        toast.warn(error.response.data.error);
+        console.log(error.response.data);
       }
     }
 
-    loadClassified()
-  }, [])
+    loadClassified();
+  }, []);
 
   return (
     <Container>
@@ -62,12 +62,12 @@ export function Classified() {
         <ContentHeader>
           <ContentHeaderLinks>
             <ContentHeaderBack>
-              <AiOutlineArrowLeft size={14} color="#888"/>
+              <AiOutlineArrowLeft size={14} color="#888" />
               <a href="/classificados">Voltar para classificados</a>
             </ContentHeaderBack>
             <ContentHeaderLinksShopkeeper>
               <a href={`/perfil/lojista/${classified.profileShop}`}>Perfil do Vendedor</a>
-              <IoIosArrowForward size={14} color="#888"/>
+              <IoIosArrowForward size={14} color="#888" />
               <a href={`/perfil/lojista/${classified.profileShop}/avaliacoes`}>Avaliações do Vendedor</a>
             </ContentHeaderLinksShopkeeper>
           </ContentHeaderLinks>
@@ -75,7 +75,7 @@ export function Classified() {
           <ContentHeaderButtonContainer>
             <ContentHeaderButton href={`/perfil/lojista/${classified.profileShop}`}>
               Ver mais anuncios dessa loja
-              <AiOutlineArrowRight size={14} color="#fff"/>
+              <AiOutlineArrowRight size={14} color="#fff" />
             </ContentHeaderButton>
           </ContentHeaderButtonContainer>
         </ContentHeader>
@@ -92,17 +92,19 @@ export function Classified() {
               <img src={`${host}/files/${classified.cImageUrl}`} alt={classified.title} />
             </ContentClassifiedOthersImages>
           </ContentClassifiedImages>
-        
+
           <ClassifiedsContentInfos>
             <ClassifiedsContentIcon>
-              <AiOutlineHeart color="#888"/>
+              <AiOutlineHeart color="#888" />
             </ClassifiedsContentIcon>
 
             <ClassifiedsContentInfoLine>
               <h1>
                 {classified.title}
                 <br />
-                Lojista {classified.shop ? classified.shop.name : null}
+                Lojista
+                {' '}
+                {classified.shop ? classified.shop.name : null}
               </h1>
 
               <strong>
@@ -119,13 +121,13 @@ export function Classified() {
             <ClassifiedsContentFooter>
               <span>
                 Avaliações
-                <br/>
+                <br />
                 <strong>{classified.shop ? classified.shop.ratings : null}</strong>
               </span>
 
               <span>
                 Localização
-                <br/>
+                <br />
                 <strong>{classified.shop ? classified.shop.address : null}</strong>
               </span>
             </ClassifiedsContentFooter>
@@ -136,16 +138,16 @@ export function Classified() {
                 <h2>
                   {
                     new Intl.NumberFormat('pt-BR', {
-                      style: "currency",
-                      currency: "BRL"
+                      style: 'currency',
+                      currency: 'BRL',
                     }).format(classified.value)
                   }
                 </h2>
                 <span>{classified.methodPay}</span>
               </ClassifiedPaymentContent>
 
-              <ClassifiedPaymentWhatsapp 
-                target="_blank" 
+              <ClassifiedPaymentWhatsapp
+                target="_blank"
                 href={classified.shop ? `https://api.whatsapp.com/send?phone=55${classified.shop.whatsapp}&text=Olá ${classified.shop.name}, encontrei seu produto ${classified.title} na NovosUsados.com, ele ainda está disponivel?` : null}
               >
                 Whatsapp

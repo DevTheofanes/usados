@@ -8,9 +8,9 @@ export const Container = styled.div`
   box-sizing: border-box;
 `;
 
-//Lobby
+// Lobby
 
-//SearchSpace
+// SearchSpace
 
 export const SearchSpace = styled.div`
   margin-top: 5.2rem;
@@ -52,7 +52,6 @@ export const SearchHeaderItens = styled.div`
     margin-left: .5rem;
   }
 `;
-
 
 export const SearchGrid = styled.div`
   margin-top: 2rem;
@@ -98,7 +97,7 @@ export const SearchBorder = styled.div`
   border-bottom: 1px solid #858585;
 `;
 
-//Info Content
+// Info Content
 
 export const InfoContent = styled.a`
   display: flex;
@@ -143,8 +142,7 @@ export const InfoContentUnicImage = styled.img`
   height: 12.5rem;
 `;
 
-
-//Shop
+// Shop
 
 export const Shop = styled.div`
   width: 100%;
@@ -154,7 +152,7 @@ export const Shop = styled.div`
 `;
 
 export const ShopInfos = styled.div`
-  background-image: url(${props => props.background ? props.background : null});
+  background-image: url(${(props) => (props.background ? props.background : null)});
   max-height: 25.5rem;
 
   padding: 5rem 8rem;
@@ -200,7 +198,7 @@ export const ShopInfosBottom = styled.div`
   }
 `;
 
-//Official Stores
+// Official Stores
 
 export const OfficialStore = styled.div`
   margin-top: 2.8rem;
@@ -243,7 +241,7 @@ export const OfficialStoreItem = styled.div`
   flex-direction: column;
   align-items: center;
 
-  border-bottom:${props => props.firstLine ? "1px solid #c1c1c1" : null} ;
+  border-bottom:${(props) => (props.firstLine ? '1px solid #c1c1c1' : null)} ;
   padding-bottom: 2rem;
 
   strong{
@@ -262,7 +260,7 @@ export const OfficialStoreItem = styled.div`
 // OthersServices
 
 export const OthersServices = styled.div`
-  background-image: url(${props => props.background ? props.background : null});
+  background-image: url(${(props) => (props.background ? props.background : null)});
   background-size: cover;
   width: 100%;
   padding: 6rem 10rem;
@@ -318,7 +316,7 @@ export const OthersServicesItem = styled.div`
   }
 `;
 
-//Footer
+// Footer
 
 export const Footer = styled.div`
   width: 100%;

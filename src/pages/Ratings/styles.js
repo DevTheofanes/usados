@@ -11,7 +11,6 @@ export const Container = styled.div`
   position: relative;
 `;
 
-
 export const TopBarColor = styled.div`
   height: 4rem;
   width: 100%;
@@ -39,7 +38,7 @@ export const SideBarPerfilImage = styled.div`
   flex-direction: column;
   position: absolute;
   top: 180px;
-  
+
   img{
     width: 13rem;
     height: 13rem;
@@ -104,13 +103,11 @@ export const RatingsHeader = styled.div`
 `;
 
 export const RatingsStarsBox = styled.div`
-  padding: 0 .5rem .5rem .5rem; 
+  padding: 0 .5rem .5rem .5rem;
   background-color: #1a1e3a;
   border-end-end-radius: .5rem;
   border-end-start-radius: .5rem;
-`
-;
-
+`;
 export const RatingsStars = styled.div`
   height: 3.2rem;
   display: flex;
@@ -132,7 +129,6 @@ export const RatingsLinks = styled.div`
     font-size: 1rem;
   }
 `;
-
 
 export const RatingsList = styled.div`
   display: grid;
@@ -163,7 +159,7 @@ export const RatingItem = styled.div`
     text-overflow: ellipsis; // Adicionando "..." ao final
     display: -webkit-box;
     -webkit-line-clamp: 10; // Quantidade de linhas
-    -webkit-box-orient: vertical; 
+    -webkit-box-orient: vertical;
   }
 
   label{
@@ -191,7 +187,7 @@ export const RatingItemHeaderAvatar = styled.div`
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
-    
+
   }
 `;
 

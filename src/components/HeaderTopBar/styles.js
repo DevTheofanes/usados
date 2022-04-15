@@ -55,7 +55,6 @@ export const HeaderNavigationLinks = styled.div`
   }
 `;
 
-
 export const HeaderNavigationButtons = styled.div`
   display: flex;
   justify-content: flex-end;

@@ -87,8 +87,7 @@ export const ClassifiedsContentInfoLine = styled.div`
   strong{
     text-align: right
   }
-`; 
-
+`;
 
 export const ClassifiedsLinks = styled.div`
   display: grid;
@@ -176,7 +175,7 @@ export const SideBandFilters = styled.div`
 export const FiltersTitle = styled.div`
   display: flex;
   align-items: center;
-  
+
   h3{
     color: #1a1e3a;
     margin-left: .5rem;

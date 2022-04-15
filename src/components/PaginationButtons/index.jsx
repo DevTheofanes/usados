@@ -1,8 +1,6 @@
-
-
-import { Container, Button, Quantity } from './styles';
-
+import React from 'react';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+import { Container, Button, Quantity } from './styles';
 
 export function PaginationButtonsComponent() {
   return (

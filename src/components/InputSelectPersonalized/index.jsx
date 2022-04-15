@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   labelText: {
-    color: "#23282D",
-    fontSize: 16
+    color: '#23282D',
+    fontSize: 16,
   },
 
   chips: {
@@ -44,7 +44,7 @@ const MenuProps = {
 
 function getStyles(name, personName, theme) {
   return {
-    color: "#23282D",
+    color: '#23282D',
     fontWeight:
       personName.indexOf(name) === -1
         ? theme.typography.fontWeightRegular
@@ -52,51 +52,53 @@ function getStyles(name, personName, theme) {
   };
 }
 
-export function InputSelectCustomized({data, selectedItems, setSelected}) {
+export function InputSelectCustomized({ data, selectedItems, setSelected }) {
   const classes = useStyles();
   // const theme = useTheme();
 
   const theme = createMuiTheme({
-    palette:{
+    palette: {
       primary: {
-        main:"#23282D"
+        main: '#23282D',
       },
-    }
-  })
-  
+    },
+  });
 
   const handleChange = (event) => {
     setSelected(event.target.value);
   };
 
   return (
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-mutiple-chip-label" className={classes.labelText}>Modelos não personalizáveis</InputLabel>
-        <Select
-
-          labelId="demo-mutiple-chip-label"
-          id="demo-mutiple-chip"
-          multiple
-          value={selectedItems}
-          onChange={handleChange}
-          input={<Input id="select-multiple-chip" />}
-          renderValue={(selected) => (
-            <div className={classes.chips}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} className={classes.chip} />
-              ))}
-            </div>
-          )}
-          MenuProps={MenuProps}
-        >
-          {data.map((item) => (
-            <MenuItem key={item.id} value={item.name} style={getStyles(item.name, selectedItems, theme)}>
-              {item.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+    <FormControl className={classes.formControl}>
+      <InputLabel id="demo-mutiple-chip-label" className={classes.labelText}>
+        Modelos não personalizáveis
+      </InputLabel>
+      <Select
+        labelId="demo-mutiple-chip-label"
+        id="demo-mutiple-chip"
+        multiple
+        value={selectedItems}
+        onChange={handleChange}
+        input={<Input id="select-multiple-chip" />}
+        renderValue={(selected) => (
+          <div className={classes.chips}>
+            {selected.map((value) => (
+              <Chip key={value} label={value} className={classes.chip} />
+            ))}
+          </div>
+        )}
+        MenuProps={MenuProps}
+      >
+        {data.map((item) => (
+          <MenuItem
+            key={item.id}
+            value={item.name}
+            style={getStyles(item.name, selectedItems, theme)}
+          >
+            {item.name}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
-
-
