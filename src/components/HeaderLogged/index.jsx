@@ -1,7 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { GoSearch } from 'react-icons/go';
-import { AiOutlineUser, AiOutlineHeart } from 'react-icons/ai';
+import {
+  // AiOutlineUser,
+  AiOutlineHeart,
+} from 'react-icons/ai';
 import {
   Container,
   Header,
@@ -34,7 +36,7 @@ export function HeaderLoggedComponent() {
           <HeaderNavigationLinks>
             {/* <a href="#">Vender</a> */}
             <a href="/classificados">Comprar</a>
-            <a href="#">Simular Financiamento</a>
+            {/* <a href="#">Simular Financiamento</a> */}
             <a href="/sac">SAC</a>
           </HeaderNavigationLinks>
 
@@ -64,13 +66,13 @@ export function HeaderLoggedComponent() {
         </HeaderSearch>
 
         <HeaderInfos>
-          <HeaderInfoLink>
+          {/* <HeaderInfoLink>
             <a href="#">Bem-Vindo, Ronald</a>
             <AiOutlineUser color="#fff" size={20} />
-          </HeaderInfoLink>
+          </HeaderInfoLink> */}
 
           <HeaderInfoLink>
-            <a href="#">Meus favoritos</a>
+            <a href="/">Meus favoritos</a>
             <AiOutlineHeart color="#fff" size={20} />
           </HeaderInfoLink>
         </HeaderInfos>

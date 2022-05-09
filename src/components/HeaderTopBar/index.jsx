@@ -27,7 +27,7 @@ export function HeaderTopBarComponent() {
           <HeaderNavigationLinks>
             {/* <a href="#">Vender</a> */}
             <a href="/classificados">Comprar</a>
-            <a href="#">Simular Financiamento</a>
+            {/* <a href="#">Simular Financiamento</a> */}
             <a href="/sac">SAC</a>
           </HeaderNavigationLinks>
 
