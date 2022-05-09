@@ -38,6 +38,7 @@ export function ClassifiedsPage() {
   const { host } = useUser();
 
   const [classifieds, setClassifieds] = useState([]);
+  const [regions, setRegions] = useState([]);
 
   useEffect(() => {
     async function loadClassifieds() {
@@ -50,7 +51,17 @@ export function ClassifiedsPage() {
       }
     }
 
+    async function loadRegions() {
+      try {
+        const response = await api.get('/regions');
+        setRegions(response.data);
+      } catch (error) {
+        console.log(error.response.data.error);
+      }
+    }
+
     loadClassifieds();
+    loadRegions();
   }, []);
 
   return (
@@ -69,6 +80,11 @@ export function ClassifiedsPage() {
               <span>Selecione um estado</span>
               <select name="" id="">
                 <option value="a">São Paulo</option>
+                {
+                  regions.map((region) => (
+                    <option value={region.sigla}>{region.name}</option>
+                  ))
+                }
               </select>
             </FiltersItem>
 
@@ -97,8 +113,8 @@ export function ClassifiedsPage() {
         <ContentClassifieds>
           {
             classifieds.map((classified) => (
-              <ClassifiedsBox key={classified.id} href={`/classificado/${classified.id}`}>
-                <ClassifiedsContent>
+              <ClassifiedsBox key={classified.id}>
+                <ClassifiedsContent href={`/classificado/${classified.id}`}>
                   <ClassifiedsContentImage>
                     <img src={`${host}/files/${classified.mainImageUrl}`} alt={classified.title} />
                   </ClassifiedsContentImage>
@@ -112,7 +128,7 @@ export function ClassifiedsPage() {
                       <h1>
                         {classified.title}
                         <br />
-                        Lojista Honda Motors
+                        {`Lojista ${classified.shop.name}`}
                       </h1>
 
                       <strong>
@@ -155,12 +171,15 @@ export function ClassifiedsPage() {
                 </ClassifiedsContent>
 
                 <ClassifiedsLinks>
-                  <ClassifiedsLinksSeePhotos>
-                    <a href="#">Ver Galeria de Fotos</a>
+                  <ClassifiedsLinksSeePhotos href={`/classificado/${classified.id}`}>
+                    <a href={`/classificado/${classified.id}`}>Ver Galeria de Fotos</a>
                   </ClassifiedsLinksSeePhotos>
 
-                  <ClassifiedsLinksWhatsapp>
-                    <a href="#">Whatsapp</a>
+                  <ClassifiedsLinksWhatsapp
+                    target="_blank"
+                    href={classified.shop ? `https://api.whatsapp.com/send?phone=55${classified.shop.whatsapp}&text=Olá ${classified.shop.name}, encontrei seu produto ${classified.title} na NovosUsados.com, ele ainda está disponivel?` : null}
+                  >
+                    Whatsapp
                   </ClassifiedsLinksWhatsapp>
                 </ClassifiedsLinks>
               </ClassifiedsBox>
