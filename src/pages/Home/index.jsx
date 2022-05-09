@@ -23,7 +23,7 @@ import { FooterComponent } from '../../components/Footer';
 import api from '../../services/api';
 import { useUser } from '../../hooks/useUser';
 
-export function Dashboard() {
+export function Home() {
   const [classifieds, setClassifieds] = useState([]);
   const { host } = useUser();
 

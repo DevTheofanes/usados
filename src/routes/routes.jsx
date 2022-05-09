@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { Dashboard } from '../pages/Dashboard';
+import { Home } from '../pages/Home';
 import { SignIn } from '../pages/SignIn';
 import { SignUp } from '../pages/SignUp';
 import { ClassifiedsPage } from '../pages/Classifieds';
@@ -21,7 +21,7 @@ import { EditClassified } from '../pages/EditClassified';
 export function Routes() {
   return (
     <Switch>
-      <Route path="/" exact component={Dashboard} />
+      <Route path="/" exact component={Home} />
       <Route path="/login" component={SignIn} />
       <Route path="/sobre" component={AboutPage} />
       <Route path="/sac" component={SacPage} />
