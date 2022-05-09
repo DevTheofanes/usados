@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 
 import { IoWarningOutline } from 'react-icons/io5';
 import { MdPhotoSizeSelectActual } from 'react-icons/md';

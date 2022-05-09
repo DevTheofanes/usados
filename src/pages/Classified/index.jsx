@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
 
@@ -37,7 +37,7 @@ import api from '../../services/api';
 export function Classified() {
   const { id } = useParams();
   const { host } = useUser();
-
+  console.log(id);
   const [classified, setClassified] = useState({});
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export function Classified() {
     }
 
     loadClassified();
-  }, []);
+  }, [id]);
 
   return (
     <Container>
