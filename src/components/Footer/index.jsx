@@ -19,11 +19,11 @@ export function FooterComponent() {
       <Container>
         <FooterNavigation>
           <FooterNavigationLinks>
-            <a href="/sobre">Ajuda e contato</a>
-            <a href="/sobre">Dicas de Uso</a>
-            <a href="/sobre">Vender na UsadosNovo</a>
-            <a href="/sobre">Plano</a>
-            <a href="/sobre">Como Anunciar</a>
+            <a href="/sobre#aboutHelp">Ajuda e contato</a>
+            <a href="/sobre#aboutTips">Dicas de Uso</a>
+            <a href="/sobre#aboutSell">Vender na UsadosNovo</a>
+            <a href="/sobre#aboutPlans">Plano</a>
+            <a href="/sobre#aboutHowToAdvertise">Como Anunciar</a>
           </FooterNavigationLinks>
 
           <FooterNavigationRedesSociais>

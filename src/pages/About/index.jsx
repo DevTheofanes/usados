@@ -127,7 +127,7 @@ export function AboutPage() {
         </AboutInfosContainer>
       </AboutInfos>
 
-      <HelpContainer>
+      <HelpContainer id="aboutHelp">
         <InfoTitle>
           <FaHandsHelping size={60} />
           <h4>AJUDA E CONTATOS</h4>
@@ -153,7 +153,7 @@ export function AboutPage() {
         </InfoContainer>
       </HelpContainer>
 
-      <TipsContainer>
+      <TipsContainer id="aboutTips">
         <InfoTitle>
           <FiTarget size={60} />
           <h4>DICAS DE USO</h4>
@@ -203,7 +203,7 @@ export function AboutPage() {
         </InfoContainer>
       </TipsContainer>
 
-      <SellContainer>
+      <SellContainer id="aboutSell">
         <InfoTitle>
           <div>
             <FaAward size={60} />
@@ -255,7 +255,7 @@ export function AboutPage() {
         </InfoContainer>
       </SellContainer>
 
-      <PlansContainer>
+      <PlansContainer id="aboutPlans">
         <InfoTitle>
           <RiMoneyDollarCircleLine size={60} />
           <h4>NOSSOS PLANOS</h4>
@@ -318,7 +318,7 @@ export function AboutPage() {
           </InfosItens>
         </InfoContainer>
 
-        <InfoTitle>
+        <InfoTitle id="aboutHowToAdvertise">
           <div>
             <FaRegPaperPlane size={60} />
             <h4>COMO ANUNCIAR</h4>
