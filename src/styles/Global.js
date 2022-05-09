@@ -28,6 +28,10 @@ export default createGlobalStyle`
         box-sizing: border-box;
     }
 
+    iframe{
+      display: none !important;
+    }
+
     html {
         font-size:16px;
         font-family: 'Roboto', sans-serif;
