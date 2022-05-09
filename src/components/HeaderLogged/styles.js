@@ -128,7 +128,7 @@ export const HeaderInfos = styled.div`
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-
+  min-height: 20px;
 `;
 
 export const HeaderInfoLink = styled.div`
