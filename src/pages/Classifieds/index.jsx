@@ -116,7 +116,7 @@ export function ClassifiedsPage() {
               <ClassifiedsBox key={classified.id}>
                 <ClassifiedsContent href={`/classificado/${classified.id}`}>
                   <ClassifiedsContentImage>
-                    <img src={`${host}/files/${classified.mainImageUrl}`} alt={classified.title} />
+                    <img src={`${host}/files/${classified.mainImage}`} alt={classified.title} />
                   </ClassifiedsContentImage>
 
                   <ClassifiedsContentInfos>

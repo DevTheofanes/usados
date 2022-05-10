@@ -152,7 +152,7 @@ export function EditClassified() {
     };
 
     if (mainImage) {
-      data.mainImageUrl = await getUrl(mainImage);
+      data.mainImage = await getUrl(mainImage);
     }
 
     if (aImage) {

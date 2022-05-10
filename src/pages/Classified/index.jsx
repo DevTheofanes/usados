@@ -83,7 +83,7 @@ export function Classified() {
         <ContentClassified>
           <ContentClassifiedImages>
             <ContentClassifiedImagePrimary>
-              <img src={`${host}/files/${classified.mainImageUrl}`} alt={classified.title} />
+              <img src={`${host}/files/${classified.mainImage}`} alt={classified.title} />
             </ContentClassifiedImagePrimary>
 
             <ContentClassifiedOthersImages>

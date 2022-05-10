@@ -54,7 +54,7 @@ export function Home() {
           {
             classifieds.map((classified) => (
               <SearchItem href={`/classificado/${classified.id}`}>
-                <img src={`${host}/files/${classified.mainImageUrl}`} alt={classified.title} />
+                <img src={`${host}/files/${classified.mainImage}`} alt={classified.title} />
                 <strong>{classified.title}</strong>
                 <SearchBorder />
                 <span>{classified.description}</span>

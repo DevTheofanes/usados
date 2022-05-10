@@ -95,7 +95,7 @@ export function NewClassified() {
       return toast.warn('Selecione uma categoria.');
     }
 
-    const mainImageUrl = await getUrl(mainImage);
+    const mainImage = await getUrl(mainImage);
 
     const data = {
       title,
@@ -107,7 +107,7 @@ export function NewClassified() {
       isNew,
       isDelivered,
       isPix,
-      mainImageUrl,
+      mainImage,
     };
 
     if (aImage) {
