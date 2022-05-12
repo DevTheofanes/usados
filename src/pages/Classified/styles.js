@@ -83,11 +83,18 @@ export const ContentClassified = styled.div`
 
 export const ClassifiedHeader = styled.div`
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ClassifiedHeaderTitle = styled.strong`
   font-size: 28px;
   color: var(--primaryColor);
+`;
+
+export const ClassifiedHeaderSubtitle = styled.span`
+  color: var(--greyFord);
+
 `;
 
 export const Classified = styled.div`
@@ -168,7 +175,7 @@ export const ClassifiedsContentInfos = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #f4f4f4;
-  margin-left: 20px;
+  padding-left: 40px;
 `;
 
 export const ClassifiedsContentIcon = styled.div`
@@ -267,4 +274,30 @@ export const CarouselButton = styled.button`
   z-index: 2;
   margin: 0 20px;
   background-color: transparent;
+`;
+
+export const ClassifiedShop = styled.div`
+  display: flex;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--primaryColor);
+  }
+`;
+
+export const ShopInfos = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 5px;
+  margin-left: 12px;
+
+  strong {
+    color: var(--primaryColor);
+  }
+
+  span{
+    font-size: 12px;
+  }
 `;

@@ -24,6 +24,7 @@ export default createGlobalStyle`
         --greyFord: #888;
 
         --whiteFord: #f4f4f4;
+        --gray: #ccc;
     }
 
     *{

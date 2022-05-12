@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { FaCircle } from 'react-icons/fa';
+import { useUser } from '../../hooks/useUser';
 
 import {
   CarouselButton,
@@ -14,45 +15,11 @@ import {
   Thumbnail,
 } from './styles';
 
-export function Carousel() {
+export function Carousel({ images }) {
   const [index, setIndex] = useState(1);
-  const [files, setFiles] = useState([
-    {
-      active: true,
-      filename:
-        'https://media.istockphoto.com/photos/hot-air-balloons-flying-over-the-botan-canyon-in-turkey-picture-id1297349747?b=1&k=20&m=1297349747&s=170667a&w=0&h=oH31fJty_4xWl_JQ4OIQWZKP8C6ji9Mz7L4XmEnbqRU=',
-    },
-    {
-      active: false,
-      filename:
-        'https://pga-tour-res.cloudinary.com/image/upload/c_fill,dpr_3.0,f_auto,g_center,h_393,q_auto,w_713/v1/pgatour/editorial/2022/04/17/fleetwood-1694-patricksmith.jpg',
-    },
-    {
-      active: false,
-      filename:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH3GpTZ6z7zml3eWQkBPqvpNE7KYFcRoBUrnOYiKGHVTjX6SqVKn_sujE8pJ1gu2bNElc&usqp=CAU',
-    },
-    {
-      active: false,
-      filename:
-        'https://images.pexels.com/photos/302743/pexels-photo-302743.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    },
-    {
-      active: false,
-      filename:
-        'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zm9jdXN8ZW58MHx8MHx8&w=1000&q=80',
-    },
-    {
-      active: false,
-      filename:
-        'https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg',
-    },
-    {
-      active: false,
-      filename:
-        'https://i.pinimg.com/originals/ca/76/0b/ca760b70976b52578da88e06973af542.jpg',
-    },
-  ]);
+  const [files, setFiles] = useState([]);
+
+  const { host } = useUser();
 
   function handlePrev() {
     const disableAllFiles = files.map((file) => ({
@@ -99,15 +66,29 @@ export function Carousel() {
     setIndex(i + 1);
   }
 
+  useEffect(() => {
+    if (images && images.length) {
+      const newFiles = images.map((file) => ({
+        ...file,
+        filename: `${host}/files/${file.filename}`,
+        active: false,
+      }));
+
+      newFiles[0].active = true;
+
+      setFiles(newFiles);
+    }
+  }, [images]);
+
   return (
     <Container>
       <ContainerMain>
         <CarouselButton className="CarouselButton" onClick={() => handlePrev()}>
           <AiOutlineArrowLeft size={24} />
         </CarouselButton>
-        <Content url={files[index - 1].filename}>
+        <Content url={files.length ? files[index - 1].filename : ''}>
           <div />
-          <img src={files[index - 1].filename} alt="Teste" />
+          <img src={files.length ? files[index - 1].filename : ''} alt="Teste" />
         </Content>
         <CarouselButton
           className="CarouselButton"
