@@ -21,24 +21,30 @@ export const ContentHeader = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-
-  a:hover {
-    color: var(--greyFord);
-  }
 `;
-export const ContentHeaderBack = styled.a`
+
+export const ContentHeaderLinks = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const ContentHeaderBack = styled.button`
   display: flex;
   align-items: center;
 
   border: 0;
   background-color: transparent;
 
-  text-decoration: none;
-  color: var(--darkCharcoal);
-  font-size: 1rem;
+  a{
+    text-decoration: none;
+    color: #333;
+    font-size:1rem;
+  }
 
-  svg {
-    margin-right: 0.25rem;
+  svg{
+    margin-right: .25rem;
   }
 `;
 
@@ -46,10 +52,10 @@ export const ContentHeaderLinksShopkeeper = styled.div`
   display: flex;
   align-items: center;
 
-  a {
+  a{
     text-decoration: none;
     color: #333;
-    font-size: 1rem;
+    font-size:1rem;
   }
 `;
 
@@ -64,30 +70,23 @@ export const ContentHeaderButton = styled.a`
   height: 2rem;
   color: #fff;
 
-  padding: 0 0.5rem;
+  padding: 0 .5rem;
   border: 0;
 
-  display: flex;
+  display:flex;
   align-items: center;
 
-  svg {
-    margin-left: 0.25rem;
+  svg{
+    margin-left: .25rem;
   }
 `;
 
 export const ContentClassified = styled.div`
-  padding: 20px;
+
+  /* display: flex;
+  flex-direction: column; */
   margin-top: 2rem;
-  background-color: #f4f4f4;
-`;
-
-export const ClassifiedHeader = styled.div`
-  margin-bottom: 20px;
-`;
-
-export const ClassifiedHeaderTitle = styled.strong`
-  font-size: 28px;
-  color: var(--primaryColor);
+  background-color: #F4F4F4;
 `;
 
 export const Classified = styled.div`
@@ -103,34 +102,24 @@ export const ContentClassifiedImages = styled.div`
 `;
 
 export const ContentClassifiedImage = styled.div`
-  position: relative;
-  /* background-image: url(${(props) => props.url});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% center; */
-  span {
+  div {
+    background-image: url(${(props) => props.url});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% center;
+    filter: blur(32px);
+    position: fixed;
     height: 120%;
     width: 120%;
     transform: translate(-32px, -32px);
   }
-  img {
+  img{
     width: 100%;
     max-height: 402px;
     object-fit: contain;
     user-select: none;
-    top: 50%;
   }
-
-  .backgroundImage {
-    height: 120%;
-    width: 120%;
-    position: absolute;
-    filter: blur(32px);
-  }
-  /* max-height: 402px; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
+  max-height: 402px;
   /* max-width: 402px; */
   /* height: 34.55rem; */
 `;
@@ -139,26 +128,27 @@ export const ContentClassifiedOthersImages = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
-  img {
+  img{
     width: 12.4rem;
     height: 13.66rem;
   }
 `;
 
 export const ClassifiedsBox = styled.div`
-  background-color: #f4f4f4;
+  background-color: #F4F4F4;
   margin-bottom: 2rem;
 `;
 
 export const ClassifiedsContent = styled.div`
   display: grid;
   grid-template-columns: 2fr 5fr;
+
 `;
 
 export const ClassifiedsContentImage = styled.div`
   max-height: 17.375rem;
 
-  img {
+  img{
     width: 17.375rem;
     height: 17.375rem;
   }
@@ -167,8 +157,7 @@ export const ClassifiedsContentImage = styled.div`
 export const ClassifiedsContentInfos = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #f4f4f4;
-  margin-left: 20px;
+  background-color: #F4F4F4;
 `;
 
 export const ClassifiedsContentIcon = styled.div`
@@ -185,23 +174,23 @@ export const ClassifiedsContentInfoLine = styled.div`
 
   margin-top: 1rem;
 
-  h1 {
+  h1{
     font-size: 1.5rem;
   }
 
-  p {
+  p{
     max-width: 60%;
     text-align: justify;
-    font-size: 0.9rem;
+    font-size: .9rem;
     max-height: 5rem;
   }
 
-  span {
-    text-align: right;
+  span{
+    text-align: right
   }
 
-  strong {
-    text-align: right;
+  strong{
+    text-align: right
   }
 `;
 
@@ -211,11 +200,11 @@ export const ClassifiedsContentDescription = styled.div`
   margin: 1.8rem auto;
   max-height: 16rem;
   overflow: hidden;
-  text-overflow: Ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 11;
-  /* line-height: X;
+   text-overflow: Ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 11;
+   /* line-height: X;
    max-height: X*N; */
 `;
 
@@ -225,31 +214,31 @@ export const ClassifiedsContentFooter = styled.div`
   width: 70%;
   margin: 0 auto;
   justify-content: space-between;
-  text-align: center;
+  text-align:center;
 `;
 
 export const ContentClassifiedPayment = styled.div`
-  display: flex;
+  display:flex;
   width: 100%;
   flex-direction: column;
 
-  margin-top: 2rem;
+  margin-top:2rem;
 `;
 
 export const ClassifiedPaymentContent = styled.div`
   background-color: #fff;
   padding: 2rem;
-  display: flex;
+  display:flex;
   flex-direction: column;
 
-  h2 {
-    margin: 0.5rem 0;
+  h2{
+    margin: .5rem 0;
   }
 `;
 
 export const ClassifiedPaymentWhatsapp = styled.a`
   height: 2rem;
-  background-color: #008d36;
+  background-color: #008D36;
 
   display: flex;
   align-items: center;
@@ -263,7 +252,7 @@ export const CarouselButton = styled.button`
   cursor: pointer;
   border: none;
   position: absolute;
-  top: 50%;
+  top:  50%;
   z-index: 2;
   margin: 0 20px;
   background-color: transparent;

@@ -8,18 +8,16 @@ import { toast } from 'react-toastify';
 import {
   AiOutlineHeart,
   AiOutlineArrowLeft,
-  // AiOutlineArrowRight,
+  AiOutlineArrowRight,
 } from 'react-icons/ai';
-// import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowForward } from 'react-icons/io';
 // import { BsFillArrowLeftSquareFill } from 'react-icons/bs';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-// import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from 'react-responsive-carousel';
 import {
-  // CarouselButton,
+  CarouselButton,
   Classified,
-  ClassifiedHeader,
-  ClassifiedHeaderTitle,
   ClassifiedPaymentContent,
   ClassifiedPaymentWhatsapp,
   ClassifiedsContentDescription,
@@ -30,25 +28,24 @@ import {
   Container,
   Content,
   ContentClassified,
-  // ContentClassifiedImage,
+  ContentClassifiedImage,
   ContentClassifiedPayment,
   ContentHeader,
   ContentHeaderBack,
-  // ContentHeaderButton,
-  // ContentHeaderButtonContainer,
-  // ContentHeaderLinks,
-  // ContentHeaderLinksShopkeeper,
+  ContentHeaderButton,
+  ContentHeaderButtonContainer,
+  ContentHeaderLinks,
+  ContentHeaderLinksShopkeeper,
 } from './styles';
 
 import { HeaderLoggedComponent } from '../../components/HeaderLogged';
 import { FooterComponent } from '../../components/Footer';
-// import { useUser } from '../../hooks/useUser';
+import { useUser } from '../../hooks/useUser';
 import api from '../../services/api';
-import { Carousel } from '../../components/Carousel';
 
 export function ClassifiedPage() {
   const { id } = useParams();
-  // const { host } = useUser();
+  const { host } = useUser();
   const [classified, setClassified] = useState({});
 
   useEffect(() => {
@@ -71,19 +68,35 @@ export function ClassifiedPage() {
 
       <Content>
         <ContentHeader>
-          <ContentHeaderBack href="/classificados">
-            <AiOutlineArrowLeft size={14} color="#888" />
-            Voltar para classificados
-          </ContentHeaderBack>
+          <ContentHeaderLinks>
+            <ContentHeaderBack>
+              <AiOutlineArrowLeft size={14} color="#888" />
+              <a href="/classificados">Voltar para classificados</a>
+            </ContentHeaderBack>
+            <ContentHeaderLinksShopkeeper>
+              <a href={`/perfil/lojista/${classified.profileShop}`}>
+                Perfil do Vendedor
+              </a>
+              <IoIosArrowForward size={14} color="#888" />
+              <a href={`/perfil/lojista/${classified.profileShop}/avaliacoes`}>
+                Avaliações do Vendedor
+              </a>
+            </ContentHeaderLinksShopkeeper>
+          </ContentHeaderLinks>
+
+          <ContentHeaderButtonContainer>
+            <ContentHeaderButton
+              href={`/perfil/lojista/${classified.profileShop}`}
+            >
+              Ver mais anuncios dessa loja
+              <AiOutlineArrowRight size={14} color="#fff" />
+            </ContentHeaderButton>
+          </ContentHeaderButtonContainer>
         </ContentHeader>
 
         <ContentClassified>
-          <ClassifiedHeader>
-            <ClassifiedHeaderTitle>{classified.title}</ClassifiedHeaderTitle>
-          </ClassifiedHeader>
           <Classified>
-            <Carousel />
-            {/* <Carousel
+            <Carousel
               showArrows
               infiniteLoop
               centerSlidePercentage
@@ -105,15 +118,15 @@ export function ClassifiedPage() {
             >
               {classified.files ? (
                 classified.files.map((file) => (
-                  <ContentClassifiedImage>
+                  <ContentClassifiedImage key={file.filename}>
+                    <div url={`${host}/files/${file.filename}`} />
                     <img src={`${host}/files/${file.filename}`} />
-                    <img className="backgroundImage" src={`${host}/files/${file.filename}`} />
                   </ContentClassifiedImage>
                 ))
               ) : (
                 <div />
               )}
-            </Carousel> */}
+            </Carousel>
             <ClassifiedsContentInfos>
               <ClassifiedsContentIcon>
                 <AiOutlineHeart color="#888" />

@@ -5,7 +5,7 @@ import { Home } from '../pages/Home';
 import { SignIn } from '../pages/SignIn';
 import { SignUp } from '../pages/SignUp';
 import { ClassifiedsPage } from '../pages/Classifieds';
-import { Classified } from '../pages/Classified';
+import { ClassifiedPage } from '../pages/Classified';
 import { RatingsPage } from '../pages/Ratings';
 import { ProfileShopPage } from '../pages/ProfileShop';
 import { AboutPage } from '../pages/About';
@@ -28,7 +28,7 @@ export function Routes() {
       <Route path="/cadastro" exact component={SignUp} />
       <Route path="/cadastro/lojista" component={SignUpShop} />
       <Route path="/classificados" component={ClassifiedsPage} />
-      <Route path="/classificado/:id" exact component={Classified} />
+      <Route path="/classificado/:id" exact component={ClassifiedPage} />
       <Route path="/cadastro/classificado" component={NewClassified} />
       <Route path="/perfil/lojista/:id/avaliacoes" exact component={RatingsPage} />
       <Route path="/avaliacoes/novo" component={NewRating} />

@@ -5,7 +5,7 @@ export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300&display=swap');
     :root{
         --background-acess: rgb(35, 40, 45);
-        --primaryColor: rgb(35, 40, 45);
+        --primaryColor: #1a1e3a;
         --mainColor: #A16695;
 
         --red: #E52E4D;
@@ -19,6 +19,11 @@ export default createGlobalStyle`
 
         --shape: #ffffff;
         --background: #f0f2f5;
+
+        --darkCharcoal: #333;
+        --greyFord: #888;
+
+        --whiteFord: #f4f4f4;
     }
 
     *{
