@@ -2,10 +2,14 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
+`;
+
+export const ContainerMain = styled.div`
+  width: 100%;
   max-height: 402px;
   position: relative;
 
-  .CarouselButton:hover{
+  .CarouselButton:hover {
     background-color: var(--whiteFord);
   }
 `;
@@ -66,10 +70,14 @@ export const CarouselButton = styled.button`
 
 export const CarouselButtonCircles = styled.div`
   position: absolute;
-  bottom: 2%;
-  left: 48%;
+  bottom: 4%;
+  /* left: 50%;
+  right: 50%; */
   z-index: 2;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 `;
 
 export const CarouselButtonCircle = styled.div`
@@ -77,4 +85,33 @@ export const CarouselButtonCircle = styled.div`
   border: none;
   background-color: transparent;
   margin: 0 5px;
+`;
+
+export const ContainerThumbnails = styled.div`
+  /* display: flex; */
+  margin-top: 10px;
+  display: grid;
+
+  grid-row: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  /* padding-bottom: 10px; */
+  /* overflow-y: auto; */
+  /* overflow: hidden; */
+
+  max-width: 592px;
+  /* grid-auto-flow: row; */
+  /* grid-auto-flow: column; */
+`;
+
+export const Thumbnail = styled.button`
+  border: 0;
+  opacity: ${(props) => (props.active ? 1 : 0.4)};
+  border-radius: 4px;
+  background-image: url(${(props) => props.url});
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  width: 104.4px;
+  height: 73.37px;
 `;
