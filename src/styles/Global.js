@@ -17,7 +17,7 @@ export default createGlobalStyle`
         --text-title: #363F5F;
         --text-body: #969CB3;
 
-        --shape: #ffffff;
+        --white: #ffffff;
         --background: #f0f2f5;
 
         --darkCharcoal: #333;

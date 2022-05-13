@@ -174,8 +174,26 @@ export const ClassifiedsContentImage = styled.div`
 export const ClassifiedsContentInfos = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #f4f4f4;
+  background-color: var(--whiteFord);
   padding-left: 40px;
+  padding-right: 20px;
+
+  h4{
+    margin-top: 20px;
+    font-size: 24px;
+    color: var(--primaryColor);
+  }
+
+  h5{
+    margin-top: 20px;
+    font-size: 16px;
+    color: var(--primaryColor);
+  }
+
+  p{
+    margin-top: 8px;
+    font-size: 14px;
+  }
 `;
 
 export const ClassifiedsContentIcon = styled.div`
@@ -276,7 +294,7 @@ export const CarouselButton = styled.button`
   background-color: transparent;
 `;
 
-export const ClassifiedShop = styled.div`
+export const ClassifiedShop = styled.a`
   display: flex;
   img {
     width: 50px;
@@ -299,5 +317,43 @@ export const ShopInfos = styled.div`
 
   span{
     font-size: 12px;
+    color: var(--primaryColor);
+  }
+`;
+
+export const WhatsappLink = styled.a`
+  /* background-color: var(--green); */
+  /* background-color: #008D36; */
+  /* background-color: #A8E5D5;
+  background-color: #ecfff4; */
+
+  height: 48px;
+  color: var(--white);
+  color: #008D36;
+  font-weight: 600;
+  margin-top: 20px;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg{
+    margin-right: 6px;
+  }
+  border: 1.65px solid #008D36;
+`;
+
+export const ProfileLink = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 8px 0 20px;
+
+  a {
+    color: var(--primaryColor);
+    font-size: 14px;
+    font-weight: bold;
   }
 `;

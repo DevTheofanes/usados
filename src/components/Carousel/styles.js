@@ -89,7 +89,7 @@ export const CarouselButtonCircle = styled.div`
 
 export const ContainerThumbnails = styled.div`
   /* display: flex; */
-  margin-top: 10px;
+  margin-top: 20px;
   display: grid;
 
   grid-row: auto;
