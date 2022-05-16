@@ -16,12 +16,14 @@ import {
   Container,
   Content,
   Profile,
+  ProfileAvatar,
   ProfileHeader,
   ProfileHeaderBanner,
   ProfileImages,
   ProfileItem,
   ProfileList,
   RatingsContainer,
+  ShopInfos,
   SideBar,
   SideBarContent,
   SideBarIcons,
@@ -32,16 +34,18 @@ import {
   SideBarPublicity,
   SideBarRatings,
   SideBarRatingsContainer,
-  TopBarColor,
+  // TopBarColor,
 } from './styles';
 
-import { HeaderLoggedComponent } from '../../components/HeaderLogged';
+// import { HeaderLoggedComponent } from '../../components/HeaderLogged';
 import { FooterComponent } from '../../components/Footer';
 import { PublicityFooter } from '../../components/PublicityFooter';
 
 import api from '../../services/api';
 import history from '../../services/history';
 import { useUser } from '../../hooks/useUser';
+import { CarouselProfile } from '../../components/CarouselProfile';
+import { HeaderProfileComponent } from '../../components/HeaderProfile';
 
 export function ProfileShopPage() {
   const { id } = useParams();
@@ -70,8 +74,15 @@ export function ProfileShopPage() {
 
   return (
     <Container>
-      <HeaderLoggedComponent />
-      <TopBarColor />
+      {/* <HeaderLoggedComponent /> */}
+      <HeaderProfileComponent />
+      {/* <TopBarColor /> */}
+      <ProfileHeaderBanner>
+        <img
+          src={`${host}/files/${shop.profileCoverUrl}`}
+          alt={shop.name}
+        />
+      </ProfileHeaderBanner>
       <Content>
         <SideBar>
           <SideBarPerfilImage>
@@ -172,23 +183,20 @@ export function ProfileShopPage() {
 
           <ProfileList>
             <ProfileItem>
-              <ProfileImages>
+              <ProfileAvatar>
                 <img
-                  src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1147&q=80"
-                  alt="image"
+                  src={`${host}/files/${shop.profileUrl}`}
+                  alt={shop.name}
                 />
+                <ShopInfos>
+                  <strong>{shop.name}</strong>
+                  <span>Publicado Ontem às 18:06</span>
+                </ShopInfos>
+              </ProfileAvatar>
 
-                <div>
-                  <img
-                    src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1147&q=80"
-                    alt="image"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1147&q=80"
-                    alt="image"
-                  />
-                </div>
-              </ProfileImages>
+              <h5>Titulo da Publicação</h5>
+
+              <CarouselProfile />
 
               <p>
                 Mais uma venda bem sucedida feita aqui na Macedo Car!

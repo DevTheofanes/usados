@@ -10,7 +10,7 @@ import {
   CarouselButton, CarouselButtonCircle, CarouselButtonCircles, Container, Content,
 } from './styles';
 
-export function Carousel() {
+export function CarouselProfile() {
   const [index, setIndex] = useState(1);
   const [files, setFiles] = useState([
     {

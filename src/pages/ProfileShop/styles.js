@@ -21,7 +21,9 @@ export const Content = styled.div`
     width: 100%;
     max-width: 62rem;
     display: grid;
-    grid-template-columns: 2fr 7fr;
+    grid-template-columns: 2fr 5fr;
+    gap: 2rem;
+    margin-top: -9rem;
   `;
 
 export const SideBar = styled.div`
@@ -40,8 +42,8 @@ export const SideBarPerfilImage = styled.div`
   top: 180px;
 
   img{
-    width: 13rem;
-    height: 13rem;
+    max-width: 13rem;
+    max-height: 13rem;
     border-radius: 50%;
   }
 
@@ -162,9 +164,6 @@ export const Profile = styled.div``;
 export const ProfileHeader = styled.div``;
 
 export const ProfileHeaderBanner = styled.div`
-  position: absolute;
-  top: 180px;
-
   img{
     height: 18rem;
     width: 48.221875rem;
@@ -225,20 +224,54 @@ export const ProfileHeaderRatingsContent = styled.div`
 `;
 
 export const ProfileList = styled.div`
-  max-height: 60rem;
-  overflow: auto;
-  margin-top: 15rem;
-  padding-right: 1rem;
-
+  /* max-height: 60rem; */
+  /* overflow: auto; */
+  margin-top: 17rem;
 `;
 
 export const ProfileItem = styled.div`
   padding: 1.5rem;
   background-color: #F4F4F4;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
 
   p{
     margin: 2rem 0;
+  }
+
+  border-radius: .5rem;
+
+  h5{
+    color: var(--primaryColor);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+`;
+
+export const ProfileAvatar = styled.a`
+  display: flex;
+  margin-bottom: 1rem;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--primaryColor);
+  }
+`;
+
+export const ShopInfos = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 5px;
+  margin-left: 12px;
+
+  strong {
+    color: var(--primaryColor);
+  }
+
+  span{
+    font-size: 12px;
+    color: var(--primaryColor);
   }
 `;
 

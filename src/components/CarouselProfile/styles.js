@@ -18,6 +18,7 @@ export const Content = styled.div`
   text-align: center;
   overflow: hidden;
   width: 100%;
+  height: 402px;
   max-height: 402px;
 
   img {
@@ -35,16 +36,16 @@ export const Content = styled.div`
   div {
     border-radius: 8px;
     background-image: url(${(props) => props.url});
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
-    background-position: 50% center;
+    /* background-position: 50% center; */
     filter: blur(32px);
     /* position: fixed; */
-    height: 120%;
-    width: 120%;
+    /* height: 200%;
+    width: 200%; */
     transform: translate(-32px, -32px);
-    height: 402px;
-    width: 572px;
+    height: 100%;
+    width: 100%;
     /* top: 0; */
   }
 `;
