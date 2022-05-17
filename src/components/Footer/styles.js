@@ -39,7 +39,8 @@ export const FooterNavigationRedesSociais = styled.div`
 `;
 
 export const IconCircle = styled.div`
-  background-color: #626161;
+  /* background-color: #626161; */
+  background-color: var(--primaryColor);
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
