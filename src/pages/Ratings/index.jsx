@@ -31,13 +31,15 @@ export function RatingsPage() {
 
   const [shop, setShop] = useState({});
   const [ratings, setRatings] = useState([]);
+  const [total, setTotal] = useState(0);
 
   async function loadInfos() {
     try {
       const response = await api.get(`/user/${id}`);
       const responseRatings = await api.get(`/user/${id}/ratings`);
       setShop(response.data);
-      setRatings(responseRatings.data);
+      setRatings(responseRatings.data.ratings);
+      setTotal(responseRatings.data.totalRatings);
     } catch (error) {
       toast.error(error.response.data.error);
       history.push('/');
@@ -54,29 +56,11 @@ export function RatingsPage() {
     <Container>
       <HeaderLoggedComponent />
       <Content>
-        <SideBarComponent host={host} shop={shop} />
+        <SideBarComponent host={host} shop={shop} numberRatings={+total} />
         <Ratings>
-          {/* <RatingsHeader>
-            <RatingsStarsBox>
-              <RatingsStars>
-                <BsStarFill color="#f2be17" size={24} />
-                <BsStarFill color="#f2be17" size={24} />
-                <BsStarFill color="#f2be17" size={24} />
-                <BsStarHalf color="#f2be17" size={24} />
-                <BsStar color="#f2be17" size={24} />
-              </RatingsStars>
-            </RatingsStarsBox>
-
-            <RatingsLinks>
-              <a href="/classificados">Classificados</a>
-              <IoIosArrowForward color="#1a1e3a" size={14} />
-              <a href="/perfil/lojista">Perfil do vendedor</a>
-            </RatingsLinks>
-          </RatingsHeader> */}
-
           <RatingsList>
             {ratings.map((rating) => (
-              <RatingItem>
+              <RatingItem key={rating.id}>
                 <RatingItemHeader>
                   <RatingItemHeaderAvatar>
                     <img
