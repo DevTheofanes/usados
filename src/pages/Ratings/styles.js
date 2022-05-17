@@ -147,6 +147,10 @@ export const RatingItem = styled.div`
   padding: 1rem;
   border-radius: 0.5rem;
 
+  h5{
+    margin-top: 1rem;
+  }
+
   p {
     margin-top: 1rem;
     font-size: 0.8rem;

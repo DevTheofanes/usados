@@ -56,7 +56,7 @@ export function RatingsPage() {
     <Container>
       <HeaderLoggedComponent />
       <Content>
-        <SideBarComponent host={host} shop={shop} numberRatings={+total} />
+        <div><SideBarComponent host={host} shop={shop} numberRatings={+total} /></div>
         <Ratings>
           <RatingsList>
             {ratings.map((rating) => (
@@ -73,7 +73,9 @@ export function RatingsPage() {
                     <RenderStarsComponent size={12} rating={+rating.rating} />
                   </RatingItemUserInfos>
                 </RatingItemHeader>
-
+                <h5>
+                  Titulo da Avaliação
+                </h5>
                 <p>{rating.comments}</p>
               </RatingItem>
             ))}
