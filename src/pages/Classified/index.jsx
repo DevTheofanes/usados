@@ -6,11 +6,10 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import {
-  // AiOutlineHeart,
   AiOutlineArrowLeft,
-  // AiOutlineArrowRight,
 } from 'react-icons/ai';
 import { IoLogoWhatsapp } from 'react-icons/io5';
+import { BsStarFill } from 'react-icons/bs';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import {
@@ -90,8 +89,17 @@ export function ClassifiedPage() {
                   }
                 />
                 <ShopInfos>
-                  <strong>{classified.shop ? classified.shop.name : ''}</strong>
-                  <span>{classified.shop ? classified.shop.slogan : ''}</span>
+                  <div>
+                    <strong>
+                      {classified.shop ? classified.shop.name : ''}
+                    </strong>
+                    <span>{classified.shop ? classified.shop.slogan : ''}</span>
+                  </div>
+
+                  <small>
+                    <BsStarFill size={12} />
+                    {classified.shop ? `${classified.shop.rating.split('')[0]}.0` : '0.0'}
+                  </small>
                 </ShopInfos>
               </ClassifiedShop>
 

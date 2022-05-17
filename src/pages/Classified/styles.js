@@ -94,7 +94,6 @@ export const ClassifiedHeaderTitle = styled.strong`
 
 export const ClassifiedHeaderSubtitle = styled.span`
   color: var(--greyFord);
-
 `;
 
 export const Classified = styled.div`
@@ -178,19 +177,19 @@ export const ClassifiedsContentInfos = styled.div`
   padding-left: 40px;
   padding-right: 20px;
 
-  h4{
+  h4 {
     margin-top: 20px;
     font-size: 24px;
     color: var(--primaryColor);
   }
 
-  h5{
+  h5 {
     margin-top: 20px;
     font-size: 16px;
     color: var(--primaryColor);
   }
 
-  p{
+  p {
     margin-top: 8px;
     font-size: 14px;
   }
@@ -305,19 +304,42 @@ export const ClassifiedShop = styled.a`
 `;
 
 export const ShopInfos = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  margin-top: 5px;
+  margin-top: -.5rem;
   margin-left: 12px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
 
   strong {
     color: var(--primaryColor);
   }
 
-  span{
+  span {
     font-size: 12px;
     color: var(--primaryColor);
+  }
+
+  small {
+    color: var(--whiteFord);
+    display: flex;
+    align-items: center;
+    background-color: var(--yellow);
+    background-color: var(--primaryColor);
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    font-weight: 700;
+    color: var(--whiteFord);
+
+    svg {
+      margin-right: 0.25rem;
+      color: var(--yellow);
+    }
   }
 `;
 
@@ -329,7 +351,7 @@ export const WhatsappLink = styled.a`
 
   height: 48px;
   color: var(--white);
-  color: #008D36;
+  color: #008d36;
   font-weight: 600;
   margin-top: 20px;
   border-radius: 8px;
@@ -338,10 +360,10 @@ export const WhatsappLink = styled.a`
   align-items: center;
   justify-content: center;
 
-  svg{
+  svg {
     margin-right: 6px;
   }
-  border: 1.65px solid #008D36;
+  border: 1.65px solid #008d36;
 `;
 
 export const ProfileLink = styled.div`
