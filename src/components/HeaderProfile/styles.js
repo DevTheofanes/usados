@@ -40,7 +40,6 @@ export const HeaderNavigationLogo = styled.a`
 
 export const Logo = styled.img`
   width: 12rem;
-  height: 2.8rem;
   margin: 1.8rem 0;
 `;
 
