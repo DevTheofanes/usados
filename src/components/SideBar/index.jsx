@@ -15,7 +15,7 @@ import {
 } from './styles';
 import { RenderStarsComponent } from '../renderStars';
 
-export function SideBarComponent({ shop, host }) {
+export function SideBarComponent({ shop, host, numberRatings }) {
   function maskNumber(number) {
     const list = String(number).split('');
     return `(${list[0] + list[1]}) ${list[2] + list[3] + list[4] + list[5]}${
@@ -25,22 +25,28 @@ export function SideBarComponent({ shop, host }) {
 
   return (
     <SideBar>
-      <div>
+      <a href={`/perfil/lojista/${shop.id}`}>
         <img src={`${host}/files/${shop.profileUrl}`} alt={shop.name} />
-      </div>
+      </a>
 
       <ProfileInfos>
-        <div>
+        <a className="ProfileLink" href={`/perfil/lojista/${shop.id}`}>
           <h3>{shop.name}</h3>
-          <RenderStarsComponent size={16} rating={+shop.rating.split('')[0]} />
-        </div>
+          <RenderStarsComponent size={16} rating={shop.rating ? +shop.rating.split('')[0] : 0} />
+        </a>
         <span>{shop.slogan}</span>
 
         <ButtonRating href="/avaliacoes/novo">
           Deixar uma Avaliação
         </ButtonRating>
 
-        <a href={`/perfil/lojista/${shop.id}/avaliacoes`}>Ver Avaliações</a>
+        {numberRatings ? (
+          <a href={`/perfil/lojista/${shop.id}/avaliacoes`}>
+            {`${numberRatings} Avaliações`}
+          </a>
+        ) : (
+          <a href={`/perfil/lojista/${shop.id}/avaliacoes`}>Ver Avaliações</a>
+        )}
       </ProfileInfos>
 
       <SideBarContent>

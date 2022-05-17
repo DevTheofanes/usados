@@ -113,7 +113,7 @@ export const ProfileInfos = styled.div`
   display: flex;
   flex-direction: column;
 
-  div {
+  .ProfileLink {
     display: flex;
     /* width: 100%; */
     justify-content: space-between;
