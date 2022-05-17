@@ -186,7 +186,9 @@ export const RatingItemHeaderAvatar = styled.div`
   img {
     width: 2.8rem;
     height: 2.8rem;
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    border-radius: .5rem;
+    object-fit: cover;
   }
 `;
 
