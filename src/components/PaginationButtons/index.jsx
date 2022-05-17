@@ -5,17 +5,17 @@ import { Container, Button, Quantity } from './styles';
 export function PaginationButtonsComponent() {
   return (
     <Container>
-      <Button>
+      <Button style={{ paddingRight: '16px' }}>
         <AiOutlineArrowLeft color="#fff" size={12} />
-        Pagina Anterior
+        Página Anterior
       </Button>
 
       <Quantity>
         1
       </Quantity>
 
-      <Button>
-        Proxima Pagina
+      <Button style={{ paddingLeft: '16px' }}>
+        Próxima Página
         <AiOutlineArrowRight color="#fff" size={12} />
       </Button>
     </Container>
