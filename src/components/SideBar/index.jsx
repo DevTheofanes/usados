@@ -1,5 +1,4 @@
 import React from 'react';
-import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 import { AiOutlineUser } from 'react-icons/ai';
 import { FiMousePointer, FiMail } from 'react-icons/fi';
 import { GrLocation } from 'react-icons/gr';
@@ -13,8 +12,8 @@ import {
   SideBarContent,
   SideBarInfo,
   SideBarInfoTitle,
-  SideBarRatingsContainer,
 } from './styles';
+import { RenderStarsComponent } from '../renderStars';
 
 export function SideBarComponent({ shop, host }) {
   function maskNumber(number) {
@@ -33,13 +32,7 @@ export function SideBarComponent({ shop, host }) {
       <ProfileInfos>
         <div>
           <h3>{shop.name}</h3>
-          <SideBarRatingsContainer>
-            <BsStarFill color="#f2be17" size={14} />
-            <BsStarFill color="#f2be17" size={14} />
-            <BsStarFill color="#f2be17" size={14} />
-            <BsStarHalf color="#f2be17" size={14} />
-            <BsStar color="#f2be17" size={14} />
-          </SideBarRatingsContainer>
+          <RenderStarsComponent size={16} rating={+shop.rating.split('')[0]} />
         </div>
         <span>{shop.slogan}</span>
 
