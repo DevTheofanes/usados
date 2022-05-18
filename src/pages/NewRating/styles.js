@@ -39,7 +39,7 @@ export const InfosUser = styled.div`
   margin-top: 1rem;
 
   display: grid;
-  gap: 2rem;
+  gap: 4rem;
   grid-template-columns: 2fr 1fr;
 `;
 
@@ -65,7 +65,7 @@ export const FormInput = styled.div`
 
   span{
     font-size: .7rem;
-    margin-bottom: .5rem;
+    margin-bottom: .125rem;
     color: #9d9b9c;
   }
 
@@ -76,7 +76,8 @@ export const FormInput = styled.div`
 
     font-size: 1rem;
     color: #1a1e3a;
-    padding: .5rem;
+    padding: .425rem .5rem;
+    border-radius: .25rem;
   }
 
   textarea{
@@ -151,8 +152,7 @@ export const FormInputPrimary = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
-  margin-bottom: 1rem;
+  margin-top: .5rem;
 
   span{
     font-size: .7rem;
@@ -179,9 +179,9 @@ export const FormInputPrimary = styled.div`
     opacity: .9;
     border: 1px solid #a3a3a2;
     /* width: 40%/; */
-    height: 8rem;
-    width: 8rem;
-    border-radius: 50%;
+    height: 9.2rem;
+    width: 9.2rem;
+    border-radius: .5rem;
 
     display: flex;
     align-items: center;
@@ -271,21 +271,20 @@ export const FormSubmitAcceptTerms = styled.div`
 `;
 
 export const FormSubmitButton = styled.button`
-  width: 9.2rem;
-  height: 2rem;
+  width: 11.25rem;
+  height: 2.25rem;
 
-  background-color: #4cd691;
+  background-color: var(--primaryColor);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-weight: 700;
-  font-size: 1.125rem;
+  font-weight: 500;
+  font-size: 1rem;
 
   border: 0;
   margin-top: 1rem;
-  border-radius: .5rem;
-
+  border-radius: .25rem;
 `;
 
 export const InputStars = styled.div`

@@ -80,6 +80,11 @@ export function NewRating() {
         <InfosUser>
           <FormColumn>
             <FormInput>
+              <span>Título da Publicação</span>
+              <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            </FormInput>
+
+            <FormInput>
               <span>Seu nome </span>
               <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
             </FormInput>
@@ -114,7 +119,7 @@ export function NewRating() {
 
         <FormSubmit>
           <FormSubmitButton onClick={() => handleNewRating()}>
-            Enviar avaliação
+            Enviar Avaliação
           </FormSubmitButton>
         </FormSubmit>
       </Content>
