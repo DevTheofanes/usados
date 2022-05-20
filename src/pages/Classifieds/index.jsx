@@ -125,28 +125,19 @@ export function ClassifiedsPage() {
                 </ClassifiedsContentImage>
 
                 <ClassifiedsContentInfos>
-                  <ShopAvatar host={host} classified={classified} />
+                  <ShopAvatar
+                    host={host}
+                    classified={classified}
+                    published={classified.messageCreated}
+                  />
                   <ClassifiedsContentInfoLine>
                     <h1>
                       {classified.title}
-                      <span>{classified.messageCreated}</span>
                     </h1>
-
-                    {/* <strong>
-                      Postado
-                      <br />
-                      {classified.createdAt}
-                    </strong> */}
                   </ClassifiedsContentInfoLine>
 
                   <ClassifiedsContentInfoLine>
                     <p>{classified.description}</p>
-
-                    {/* <span>
-                      Avaliações
-                      <br />
-                      <strong>24</strong>
-                    </span> */}
                   </ClassifiedsContentInfoLine>
 
                   <ClassifiedsContentInfoLine>
@@ -156,12 +147,6 @@ export function ClassifiedsPage() {
                         currency: 'BRL',
                       }).format(classified.value)}
                     </h1>
-
-                    {/* <span>
-                      Localização
-                      <br />
-                      <strong>{classified.uf}</strong>
-                    </span> */}
                   </ClassifiedsContentInfoLine>
                 </ClassifiedsContentInfos>
               </ClassifiedsContent>

@@ -3,7 +3,7 @@ import { BsStarFill } from 'react-icons/bs';
 
 import { ClassifiedShop, ShopInfos } from './styles';
 
-export function ShopAvatar({ classified, host }) {
+export function ShopAvatar({ classified, host, published }) {
   return (
     <ClassifiedShop href={`/perfil/lojista/${classified.profileShop}`}>
       <img
@@ -15,6 +15,7 @@ export function ShopAvatar({ classified, host }) {
       <ShopInfos>
         <div>
           <strong>{classified.shop ? classified.shop.name : ''}</strong>
+          {published ? <p>{published}</p> : null}
           <span>{classified.shop ? classified.shop.slogan : ''}</span>
         </div>
 

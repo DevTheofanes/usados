@@ -11,7 +11,7 @@ export const ClassifiedShop = styled.a`
 `;
 
 export const ShopInfos = styled.div`
-  margin-top: -.5rem;
+  margin-top: -0.5rem;
   margin-left: 12px;
   width: 100%;
   display: flex;
@@ -21,6 +21,12 @@ export const ShopInfos = styled.div`
   div {
     display: flex;
     flex-direction: column;
+  }
+
+  p {
+    color: var(--darkCharcoal);
+    font-size: 0.7rem;
+    font-weight: normal;
   }
 
   strong {
