@@ -2,13 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-import { AiOutlineHeart, AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+import {
+  // AiOutlineHeart,
+  AiOutlineArrowLeft,
+  AiOutlineArrowRight,
+} from 'react-icons/ai';
 import { BiFilterAlt } from 'react-icons/bi';
 
 import {
   ClassifiedsBox,
   ClassifiedsContent,
-  ClassifiedsContentIcon,
+  // ClassifiedsContentIcon,
   ClassifiedsContentImage,
   ClassifiedsContentInfoLine,
   ClassifiedsContentInfos,
@@ -33,6 +37,7 @@ import { FooterComponent } from '../../components/Footer';
 
 import api from '../../services/api';
 import { useUser } from '../../hooks/useUser';
+import { ShopAvatar } from '../../components/ShopAvatar';
 
 export function ClassifiedsPage() {
   const { host } = useUser();
@@ -43,7 +48,7 @@ export function ClassifiedsPage() {
   useEffect(() => {
     async function loadClassifieds() {
       try {
-        const response = await api.get('/classifieds');
+        const response = await api.get('/classifieds/filters');
         setClassifieds(response.data);
       } catch (error) {
         toast.warn(error.response.data.error);
@@ -80,11 +85,9 @@ export function ClassifiedsPage() {
               <span>Selecione um estado</span>
               <select name="" id="">
                 <option value="a">São Paulo</option>
-                {
-                  regions.map((region) => (
-                    <option value={region.sigla}>{region.name}</option>
-                  ))
-                }
+                {regions.map((region) => (
+                  <option value={region.sigla}>{region.name}</option>
+                ))}
               </select>
             </FiltersItem>
 
@@ -111,89 +114,87 @@ export function ClassifiedsPage() {
         </SideBand>
 
         <ContentClassifieds>
-          {
-            classifieds.map((classified) => (
-              <ClassifiedsBox key={classified.id}>
-                <ClassifiedsContent href={`/classificado/${classified.id}`}>
-                  <ClassifiedsContentImage>
-                    <img src={`${host}/files/${classified.mainImage}`} alt={classified.title} />
-                  </ClassifiedsContentImage>
+          {classifieds.map((classified) => (
+            <ClassifiedsBox key={classified.id}>
+              <ClassifiedsContent href={`/classificado/${classified.id}`}>
+                <ClassifiedsContentImage>
+                  <img
+                    src={`${host}/files/${classified.mainImage}`}
+                    alt={classified.title}
+                  />
+                </ClassifiedsContentImage>
 
-                  <ClassifiedsContentInfos>
-                    <ClassifiedsContentIcon>
-                      <AiOutlineHeart />
-                    </ClassifiedsContentIcon>
+                <ClassifiedsContentInfos>
+                  <ShopAvatar host={host} classified={classified} />
+                  <ClassifiedsContentInfoLine>
+                    <h1>
+                      {classified.title}
+                      <span>{classified.messageCreated}</span>
+                    </h1>
 
-                    <ClassifiedsContentInfoLine>
-                      <h1>
-                        {classified.title}
-                        <br />
-                        {`Lojista ${classified.shop.name}`}
-                      </h1>
+                    {/* <strong>
+                      Postado
+                      <br />
+                      {classified.createdAt}
+                    </strong> */}
+                  </ClassifiedsContentInfoLine>
 
-                      <strong>
-                        Postado
-                        <br />
-                        {classified.createdAt}
-                      </strong>
-                    </ClassifiedsContentInfoLine>
+                  <ClassifiedsContentInfoLine>
+                    <p>{classified.description}</p>
 
-                    <ClassifiedsContentInfoLine>
-                      <p>
-                        {classified.description}
-                      </p>
+                    {/* <span>
+                      Avaliações
+                      <br />
+                      <strong>24</strong>
+                    </span> */}
+                  </ClassifiedsContentInfoLine>
 
-                      <span>
-                        Avaliações
-                        <br />
-                        <strong>24</strong>
-                      </span>
-                    </ClassifiedsContentInfoLine>
+                  <ClassifiedsContentInfoLine>
+                    <h1>
+                      {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL',
+                      }).format(classified.value)}
+                    </h1>
 
-                    <ClassifiedsContentInfoLine>
-                      <h1>
-                        {
-                        new Intl.NumberFormat('pt-BR', {
-                          style: 'currency',
-                          currency: 'BRL',
-                        }).format(classified.value)
-                      }
-                      </h1>
+                    {/* <span>
+                      Localização
+                      <br />
+                      <strong>{classified.uf}</strong>
+                    </span> */}
+                  </ClassifiedsContentInfoLine>
+                </ClassifiedsContentInfos>
+              </ClassifiedsContent>
 
-                      <span>
-                        Localização
-                        <br />
-                        <strong>{classified.uf}</strong>
-                      </span>
-                    </ClassifiedsContentInfoLine>
+              <ClassifiedsLinks>
+                <ClassifiedsLinksSeePhotos
+                  href={`/classificado/${classified.id}`}
+                >
+                  <a href={`/classificado/${classified.id}`}>
+                    Ver Galeria de Fotos
+                  </a>
+                </ClassifiedsLinksSeePhotos>
 
-                  </ClassifiedsContentInfos>
-                </ClassifiedsContent>
-
-                <ClassifiedsLinks>
-                  <ClassifiedsLinksSeePhotos href={`/classificado/${classified.id}`}>
-                    <a href={`/classificado/${classified.id}`}>Ver Galeria de Fotos</a>
-                  </ClassifiedsLinksSeePhotos>
-
-                  <ClassifiedsLinksWhatsapp
-                    target="_blank"
-                    href={classified.shop ? `https://api.whatsapp.com/send?phone=55${classified.shop.whatsapp}&text=Olá ${classified.shop.name}, encontrei seu produto ${classified.title} na NovosUsados.com, ele ainda está disponivel?` : null}
-                  >
-                    Whatsapp
-                  </ClassifiedsLinksWhatsapp>
-                </ClassifiedsLinks>
-              </ClassifiedsBox>
-            ))
-          }
+                <ClassifiedsLinksWhatsapp
+                  target="_blank"
+                  href={
+                    classified.shop
+                      ? `https://api.whatsapp.com/send?phone=55${classified.shop.whatsapp}&text=Olá ${classified.shop.name}, encontrei seu produto ${classified.title} na NovosUsados.com, ele ainda está disponivel?`
+                      : null
+                  }
+                >
+                  Whatsapp
+                </ClassifiedsLinksWhatsapp>
+              </ClassifiedsLinks>
+            </ClassifiedsBox>
+          ))}
           <ClassifiedsPagesButtonsContainer>
             <ClassifiedsPagesButton>
               <AiOutlineArrowLeft color="#fff" size={12} />
               Pagina Anterior
             </ClassifiedsPagesButton>
 
-            <ClassifiedsPagesQuantity>
-              1
-            </ClassifiedsPagesQuantity>
+            <ClassifiedsPagesQuantity>1</ClassifiedsPagesQuantity>
 
             <ClassifiedsPagesButton>
               Proxima Pagina

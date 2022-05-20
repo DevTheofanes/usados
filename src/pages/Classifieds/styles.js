@@ -28,8 +28,9 @@ export const ContentClassifieds = styled.div`
 `;
 
 export const ClassifiedsBox = styled.div`
-  background-color: #f4f4f4;
+  background-color: var(--background);
   margin-bottom: 2rem;
+  border-radius: .5rem;
 `;
 
 export const ClassifiedsContent = styled.a`
@@ -42,6 +43,7 @@ export const ClassifiedsContentImage = styled.div`
   max-height: 17.375rem;
 
   img {
+    border-radius: .5rem 0 0 0;
     width: 17.375rem;
     height: 17.375rem;
     /* object-fit: contain; */
@@ -62,17 +64,23 @@ export const ClassifiedsContentIcon = styled.div`
 
 export const ClassifiedsContentInfoLine = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin-top: 1rem;
+  /* align-items: center;
+  justify-content: space-between; */
 
   h1 {
+    display: flex;
+    flex-direction: column;
     font-size: 1.5rem;
+
+    span{
+      color: var(--darkCharcoal);
+      font-size: .8rem;
+      font-weight: normal;
+    }
   }
 
   p {
-    max-width: 60%;
+    /* max-width: 60%; */
     text-align: justify;
     font-size: 0.9rem;
     max-height: 5rem;
