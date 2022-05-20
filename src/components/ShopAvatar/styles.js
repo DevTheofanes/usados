@@ -27,6 +27,8 @@ export const ShopInfos = styled.div`
     color: var(--darkCharcoal);
     font-size: 0.7rem;
     font-weight: normal;
+    height: auto;
+    max-height: 2rem !important;
   }
 
   strong {

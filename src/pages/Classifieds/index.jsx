@@ -12,9 +12,7 @@ import { BiFilterAlt } from 'react-icons/bi';
 import {
   ClassifiedsBox,
   ClassifiedsContent,
-  // ClassifiedsContentIcon,
   ClassifiedsContentImage,
-  ClassifiedsContentInfoLine,
   ClassifiedsContentInfos,
   ClassifiedsLinks,
   ClassifiedsLinksSeePhotos,
@@ -130,24 +128,18 @@ export function ClassifiedsPage() {
                     classified={classified}
                     published={classified.messageCreated}
                   />
-                  <ClassifiedsContentInfoLine>
-                    <h1>
-                      {classified.title}
-                    </h1>
-                  </ClassifiedsContentInfoLine>
+                  <h2>
+                    {classified.title}
+                  </h2>
 
-                  <ClassifiedsContentInfoLine>
-                    <p>{classified.description}</p>
-                  </ClassifiedsContentInfoLine>
+                  <p>{classified.description}</p>
 
-                  <ClassifiedsContentInfoLine>
-                    <h1>
-                      {new Intl.NumberFormat('pt-BR', {
-                        style: 'currency',
-                        currency: 'BRL',
-                      }).format(classified.value)}
-                    </h1>
-                  </ClassifiedsContentInfoLine>
+                  <h3>
+                    {new Intl.NumberFormat('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL',
+                    }).format(classified.value)}
+                  </h3>
                 </ClassifiedsContentInfos>
               </ClassifiedsContent>
 
@@ -155,9 +147,7 @@ export function ClassifiedsPage() {
                 <ClassifiedsLinksSeePhotos
                   href={`/classificado/${classified.id}`}
                 >
-                  <a href={`/classificado/${classified.id}`}>
-                    Ver Galeria de Fotos
-                  </a>
+                  Ver Galeria de Fotos
                 </ClassifiedsLinksSeePhotos>
 
                 <ClassifiedsLinksWhatsapp

@@ -30,7 +30,7 @@ export const ContentClassifieds = styled.div`
 export const ClassifiedsBox = styled.div`
   background-color: var(--background);
   margin-bottom: 2rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 `;
 
 export const ClassifiedsContent = styled.a`
@@ -43,7 +43,7 @@ export const ClassifiedsContentImage = styled.div`
   max-height: 17.375rem;
 
   img {
-    border-radius: .5rem 0 0 0;
+    border-radius: 0.5rem 0 0 0;
     width: 17.375rem;
     height: 17.375rem;
     /* object-fit: contain; */
@@ -55,6 +55,30 @@ export const ClassifiedsContentInfos = styled.div`
   flex-direction: column;
   padding: 1.275rem;
   max-height: 17.375rem;
+
+  h2 {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  p {
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    height: 7.5rem;
+    max-height: 7.5rem;
+  }
 `;
 
 export const ClassifiedsContentIcon = styled.div`
@@ -72,9 +96,9 @@ export const ClassifiedsContentInfoLine = styled.div`
     flex-direction: column;
     font-size: 1.5rem;
 
-    span{
+    span {
       color: var(--darkCharcoal);
-      font-size: .8rem;
+      font-size: 0.8rem;
       font-weight: normal;
     }
   }
@@ -107,14 +131,12 @@ export const ClassifiedsLinksSeePhotos = styled.a`
   display: flex;
   align-items: center;
 
-  padding-left: 8%;
+  padding-left: 12%;
+  border-radius: 0 0 0 0.5rem;
 
-  a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    /* font-size: 1.2rem; */
-  }
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
 `;
 
 export const ClassifiedsLinksWhatsapp = styled.a`
@@ -128,6 +150,8 @@ export const ClassifiedsLinksWhatsapp = styled.a`
   text-decoration: none;
   color: #fff;
   font-weight: 500;
+
+  border-radius: 0 0 0.5rem 0;
 `;
 
 export const ClassifiedsPagesButtonsContainer = styled.div`
