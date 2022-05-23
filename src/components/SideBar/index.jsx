@@ -36,7 +36,7 @@ export function SideBarComponent({ shop, host, numberRatings }) {
         </a>
         <span>{shop.slogan}</span>
 
-        <ButtonRating href="/avaliacoes/novo">
+        <ButtonRating href={`/perfil/lojista/${shop.id}/avaliacoes/new`}>
           Deixar uma Avaliação
         </ButtonRating>
 
