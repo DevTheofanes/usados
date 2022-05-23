@@ -74,7 +74,7 @@ export function RatingsPage() {
                   </RatingItemUserInfos>
                 </RatingItemHeader>
                 <h5>
-                  Titulo da Avaliação
+                  {rating.title}
                 </h5>
                 <p>{rating.comments}</p>
               </RatingItem>
