@@ -25,20 +25,21 @@ export const Content = styled.div`
 export const Form = styled.div`
   background-color: #fff;
   width: 25.2rem;
-`;
-
-export const FormOptions = styled.div`
-  display: grid;
-  /* grid-template-columns: 1fr 1fr; */
-  grid-template-columns: 1fr;
+  border-radius: .5rem;
 `;
 
 export const FormOptionButton = styled.button`
-  text-transform: uppercase;
-  border: 0;
-  height: 3rem;
   background-color: ${(props) => (props.active ? '#fff' : '#e9e8e8')};
-  margin-bottom: 2rem;
+  border: 0;
+  margin: 1rem 0;
+
+  width: 100%;
+  height: 3rem;
+
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
 `;
 
 export const FormInput = styled.div`
@@ -64,7 +65,7 @@ export const FormInput = styled.div`
 export const FormButton = styled.button`
   background-color: #1a1e3a;
   display: flex;
-  height: 3.2rem;
+  height: 2.8rem;
   align-items: center;
   justify-content: center;
   color:#fff;
@@ -72,6 +73,25 @@ export const FormButton = styled.button`
   border:0;
   text-transform: uppercase;
   font-weight: 500;
+  border-radius: .5rem;
+  width: 10rem;
+  margin-bottom: 2rem;
+`;
+
+export const FormButtonHighLight = styled.button`
+  background-color: var(--white);
+  display: flex;
+  height: 2.8rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: .5rem;
+  width: 10rem;
+  margin-bottom: 2rem;
 `;
 
 export const FormConfigs = styled.div`
@@ -83,9 +103,23 @@ export const FormConfigs = styled.div`
   justify-content: space-between;
 
   a{
-    text-decoration: none;
+    text-decoration: underline;
     color: #1a1e3a;
-    font-style: italic;
+  }
+
+  .btn-Highlight:hover{
+    border: 0;
+    background-color: var(--primaryColor);
+    color: white;
+  }
+
+  .btn:hover {
+    background-color: #101221;
+  }
+
+  a{
+    font-size: .825rem;
+    font-style: none;
   }
 `;
 
@@ -95,6 +129,7 @@ export const FormConfigsButton = styled.div`
 
   input{
     margin-right: .25rem;
+    font-size: .825rem;
   }
 
   label{

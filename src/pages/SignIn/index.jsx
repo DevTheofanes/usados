@@ -11,11 +11,11 @@ import {
   Form,
   FormInput,
   FormButton,
-  FormOptions,
   FormOptionButton,
   FormConfigs,
   FormConfigsButton,
   ContentImage,
+  FormButtonHighLight,
 } from './styles';
 
 import { HeaderComponent } from '../../components/Header';
@@ -51,35 +51,48 @@ export function SignIn() {
 
         <Content>
           <Form>
-            <FormOptions>
-              <FormOptionButton active>
-                Entrar
-              </FormOptionButton>
+            <FormOptionButton active>Entrar</FormOptionButton>
 
-              {/* <FormOptionButton active={false}>
-                  Criar Conta
-                </FormOptionButton> */}
-            </FormOptions>
             <FormInput>
               <BsFillPersonFill color="#555454" size={20} />
-              <input type="e-mail" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input
+                type="e-mail"
+                placeholder="E-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </FormInput>
 
             <FormInput>
               <SiKeepassxc color="#555454" size={20} />
-              <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <input
+                type="password"
+                placeholder="Senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </FormInput>
 
             <FormConfigs>
+              <a href="#">Esqueci a senha?</a>
+
               <FormConfigsButton>
                 <input type="checkbox" name="" id="" />
                 <label htmlFor="">Lembrar acesso</label>
               </FormConfigsButton>
-
-              <a href="#">Esqueci a senha?</a>
             </FormConfigs>
 
-            <FormButton onClick={() => handleSignIn()}>Logar</FormButton>
+            <FormConfigs>
+              <FormButtonHighLight
+                className="btn-Highlight"
+                onClick={() => handleSignIn()}
+              >
+                Cadastrar
+              </FormButtonHighLight>
+              <FormButton className="btn" onClick={() => handleSignIn()}>
+                Logar
+              </FormButton>
+            </FormConfigs>
           </Form>
 
           <ContentImage>
