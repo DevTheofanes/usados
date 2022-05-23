@@ -24,6 +24,15 @@ export const Content = styled.div`
     margin-bottom: 2rem;
   }
 
+  .render-btn{
+    border: 0;
+    background-color: transparent;
+    display: flex;
+
+    svg{
+      margin-right: .2rem;
+    }
+  }
 `;
 
 export const ContentHeader = styled.div`
@@ -290,4 +299,5 @@ export const FormSubmitButton = styled.button`
 export const InputStars = styled.div`
   width: 40rem;
   margin-bottom: 1rem;
+  display: flex;
 `;

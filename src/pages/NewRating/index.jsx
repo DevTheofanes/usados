@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { MdPhotoSizeSelectActual } from 'react-icons/md';
-import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
+import { BsStarFill } from 'react-icons/bs';
 
+import { useParams } from 'react-router-dom';
 import {
   Container,
   Content,
@@ -14,7 +15,6 @@ import {
   FormSubmitButton,
   InfosUser,
   InputStars,
-
 } from './styles';
 
 import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
@@ -24,7 +24,11 @@ import api from '../../services/api';
 import history from '../../services/history';
 
 export function NewRating() {
+  const { id } = useParams();
+
   const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
+  const [stars, setStars] = useState(0);
   const [email, setEmail] = useState('');
   const [profile, setProfile] = useState('');
   const [comments, setComments] = useState('');
@@ -41,10 +45,12 @@ export function NewRating() {
 
   async function postRating(data) {
     try {
-      const response = await api.post('/user/3/rating', data);
-      toast.success(`${response.data.name}! Sua avaliação foi criada com sucesso.`);
+      const response = await api.post(`/user/${id}/rating`, data);
+      toast.success(
+        `${response.data.name}! Sua avaliação foi criada com sucesso.`,
+      );
 
-      history.push('/');
+      history.push(`/perfil/lojista/${id}/avaliacoes`);
     } catch (error) {
       toast.error(error.response.data.error);
       console.log(error.response.data);
@@ -52,7 +58,7 @@ export function NewRating() {
   }
 
   async function handleNewRating() {
-    if (!name || !email || !profile || !comments) {
+    if (!name || !title || !email || !profile || !comments || stars <= 0) {
       return toast.warn('Preencha todos os campos.');
     }
 
@@ -60,8 +66,9 @@ export function NewRating() {
 
     const data = {
       name,
+      title,
       email,
-      rating: '4',
+      rating: stars,
       avatarUrl,
       comments,
     };
@@ -69,29 +76,192 @@ export function NewRating() {
     await postRating(data);
   }
 
+  function renderStars(rating) {
+    switch (rating) {
+      case 5:
+        return (
+          <>
+            <button className="render-btn" onClick={() => setStars(1)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(2)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(3)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(4)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(5)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+          </>
+        );
+
+      case 4:
+        return (
+          <>
+            <button className="render-btn" onClick={() => setStars(1)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(2)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(3)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(4)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(5)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+          </>
+        );
+
+      case 3:
+        return (
+          <>
+            <button className="render-btn" onClick={() => setStars(1)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(2)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(3)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(4)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(5)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+          </>
+        );
+      case 2:
+        return (
+          <>
+            <button className="render-btn" onClick={() => setStars(1)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(2)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(3)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(4)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(5)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+          </>
+        );
+
+      case 1:
+        return (
+          <>
+            <button className="render-btn" onClick={() => setStars(1)}>
+              <BsStarFill color="#f2be17" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(2)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(3)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(4)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(5)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+          </>
+        );
+
+      default:
+        return (
+          <>
+            <button className="render-btn" onClick={() => setStars(1)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(2)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(3)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(4)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+
+            <button className="render-btn" onClick={() => setStars(5)}>
+              <BsStarFill color="#ccc" size={24} />
+            </button>
+          </>
+        );
+    }
+  }
+
   return (
     <Container>
       <HeaderTopBarComponent />
       <Content>
-        <ContentHeader>
-          Avalie essa Loja
-        </ContentHeader>
+        <ContentHeader>Avalie essa Loja</ContentHeader>
 
         <InfosUser>
           <FormColumn>
             <FormInput>
-              <span>Título da Publicação</span>
-              <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+              <span>Título da Avaliação</span>
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
             </FormInput>
 
             <FormInput>
               <span>Seu nome </span>
-              <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </FormInput>
 
             <FormInput>
               <span>Email </span>
-              <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </FormInput>
           </FormColumn>
 
@@ -100,21 +270,29 @@ export function NewRating() {
             <label htmlFor="perfil">
               <MdPhotoSizeSelectActual color="#999" size={32} />
             </label>
-            <input onChange={(e) => setProfile(e.target.files[0])} type="file" id="perfil" name="perfil" />
+            <input
+              onChange={(e) => setProfile(e.target.files[0])}
+              type="file"
+              id="perfil"
+              name="perfil"
+            />
           </FormInputPrimary>
         </InfosUser>
 
         <InputStars>
-          <BsStarFill color="#f2be17" size={24} />
-          <BsStarFill color="#f2be17" size={24} />
-          <BsStarFill color="#f2be17" size={24} />
-          <BsStarHalf color="#f2be17" size={24} />
-          <BsStar color="#f2be17" size={24} />
+          {renderStars(stars)}
         </InputStars>
 
         <FormInput className="unicInput">
           <span>Messagem </span>
-          <textarea name="" id="" cols="30" rows="3" value={comments} onChange={(e) => setComments(e.target.value)} />
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="3"
+            value={comments}
+            onChange={(e) => setComments(e.target.value)}
+          />
         </FormInput>
 
         <FormSubmit>
