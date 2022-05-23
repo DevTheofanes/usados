@@ -6,12 +6,13 @@ import {
   Container,
   Content,
   ContentHeader,
+  FormButtonHighLight,
   FormColumn,
   FormInput,
   FormInputBanner,
   FormInputProfile,
   FormSubmit,
-  FormSubmitButton,
+  // FormSubmitButton,
   SignUpContainer,
 
 } from './styles';
@@ -20,6 +21,7 @@ import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
 import { FooterComponent } from '../../components/Footer';
 import { useUser } from '../../hooks/useUser';
 import api from '../../services/api';
+import { FormButton } from '../SignUp/styles';
 
 export function SignUpShop() {
   const { handleRegister } = useUser();
@@ -234,9 +236,19 @@ export function SignUpShop() {
         </SignUpContainer>
 
         <FormSubmit>
-          <FormSubmitButton onClick={() => handleSignUp()}>
+          <FormButtonHighLight
+            className="btn-Highlight"
+            onClick={() => handleSignUp()}
+          >
+            Entrar
+          </FormButtonHighLight>
+          <FormButton className="btn" onClick={() => handleSignUp()}>
+            Cadastrar
+          </FormButton>
+
+          {/* <FormSubmitButton onClick={() => handleSignUp()}>
             Criar Conta
-          </FormSubmitButton>
+          </FormSubmitButton> */}
         </FormSubmit>
       </Content>
       <FooterComponent />

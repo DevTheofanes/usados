@@ -63,12 +63,15 @@ export const FormInput = styled.div`
 export const FormButton = styled.div`
   background-color: #1a1e3a;
   display: flex;
-  height: 3.2rem;
+  height: 2.8rem;
+  width: 10rem;
+  border-radius: .5rem;
   align-items: center;
   justify-content: center;
   color:#fff;
   text-transform: uppercase;
   font-weight: 500;
+  font-size: .8rem;
 `;
 
 export const FormConfigs = styled.div`

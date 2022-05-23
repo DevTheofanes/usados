@@ -196,9 +196,20 @@ export const FormInputProfile = styled.div`
 export const FormSubmit = styled.div`
   display: flex;
   width: 100%;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  margin: 2rem 0;
+
+  .btn-Highlight:hover{
+    border: 0;
+    background-color: var(--primaryColor);
+    color: white;
+  }
+
+  .btn:hover {
+    background-color: #101221;
+  }
 `;
 
 export const FormSubmitAcceptTerms = styled.div`
@@ -217,6 +228,49 @@ export const FormSubmitAcceptTerms = styled.div`
     height: 1.25rem;
     width: 1.25rem;
   }
+
+  .btn-Highlight:hover{
+    border: 0;
+    background-color: var(--primaryColor);
+    color: white;
+  }
+
+  .btn:hover {
+    background-color: #101221;
+  }
+`;
+
+export const FormButtonHighLight = styled.button`
+  background-color: var(--white);
+  display: flex;
+  height: 2.8rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: .5rem;
+  width: 10rem;
+  margin-right: 2rem;
+  font-size: .8rem;
+`;
+
+export const FormButton = styled.button`
+  background-color: #1a1e3a;
+  display: flex;
+  height: 2.8rem;
+  align-items: center;
+  justify-content: center;
+  color:#fff;
+  width: 100%;
+  border:0;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: .5rem;
+  width: 10rem;
+  margin-bottom: 2rem;
 `;
 
 export const FormSubmitButton = styled.button`
