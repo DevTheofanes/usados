@@ -33,7 +33,7 @@ import {
   // ContentHeaderLinksShopkeeper,
 } from './styles';
 
-import { HeaderLoggedComponent } from '../../components/HeaderLogged';
+import { HeaderComponent } from '../../components/Header';
 import { FooterComponent } from '../../components/Footer';
 import { useUser } from '../../hooks/useUser';
 import api from '../../services/api';
@@ -60,7 +60,7 @@ export function ClassifiedPage() {
 
   return (
     <Container>
-      <HeaderLoggedComponent />
+      <HeaderComponent showIconsBar={false} />
 
       <Content>
         <ContentHeader>

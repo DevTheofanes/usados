@@ -30,7 +30,7 @@ import {
   SideBandPublicity,
 } from './styles';
 
-import { HeaderLoggedComponent } from '../../components/HeaderLogged';
+import { HeaderComponent } from '../../components/Header';
 import { FooterComponent } from '../../components/Footer';
 
 import api from '../../services/api';
@@ -69,7 +69,7 @@ export function ClassifiedsPage() {
 
   return (
     <Container>
-      <HeaderLoggedComponent />
+      <HeaderComponent showIconsBar={false} />
 
       <Content>
         <SideBand>

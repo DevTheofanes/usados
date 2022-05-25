@@ -30,7 +30,7 @@ import LogoImg from '../../assets/logo/logoWhite.png';
 import api from '../../services/api';
 import { useUser } from '../../hooks/useUser';
 
-export function HeaderComponent() {
+export function HeaderComponent({ showIconsBar, height, showSearchBar }) {
   const { user } = useUser();
 
   const [categories, setCategories] = useState([]);
@@ -47,7 +47,7 @@ export function HeaderComponent() {
   }, []);
 
   return (
-    <Container>
+    <Container style={height ? { height } : null}>
       <Header>
         <HeaderNavigation>
           <HeaderNavigationLogo href="/">
@@ -74,7 +74,7 @@ export function HeaderComponent() {
           {
             user ? (
               <HeaderNavigationButton href="/dashboard/classificados">
-                Dashboard
+                Meu painel
               </HeaderNavigationButton>
             ) : (
               <HeaderNavigationButton href="/login">
@@ -84,46 +84,54 @@ export function HeaderComponent() {
           }
         </HeaderNavigation>
 
-        <HeaderSearch>
-          <HeaderSearchSelect
-            onChange={(e) => setCategorySelected(e.target.value)}
-          >
-            <option value="a">Categorias</option>
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.name}
-              </option>
-            ))}
-          </HeaderSearchSelect>
-          <HeaderSearchInput>
-            <input type="text" placeholder="Estou procurando por..." />
-            <GoSearch color="#676767" size={15} />
-          </HeaderSearchInput>
-        </HeaderSearch>
+        {
+            showSearchBar === false ? null : (
+              <HeaderSearch>
+                <HeaderSearchSelect
+                  onChange={(e) => setCategorySelected(e.target.value)}
+                >
+                  <option value="a">Categorias</option>
+                  {categories.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
+                </HeaderSearchSelect>
+                <HeaderSearchInput>
+                  <input type="text" placeholder="Estou procurando por..." />
+                  <GoSearch color="#676767" size={15} />
+                </HeaderSearchInput>
+              </HeaderSearch>
+            )
+          }
 
-        <HeaderMenuCategory>
-          <HeaderMenuCategoryItem href="/classificados" color="#f05f64">
-            <FaCarSide size={75} color="#fff" />
-          </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem href="/classificados" color="#f0bc2c">
-            <MdPhoneIphone size={75} color="#fff" />
-          </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem href="/classificados" color="#52b95b">
-            <FaHome size={75} color="#fff" />
-          </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem href="/classificados" color="#16acde">
-            <IoBoatSharp size={75} color="#fff" />
-          </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem href="/classificados" color="#f287b5">
-            <FaHelicopter size={75} color="#fff" />
-          </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem href="/classificados" color="#733ee2">
-            <GiOfficeChair size={75} color="#fff" />
-          </HeaderMenuCategoryItem>
-          <HeaderMenuCategoryItem href="/classificados" color="#b0b69e">
-            <HiDesktopComputer size={75} color="#fff" />
-          </HeaderMenuCategoryItem>
-        </HeaderMenuCategory>
+        {
+          showIconsBar === false ? null : (
+            <HeaderMenuCategory>
+              <HeaderMenuCategoryItem href="/classificados" color="#f05f64">
+                <FaCarSide size={75} color="#fff" />
+              </HeaderMenuCategoryItem>
+              <HeaderMenuCategoryItem href="/classificados" color="#f0bc2c">
+                <MdPhoneIphone size={75} color="#fff" />
+              </HeaderMenuCategoryItem>
+              <HeaderMenuCategoryItem href="/classificados" color="#52b95b">
+                <FaHome size={75} color="#fff" />
+              </HeaderMenuCategoryItem>
+              <HeaderMenuCategoryItem href="/classificados" color="#16acde">
+                <IoBoatSharp size={75} color="#fff" />
+              </HeaderMenuCategoryItem>
+              <HeaderMenuCategoryItem href="/classificados" color="#f287b5">
+                <FaHelicopter size={75} color="#fff" />
+              </HeaderMenuCategoryItem>
+              <HeaderMenuCategoryItem href="/classificados" color="#733ee2">
+                <GiOfficeChair size={75} color="#fff" />
+              </HeaderMenuCategoryItem>
+              <HeaderMenuCategoryItem href="/classificados" color="#b0b69e">
+                <HiDesktopComputer size={75} color="#fff" />
+              </HeaderMenuCategoryItem>
+            </HeaderMenuCategory>
+          )
+        }
       </Header>
     </Container>
   );

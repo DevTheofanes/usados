@@ -22,7 +22,7 @@ import BackgroundBanner from '../../assets/banners/backgroundBanner.jpg';
 export function SacPage() {
   return (
     <Container>
-      <HeaderComponent />
+      <HeaderComponent height="16rem" />
       <Page backgroundImage={BackgroundBanner}>
         <Content>
           <ContentSac>

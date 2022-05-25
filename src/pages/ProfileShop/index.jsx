@@ -26,8 +26,9 @@ import api from '../../services/api';
 import history from '../../services/history';
 import { useUser } from '../../hooks/useUser';
 import { CarouselProfile } from '../../components/CarouselProfile';
-import { HeaderProfileComponent } from '../../components/HeaderProfile';
+// import { HeaderProfileComponent } from '../../components/HeaderProfile';
 import { SideBarComponent } from '../../components/SideBar';
+import { HeaderComponent } from '../../components/Header';
 
 export function ProfileShopPage() {
   const { id } = useParams();
@@ -57,7 +58,8 @@ export function ProfileShopPage() {
 
   return (
     <Container>
-      <HeaderProfileComponent />
+      {/* <HeaderProfileComponent /> */}
+      <HeaderComponent showIconsBar={false} height="20rem" />
       <ProfileHeaderBanner>
         <img
           src={`${host}/files/${shop.profileCoverUrl}`}

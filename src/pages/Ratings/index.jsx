@@ -13,7 +13,7 @@ import {
   RatingItemHeaderAvatar,
 } from './styles';
 
-import { HeaderLoggedComponent } from '../../components/HeaderLogged';
+import { HeaderComponent } from '../../components/Header';
 import { FooterComponent } from '../../components/Footer';
 import { PaginationButtonsComponent } from '../../components/PaginationButtons';
 import { PublicityFooter } from '../../components/PublicityFooter';
@@ -54,7 +54,7 @@ export function RatingsPage() {
 
   return (
     <Container>
-      <HeaderLoggedComponent />
+      <HeaderComponent showIconsBar={false} />
       <Content>
         <div><SideBarComponent host={host} shop={shop} numberRatings={+total} /></div>
         <Ratings>

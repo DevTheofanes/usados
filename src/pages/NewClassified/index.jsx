@@ -18,7 +18,7 @@ import {
   SignUpContainer,
 } from './styles';
 
-import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
+import { HeaderComponent } from '../../components/Header';
 import { FooterComponent } from '../../components/Footer';
 import api from '../../services/api';
 import history from '../../services/history';
@@ -95,7 +95,7 @@ export function NewClassified() {
       return toast.warn('Selecione uma categoria.');
     }
 
-    const mainImage = await getUrl(mainImage);
+    const mainImageUrl = await getUrl(mainImage);
 
     const data = {
       title,
@@ -107,7 +107,7 @@ export function NewClassified() {
       isNew,
       isDelivered,
       isPix,
-      mainImage,
+      mainImage: mainImageUrl,
     };
 
     if (aImage) {
@@ -141,7 +141,8 @@ export function NewClassified() {
 
   return (
     <Container>
-      <HeaderTopBarComponent />
+      <HeaderComponent showIconsBar={false} showSearchBar={false} />
+
       <Content>
         <ContentHeader>O que você deseja anunciar?</ContentHeader>
 

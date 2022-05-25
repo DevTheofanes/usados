@@ -17,7 +17,7 @@ import {
   InputStars,
 } from './styles';
 
-import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
+import { HeaderComponent } from '../../components/Header';
 import { FooterComponent } from '../../components/Footer';
 
 import api from '../../services/api';
@@ -231,7 +231,7 @@ export function NewRating() {
 
   return (
     <Container>
-      <HeaderTopBarComponent />
+      <HeaderComponent showIconsBar={false} />
       <Content>
         <ContentHeader>Avalie essa Loja</ContentHeader>
 

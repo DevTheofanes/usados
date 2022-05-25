@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  margin-top: 10rem;
+  margin-top: 2rem;
 
   margin: 0 auto;
   width: 100%;

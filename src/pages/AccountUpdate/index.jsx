@@ -24,11 +24,12 @@ import {
   SignUpContainer,
 } from './styles';
 
-import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
+// import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
 import { FooterComponent } from '../../components/Footer';
 import { useUser } from '../../hooks/useUser';
 import api from '../../services/api';
 import history from '../../services/history';
+import { HeaderComponent } from '../../components/Header';
 
 export function AccountUpdate() {
   const { user } = useUser();
@@ -166,7 +167,8 @@ export function AccountUpdate() {
 
   return (
     <Container>
-      <HeaderTopBarComponent />
+      <HeaderComponent showIconsBar={false} />
+      {/* <HeaderTopBarComponent /> */}
       <Content>
         <ContentHeader>Mudar informações de sua loja</ContentHeader>
 

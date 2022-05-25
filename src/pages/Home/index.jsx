@@ -43,7 +43,7 @@ export function Home() {
 
   return (
     <Container>
-      <HeaderComponent />
+      <HeaderComponent height="16rem" />
 
       <SearchSpace>
         <SearchHeader>

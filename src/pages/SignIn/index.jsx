@@ -45,7 +45,7 @@ export function SignIn() {
 
   return (
     <Container>
-      <HeaderComponent />
+      <HeaderComponent height="16rem" />
       <SignPage backgroundImage={BackgroundBanner}>
         <div />
 

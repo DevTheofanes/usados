@@ -17,7 +17,7 @@ import {
 
 } from './styles';
 
-import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
+import { HeaderComponent } from '../../components/Header';
 import { FooterComponent } from '../../components/Footer';
 import { useUser } from '../../hooks/useUser';
 import api from '../../services/api';
@@ -138,7 +138,7 @@ export function SignUpShop() {
 
   return (
     <Container>
-      <HeaderTopBarComponent />
+      <HeaderComponent showIconsBar={false} showSearchBar={false} />
       <Content>
         <ContentHeader>
           Cadastro da sua loja

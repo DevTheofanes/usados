@@ -13,6 +13,7 @@ export const SignPage = styled.div`
   background-size: cover;
   height: 52rem;
   width: 100%;
+  z-index: -1;
 
   display: grid;
   grid-template-columns: 3fr 2fr 1fr;

@@ -13,7 +13,7 @@ export const Container = styled.div`
 // SearchSpace
 
 export const SearchSpace = styled.div`
-  margin-top: 5.2rem;
+  margin-top: 6rem;
   display: flex;
   flex-direction: column;
   width: 100%;

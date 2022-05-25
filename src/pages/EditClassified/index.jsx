@@ -27,7 +27,7 @@ import {
   SignUpContainer,
 } from './styles';
 
-import { HeaderTopBarComponent } from '../../components/HeaderTopBar';
+import { HeaderComponent } from '../../components/Header';
 import { FooterComponent } from '../../components/Footer';
 import api from '../../services/api';
 import history from '../../services/history';
@@ -185,7 +185,7 @@ export function EditClassified() {
 
   return (
     <Container>
-      <HeaderTopBarComponent />
+      <HeaderComponent showIconsBar={false} showSearchBar={false} />
       <Content>
         <ContentHeader>Editar seu produto</ContentHeader>
 
