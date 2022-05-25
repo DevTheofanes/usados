@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 94%;
 
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 2rem 0;
 
   button{
     display: flex;
