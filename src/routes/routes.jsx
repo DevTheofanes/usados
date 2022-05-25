@@ -18,6 +18,7 @@ import { NewRating } from '../pages/NewRating';
 import { AccountUpdate } from '../pages/AccountUpdate';
 import { EditClassified } from '../pages/EditClassified';
 import { NewPost } from '../pages/NewPost';
+import { EditPost } from '../pages/EditPost';
 
 export function Routes() {
   return (
@@ -40,6 +41,7 @@ export function Routes() {
       <Route path="/dashboard/posts" component={DashboardPosts} />
       <Route path="/dashboard/account" component={AccountUpdate} />
       <Route path="/dashboard/classificado/:id" component={EditClassified} />
+      <Route path="/dashboard/post/:id" component={EditPost} />
     </Switch>
   );
 }
