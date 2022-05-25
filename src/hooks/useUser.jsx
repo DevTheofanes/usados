@@ -11,7 +11,6 @@ import { history } from '../services/history';
 const UserContext = createContext([]);
 
 export function UserContextProvider({ children }) {
-  // const host = "https://server.voucolar.com.br:8002"
   const host = 'http://127.0.0.1:8080';
 
   const [user, setUser] = useState({});

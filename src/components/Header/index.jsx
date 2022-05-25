@@ -28,8 +28,11 @@ import {
 
 import LogoImg from '../../assets/logo/logoWhite.png';
 import api from '../../services/api';
+import { useUser } from '../../hooks/useUser';
 
 export function HeaderComponent() {
+  const { user } = useUser();
+
   const [categories, setCategories] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [categorySelected, setCategorySelected] = useState([]);
@@ -68,9 +71,17 @@ export function HeaderComponent() {
             </HeaderNavigationButtonsEntry>
           </HeaderNavigationButtons> */}
 
-          <HeaderNavigationButton href="/cadastro/lojista">
-            Sou anunciante
-          </HeaderNavigationButton>
+          {
+            user ? (
+              <HeaderNavigationButton href="/dashboard/classificados">
+                Dashboard
+              </HeaderNavigationButton>
+            ) : (
+              <HeaderNavigationButton href="/login">
+                Sou anunciante
+              </HeaderNavigationButton>
+            )
+          }
         </HeaderNavigation>
 
         <HeaderSearch>

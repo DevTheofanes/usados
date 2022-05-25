@@ -28,15 +28,23 @@ export const LinkPage = styled.a`
 
   color: #fff;
 
-  svg{
-    margin-right: .5rem;
+  svg {
+    margin-right: 0.5rem;
   }
 
-  span{
-    font-size: .8rem;
+  span {
+    font-size: 0.8rem;
   }
 
-  path{
+  path {
     stroke: #fff;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    border: 0;
+    background-color: transparent;
+    color: var(--white);
   }
 `;
