@@ -78,7 +78,7 @@ export const FormButton = styled.button`
   margin-bottom: 2rem;
 `;
 
-export const FormButtonHighLight = styled.button`
+export const FormButtonHighLight = styled.a`
   background-color: var(--white);
   display: flex;
   height: 2.8rem;
@@ -92,6 +92,7 @@ export const FormButtonHighLight = styled.button`
   border-radius: .5rem;
   width: 10rem;
   margin-bottom: 2rem;
+  text-decoration: none !important;
 `;
 
 export const FormConfigs = styled.div`

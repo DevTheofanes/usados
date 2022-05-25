@@ -85,7 +85,7 @@ export function SignIn() {
             <FormConfigs>
               <FormButtonHighLight
                 className="btn-Highlight"
-                onClick={() => handleSignIn()}
+                href="/cadastro/lojista"
               >
                 Cadastrar
               </FormButtonHighLight>
