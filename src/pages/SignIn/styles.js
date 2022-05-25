@@ -13,7 +13,7 @@ export const SignPage = styled.div`
   background-size: cover;
   height: 52rem;
   width: 100%;
-  z-index: -1;
+  z-index: 0;
 
   display: grid;
   grid-template-columns: 3fr 2fr 1fr;
@@ -27,6 +27,7 @@ export const Form = styled.div`
   background-color: #fff;
   width: 25.2rem;
   border-radius: .5rem;
+  z-index: 1;
 `;
 
 export const FormOptionButton = styled.button`

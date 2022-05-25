@@ -6,6 +6,7 @@ export const Container = styled.div`
   width: 100%;
   background-color: var(--primaryColor);
   max-height: 20rem;
+  z-index: 2;
 `;
 
 export const Header = styled.div`
