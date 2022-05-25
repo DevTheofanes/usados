@@ -23,16 +23,26 @@ import {
 import api from '../../../../services/api';
 
 export function DashboardItemTable(props) {
-  const { title, classified } = props;
+  const { title, classified, post } = props;
   const { host } = useUser();
 
-  async function handleDeleteItem(id, close) {
-    try {
-      const response = await api.delete(`/classified/${id}`);
-      window.location.reload();
-    } catch (error) {
-      toast.error(error.response.data.error);
-      console.log(error.response.data.error);
+  async function handleDeleteItem(close) {
+    if (classified) {
+      try {
+        const response = await api.delete(`/classified/${classified.id}`);
+        window.location.reload();
+      } catch (error) {
+        toast.error(error.response.data.error);
+        console.log(error.response.data.error);
+      }
+    } else {
+      try {
+        const response = await api.delete(`/post/${post.id}`);
+        window.location.reload();
+      } catch (error) {
+        toast.error(error.response.data.error);
+        console.log(error.response.data.error);
+      }
     }
     close();
   }
@@ -44,12 +54,12 @@ export function DashboardItemTable(props) {
           src={
             classified
               ? `${host}/files/${classified.mainImage}`
-              : 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80'
+              : `${host}/files/${post.mainImageUrl}`
           }
-          alt={classified ? classified.title : 'Hb20'}
+          alt={classified ? classified.title : post.title}
         />
         <InfoTextContainer>
-          <span>{classified ? classified.title : 'CARRO ESPORTIVO'}</span>
+          <span>{classified ? classified.title : post.title}</span>
           {classified ? (
             <strong>
               {new Intl.NumberFormat('pt-BR', {
@@ -62,7 +72,7 @@ export function DashboardItemTable(props) {
       </Infos>
 
       <p>
-        {classified ? classified.messageCreated : 'Postado no dia 15/02/2021'}
+        {classified ? classified.messageCreated : post.messageCreated}
       </p>
 
       <ButtonsContainer>
@@ -70,7 +80,7 @@ export function DashboardItemTable(props) {
           href={
             classified
               ? `/dashboard/classificado/${classified.id}`
-              : '/dashboard/classificado/'
+              : `/dashboard/post/${post.id}`
           }
         >
           {`Editar ${title === 'classified' ? 'anúncio' : 'postagem'}`}
@@ -104,7 +114,7 @@ export function DashboardItemTable(props) {
 
                   <button
                     className="btnDelete"
-                    onClick={() => handleDeleteItem(classified.id, close)}
+                    onClick={() => handleDeleteItem(close)}
                   >
                     Apagar
                   </button>

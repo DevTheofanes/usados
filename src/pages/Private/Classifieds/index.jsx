@@ -51,9 +51,6 @@ export function DashboardClassifieds() {
             classified={classified}
           />
         ))}
-        {/* <DashboardItemTable title="classified" />
-        <DashboardItemTable title="classified" />
-        <DashboardItemTable title="classified" /> */}
       </DashboardContainerTable>
     </DashboardContainer>
   );
