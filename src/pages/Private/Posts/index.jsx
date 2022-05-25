@@ -16,9 +16,9 @@ export function DashboardPosts() {
   return (
     <DashboardContainer>
       <DashboardContainerButtons>
-        <button>
-          Nova postagem no perfil
-        </button>
+        <a href="/cadastro/classificado">
+          Fazer uma publicação
+        </a>
       </DashboardContainerButtons>
 
       <DashboardContainerTable title="post">

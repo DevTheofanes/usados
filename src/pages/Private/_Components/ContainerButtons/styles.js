@@ -16,10 +16,10 @@ export const Container = styled.div`
     background-color: #ffde00;
     border: 0;
     border-radius: .5rem;
-    width: 10rem;
-    height: 1.8rem;
+    width: 11.25rem;
+    height: 2.4rem;
     font-weight: bold;
-    font-size: .7rem;
+    font-size: .8rem;
   }
 
   a{
@@ -31,9 +31,9 @@ export const Container = styled.div`
     background-color: #ffde00;
     border: 0;
     border-radius: .5rem;
-    width: 10rem;
-    height: 1.8rem;
+    width: 11.25rem;
+    height: 2.4rem;
     font-weight: bold;
-    font-size: .7rem;
+    font-size: .8rem;
   }
 `;

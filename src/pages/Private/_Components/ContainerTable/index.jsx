@@ -8,7 +8,7 @@ export function DashboardContainerTable(props) {
   return (
     <Container>
       <span className="titleTable">
-        {title === 'classified' ? 'Anúncios Ativos' : 'Publicado'}
+        {title === 'classified' ? 'Anúncios Ativos' : 'Todos os Publicados'}
       </span>
 
       {children}
