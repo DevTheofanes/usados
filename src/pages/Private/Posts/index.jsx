@@ -16,7 +16,7 @@ export function DashboardPosts() {
   return (
     <DashboardContainer>
       <DashboardContainerButtons>
-        <a href="/cadastro/classificado">
+        <a href="/perfil/posts">
           Fazer uma publicação
         </a>
       </DashboardContainerButtons>

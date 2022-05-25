@@ -17,6 +17,7 @@ import { DashboardPosts } from '../pages/Private/Posts';
 import { NewRating } from '../pages/NewRating';
 import { AccountUpdate } from '../pages/AccountUpdate';
 import { EditClassified } from '../pages/EditClassified';
+import { NewPost } from '../pages/NewPost';
 
 export function Routes() {
   return (
@@ -30,6 +31,7 @@ export function Routes() {
       <Route path="/classificados" component={ClassifiedsPage} />
       <Route path="/classificado/:id" exact component={ClassifiedPage} />
       <Route path="/cadastro/classificado" component={NewClassified} />
+      <Route path="/perfil/posts" component={NewPost} />
       <Route path="/perfil/lojista/:id/avaliacoes" exact component={RatingsPage} />
       <Route path="/perfil/lojista/:id/avaliacoes/new" component={NewRating} />
       <Route path="/perfil/lojista/:id" exact component={ProfileShopPage} />
