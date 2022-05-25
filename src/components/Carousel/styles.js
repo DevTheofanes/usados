@@ -114,4 +114,17 @@ export const Thumbnail = styled.button`
 
   width: 104.4px;
   height: 73.37px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  button {
+    margin-top: .2rem;
+    margin-right: .2rem;
+    border: 0;
+    background-color: transparent;
+    color: var(--white);
+    font-weight: 600;
+  }
 `;

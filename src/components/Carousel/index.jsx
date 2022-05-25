@@ -15,7 +15,7 @@ import {
   Thumbnail,
 } from './styles';
 
-export function Carousel({ images }) {
+export function Carousel({ images, preview, onRemoveImage }) {
   const [index, setIndex] = useState(1);
   const [files, setFiles] = useState([]);
 
@@ -76,6 +76,17 @@ export function Carousel({ images }) {
 
       newFiles[0].active = true;
 
+      if (index > newFiles.length) {
+        newFiles[0].active = false;
+        newFiles[newFiles.length - 1].active = true;
+        setIndex(newFiles.length);
+      }
+
+      if (index > 1) {
+        newFiles[0].active = false;
+        newFiles[index - 1].active = true;
+      }
+
       setFiles(newFiles);
     }
   }, [images]);
@@ -111,14 +122,25 @@ export function Carousel({ images }) {
       </ContainerMain>
 
       <ContainerThumbnails>
-        {files.map((file, i) => (
+        {files.map((file, i) => (preview ? (
+          <Thumbnail
+            key={file.filename}
+            url={file.filename}
+            active={file.active}
+            onClick={() => handleCircleButton(i)}
+          >
+            <button onClick={() => onRemoveImage(file)}>
+              X
+            </button>
+          </Thumbnail>
+        ) : (
           <Thumbnail
             key={file.filename}
             url={file.filename}
             active={file.active}
             onClick={() => handleCircleButton(i)}
           />
-        ))}
+        )))}
       </ContainerThumbnails>
     </Container>
   );
