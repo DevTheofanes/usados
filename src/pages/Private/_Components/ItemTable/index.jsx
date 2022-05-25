@@ -62,8 +62,7 @@ export function DashboardItemTable(props) {
       </Infos>
 
       <p>
-        Postado no dia
-        {classified ? classified.createdAt : '15/02/2021'}
+        {classified ? classified.messageCreated : 'Postado no dia 15/02/2021'}
       </p>
 
       <ButtonsContainer>
@@ -74,9 +73,7 @@ export function DashboardItemTable(props) {
               : '/dashboard/classificado/'
           }
         >
-          Editar
-          {' '}
-          {title === 'classified' ? 'anúncio' : 'postagem'}
+          {`Editar ${title === 'classified' ? 'anúncio' : 'postagem'}`}
         </ButtonEdit>
 
         <Popup
@@ -84,9 +81,7 @@ export function DashboardItemTable(props) {
           modal
           trigger={(
             <ButtonDelete>
-              Excluir
-              {' '}
-              {title === 'classified' ? 'anúncio' : 'postagem'}
+              {`Excluir ${title === 'classified' ? 'anúncio' : 'postagem'}`}
             </ButtonDelete>
           )}
         >

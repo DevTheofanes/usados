@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const Content = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 3fr 2fr;
+  /* display: grid; */
+  /* grid-template-columns: 2fr 3fr 2fr; */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 
   padding-bottom: 2rem;
@@ -49,11 +51,17 @@ export const ButtonsContainer = styled.div`
 
 export const ButtonEdit = styled.a`
   border: 0;
-  background-color: #1a1e3a;
-  color: #fff;
+  background-color: var(--primaryColor);
+  color: var(--white);
   border-radius: .25rem;
-  padding: .25rem .5rem;
+  height: 2.4rem;
+  width: 8.2rem;
   font-size: .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  font-weight: 500;
 `;
 
 export const ButtonDelete = styled.button`
@@ -63,10 +71,11 @@ export const ButtonDelete = styled.button`
   background-color: #e30613;
   color: #fff;
   border-radius: .25rem;
-  padding: .25rem .5rem;
+  height: 2.4rem;
+  width: 8.2rem;
 
   font-size: .8rem;
-
+  font-weight: 500;
 `;
 
 export const ModalConfirmDeleteContainer = styled.div`

@@ -6,7 +6,7 @@ export const Container = styled.div`
   box-sizing: border-box;
 
   width: 100%;
-  padding: 2rem 8rem 2rem 10rem;
+  padding: 2rem;
   gap: 6rem;
   /* background-color: #1a1e3a; */
 `;
@@ -29,6 +29,7 @@ export const InfoContainer = styled.div`
     border-radius: .5rem;
     height: 6rem;
     width: 100%;
+    max-width: 14rem;
 
     font-size: 1.6rem;
 

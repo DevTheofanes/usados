@@ -8,7 +8,7 @@ export const Container = styled.div`
 
 
   margin: 0 auto;
-  padding: 1rem 0 0 0;
+  padding: 1rem 1rem 0 0;
   overflow-y: auto;
 
   .titleTable{
