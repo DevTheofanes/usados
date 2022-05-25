@@ -76,15 +76,15 @@ export function Carousel({ images, preview, onRemoveImage }) {
 
       newFiles[0].active = true;
 
+      if (index < newFiles.length && index > 1) {
+        newFiles[0].active = false;
+        newFiles[index - 1].active = true;
+      }
+
       if (index > newFiles.length) {
         newFiles[0].active = false;
         newFiles[newFiles.length - 1].active = true;
         setIndex(newFiles.length);
-      }
-
-      if (index > 1) {
-        newFiles[0].active = false;
-        newFiles[index - 1].active = true;
       }
 
       setFiles(newFiles);
