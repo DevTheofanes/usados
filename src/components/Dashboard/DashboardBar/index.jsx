@@ -14,7 +14,9 @@ export function DashboardBar() {
 
   return (
     <Container>
-      <Logo src={LogoImg} alt="Logo" />
+      <a href="/">
+        <Logo src={LogoImg} alt="Logo" />
+      </a>
 
       <LinkPage href="/dashboard/posts">
         <BsFilePost color="#fff" size={20} />
