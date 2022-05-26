@@ -163,7 +163,7 @@ export const ClassifiedsPagesButtonsContainer = styled.div`
   width: 50%;
 `;
 
-export const ClassifiedsPagesButton = styled.div`
+export const ClassifiedsPagesButton = styled.button`
   background-color: #1a1e3a;
   color: #fff;
   height: 2rem;
@@ -172,6 +172,7 @@ export const ClassifiedsPagesButton = styled.div`
   align-items: center;
   justify-content: center;
 
+  border: 0;
   border-radius: 0.25rem;
   padding: 0 0.5rem;
 

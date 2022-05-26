@@ -43,17 +43,24 @@ export function ClassifiedsPage() {
   const [classifieds, setClassifieds] = useState([]);
   const [regions, setRegions] = useState([]);
 
-  useEffect(() => {
-    async function loadClassifieds() {
-      try {
-        const response = await api.get('/classifieds/filters');
-        setClassifieds(response.data);
-      } catch (error) {
-        toast.warn(error.response.data.error);
-        console.log(error.response.data.error);
-      }
-    }
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
 
+  async function loadClassifieds() {
+    try {
+      let filters = '';
+      filters += `?page=${page}`;
+
+      const response = await api.get(`/classifieds/filters${filters}`);
+      setClassifieds(response.data.classifieds);
+      setTotal(response.data.total);
+    } catch (error) {
+      toast.warn(error.response.data.error);
+      console.log(error.response.data.error);
+    }
+  }
+
+  useEffect(() => {
     async function loadRegions() {
       try {
         const response = await api.get('/regions');
@@ -66,6 +73,25 @@ export function ClassifiedsPage() {
     loadClassifieds();
     loadRegions();
   }, []);
+
+  useEffect(() => {
+    loadClassifieds();
+  }, [page]);
+
+  function nextPage() {
+    const totalPages = Math.ceil(total / 10);
+    if (page >= totalPages) {
+      return;
+    }
+    setPage(page + 1);
+  }
+
+  function backPage() {
+    if (page === 1) {
+      return;
+    }
+    setPage(page - 1);
+  }
 
   return (
     <Container>
@@ -84,7 +110,7 @@ export function ClassifiedsPage() {
               <select name="" id="">
                 <option value="a">São Paulo</option>
                 {regions.map((region) => (
-                  <option value={region.sigla}>{region.name}</option>
+                  <option key={region.name} value={region.sigla}>{region.name}</option>
                 ))}
               </select>
             </FiltersItem>
@@ -163,19 +189,24 @@ export function ClassifiedsPage() {
               </ClassifiedsLinks>
             </ClassifiedsBox>
           ))}
-          <ClassifiedsPagesButtonsContainer>
-            <ClassifiedsPagesButton>
-              <AiOutlineArrowLeft color="#fff" size={12} />
-              Pagina Anterior
-            </ClassifiedsPagesButton>
 
-            <ClassifiedsPagesQuantity>1</ClassifiedsPagesQuantity>
+          {
+            total > 10 ? (
+              <ClassifiedsPagesButtonsContainer>
+                <ClassifiedsPagesButton onClick={() => backPage()}>
+                  <AiOutlineArrowLeft color="#fff" size={12} />
+                  Pagina Anterior
+                </ClassifiedsPagesButton>
 
-            <ClassifiedsPagesButton>
-              Proxima Pagina
-              <AiOutlineArrowRight color="#fff" size={12} />
-            </ClassifiedsPagesButton>
-          </ClassifiedsPagesButtonsContainer>
+                <ClassifiedsPagesQuantity>{page}</ClassifiedsPagesQuantity>
+
+                <ClassifiedsPagesButton onClick={() => nextPage()}>
+                  Proxima Pagina
+                  <AiOutlineArrowRight color="#fff" size={12} />
+                </ClassifiedsPagesButton>
+              </ClassifiedsPagesButtonsContainer>
+            ) : null
+          }
         </ContentClassifieds>
       </Content>
 

@@ -23,7 +23,6 @@ export function DashboardClassifieds() {
   async function loadClassifieds() {
     try {
       const response = await api.get(`/user/${user.id}/classifieds`);
-      console.log(response.data);
       setClassifieds(response.data);
     } catch (error) {
       toast.warn('Algo deu errado, tente novamente mais tarde.');
