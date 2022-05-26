@@ -11,7 +11,7 @@ export const Container = styled.div`
   cursor: pointer;
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
   background-color: var(--primaryColor);
   color: var(--white);
   height: 2rem;
@@ -20,6 +20,7 @@ export const Button = styled.div`
   align-items: center;
   justify-content: center;
 
+  border: 0;
   border-radius: 0.25rem;
   /* padding: 0 .5rem 0 1rem; */
 

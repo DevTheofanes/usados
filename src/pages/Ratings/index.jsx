@@ -32,14 +32,27 @@ export function RatingsPage() {
   const [shop, setShop] = useState({});
   const [ratings, setRatings] = useState([]);
   const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+
+  async function loadRating() {
+    try {
+      let filters = '';
+      filters += `?page=${page}`;
+      const responseRatings = await api.get(`/user/${id}/ratings${filters}`);
+      setRatings(responseRatings.data.ratings);
+      setTotal(responseRatings.data.total);
+    } catch (error) {
+      toast.error(error.response.data.error);
+      history.push('/');
+      console.log(error.response.data);
+    }
+  }
 
   async function loadInfos() {
     try {
       const response = await api.get(`/user/${id}`);
-      const responseRatings = await api.get(`/user/${id}/ratings`);
       setShop(response.data);
-      setRatings(responseRatings.data.ratings);
-      setTotal(responseRatings.data.totalRatings);
+      loadRating();
     } catch (error) {
       toast.error(error.response.data.error);
       history.push('/');
@@ -50,13 +63,20 @@ export function RatingsPage() {
   useEffect(() => {
     loadInfos();
     // eslint-disable-next-line no-sparse-arrays
-  }, [, id]);
+  }, [id]);
+
+  useEffect(() => {
+    loadRating();
+    // eslint-disable-next-line no-sparse-arrays
+  }, [page]);
 
   return (
     <Container>
       <HeaderComponent showIconsBar={false} />
       <Content>
-        <div><SideBarComponent host={host} shop={shop} numberRatings={+total} /></div>
+        <div>
+          <SideBarComponent host={host} shop={shop} numberRatings={+total} />
+        </div>
         <Ratings>
           <RatingsList>
             {ratings.map((rating) => (
@@ -73,15 +93,19 @@ export function RatingsPage() {
                     <RenderStarsComponent size={12} rating={+rating.rating} />
                   </RatingItemUserInfos>
                 </RatingItemHeader>
-                <h5>
-                  {rating.title}
-                </h5>
+                <h5>{rating.title}</h5>
                 <p>{rating.comments}</p>
               </RatingItem>
             ))}
           </RatingsList>
 
-          <PaginationButtonsComponent />
+          {total > 9 ? (
+            <PaginationButtonsComponent
+              page={page}
+              total={total}
+              setPage={setPage}
+            />
+          ) : null}
         </Ratings>
       </Content>
       <PublicityFooter />
