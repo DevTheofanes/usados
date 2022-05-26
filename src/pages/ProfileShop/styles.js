@@ -19,7 +19,7 @@ export const ProfileHeaderBanner = styled.div`
   img {
     height: 16rem;
     width: 100%;
-    /* z-index: 0; */
+    z-index: 3;
   }
 `;
 
