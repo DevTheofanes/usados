@@ -6,6 +6,7 @@ export const SideBar = styled.div`
   align-items: center;
   background-color: var(--background);
   padding: 1.5rem;
+  max-height: 69.25rem;
 
   border-radius: .25rem;
 

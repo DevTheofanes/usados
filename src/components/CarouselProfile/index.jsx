@@ -1,31 +1,21 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   AiOutlineArrowLeft,
   AiOutlineArrowRight,
 } from 'react-icons/ai';
 import { FaCircle } from 'react-icons/fa';
+import { useUser } from '../../hooks/useUser';
 
 import {
   CarouselButton, CarouselButtonCircle, CarouselButtonCircles, Container, Content,
 } from './styles';
 
-export function CarouselProfile() {
+export function CarouselProfile({ images }) {
   const [index, setIndex] = useState(1);
-  const [files, setFiles] = useState([
-    {
-      active: true,
-      filename: 'https://media.istockphoto.com/photos/hot-air-balloons-flying-over-the-botan-canyon-in-turkey-picture-id1297349747?b=1&k=20&m=1297349747&s=170667a&w=0&h=oH31fJty_4xWl_JQ4OIQWZKP8C6ji9Mz7L4XmEnbqRU=',
-    },
-    {
-      active: false,
-      filename: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,dpr_3.0,f_auto,g_center,h_393,q_auto,w_713/v1/pgatour/editorial/2022/04/17/fleetwood-1694-patricksmith.jpg',
-    },
-    {
-      active: false,
-      filename: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH3GpTZ6z7zml3eWQkBPqvpNE7KYFcRoBUrnOYiKGHVTjX6SqVKn_sujE8pJ1gu2bNElc&usqp=CAU',
-    },
-  ]);
+  const [files, setFiles] = useState([]);
+
+  const { host } = useUser();
 
   function handlePrev() {
     const disableAllFiles = files.map((file) => ({
@@ -72,7 +62,24 @@ export function CarouselProfile() {
     setIndex(i + 1);
   }
 
-  return (
+  useEffect(() => {
+    if (images && images.length) {
+      console.log('ping here');
+
+      console.log(images);
+      const newFiles = images.map((file) => ({
+        ...file,
+        filename: `${host}/files/${file.filename}`,
+        active: false,
+      }));
+
+      newFiles[0].active = true;
+
+      setFiles(newFiles);
+    }
+  }, [images]);
+
+  return files.length ? (
     <Container>
       <CarouselButton className="CarouselButton" onClick={() => handlePrev()}>
         <AiOutlineArrowLeft size={24} />
@@ -87,13 +94,13 @@ export function CarouselProfile() {
 
       <CarouselButtonCircles>
         {
-          files.map((file, i) => (
-            <CarouselButtonCircle key={file.filename} onClick={() => handleCircleButton(i)}>
-              <FaCircle color={file.active ? '#fff' : '#dddada'} size={10} />
-            </CarouselButtonCircle>
-          ))
-        }
+            files.map((file, i) => (
+              <CarouselButtonCircle key={file.filename} onClick={() => handleCircleButton(i)}>
+                <FaCircle color={file.active ? '#fff' : '#dddada'} size={10} />
+              </CarouselButtonCircle>
+            ))
+          }
       </CarouselButtonCircles>
     </Container>
-  );
+  ) : null;
 }

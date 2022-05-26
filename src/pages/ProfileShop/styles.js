@@ -295,10 +295,8 @@ export const ProfileInfos = styled.div`
 
 export const ProfileItem = styled.div`
   padding: 1.5rem;
-  /* background-color: #fff; */
   background-color: var(--background);
-
-  /* margin-top: 2rem; */
+  margin-bottom: 2rem;
 
   p {
     margin: 2rem 0;

@@ -6,19 +6,13 @@ import { toast } from 'react-toastify';
 import {
   Container,
   Content,
-  // HeaderBar,
-  // Profile,
   ProfileAvatar,
-  // ProfileHeader,
   ProfileHeaderBanner,
-  // ProfileImages,
   ProfileItem,
   ProfileList,
-  // RatingsContainer,
   ShopInfos,
 } from './styles';
 
-// import { HeaderLoggedComponent } from '../../components/HeaderLogged';
 import { FooterComponent } from '../../components/Footer';
 import { PublicityFooter } from '../../components/PublicityFooter';
 
@@ -26,84 +20,95 @@ import api from '../../services/api';
 import history from '../../services/history';
 import { useUser } from '../../hooks/useUser';
 import { CarouselProfile } from '../../components/CarouselProfile';
-// import { HeaderProfileComponent } from '../../components/HeaderProfile';
 import { SideBarComponent } from '../../components/SideBar';
 import { HeaderComponent } from '../../components/Header';
+import { PaginationButtonsComponent } from '../../components/PaginationButtons';
 
 export function ProfileShopPage() {
   const { id } = useParams();
   const { host } = useUser();
 
   const [shop, setShop] = useState({});
-  // eslint-disable-next-line no-unused-vars
-  const [ratings, setRatings] = useState([]);
+  const [posts, setPosts] = useState([]);
+
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+
+  async function loadPosts() {
+    try {
+      let filters = '';
+      filters += `?page=${page}`;
+      const responseRatings = await api.get(`/user/${id}/posts${filters}`);
+      setPosts(responseRatings.data.posts);
+      setTotal(responseRatings.data.total);
+    } catch (error) {
+      console.log(error.response.data);
+      toast.error(error.response.data.error);
+      history.push('/');
+    }
+  }
 
   async function loadInfos() {
     try {
       const response = await api.get(`/user/${id}`);
-      const responseRatings = await api.get(`/user/${id}/ratings`);
       setShop(response.data);
-      setRatings(responseRatings.data.length);
+      loadPosts();
     } catch (error) {
       toast.error(error.response.data.error);
-      history.push('/');
       console.log(error.response.data);
+      history.push('/');
     }
   }
 
   useEffect(() => {
     loadInfos();
-  // eslint-disable-next-line no-sparse-arrays
-  }, [, id]);
+  }, [id]);
+
+  useEffect(() => {
+    loadPosts();
+  }, [page]);
+
+  console.log(posts);
 
   return (
     <Container>
-      {/* <HeaderProfileComponent /> */}
       <HeaderComponent showIconsBar={false} height="20rem" />
       <ProfileHeaderBanner>
-        <img
-          src={`${host}/files/${shop.profileCoverUrl}`}
-          alt={shop.name}
-        />
+        <img src={`${host}/files/${shop.profileCoverUrl}`} alt={shop.name} />
       </ProfileHeaderBanner>
       <Content>
         <SideBarComponent host={host} shop={shop} />
 
         <ProfileList>
-          <ProfileItem>
-            <ProfileAvatar>
-              <img
-                src={`${host}/files/${shop.profileUrl}`}
-                alt={shop.name}
-              />
-              <ShopInfos>
-                <strong>{shop.name}</strong>
-                <span>Publicado Ontem às 18:06</span>
-              </ShopInfos>
-            </ProfileAvatar>
+          {posts.map((post) => (
+            <ProfileItem key={post.id}>
+              <ProfileAvatar>
+                <img src={`${host}/files/${shop.profileUrl}`} alt={shop.name} />
+                <ShopInfos>
+                  <strong>{shop.name}</strong>
+                  <span>{post.messageCreated}</span>
+                </ShopInfos>
+              </ProfileAvatar>
 
-            <h5>Titulo da Publicação</h5>
+              <h5>{post.title}</h5>
 
-            <CarouselProfile />
+              {post.images.length > 0 ? (
+                <CarouselProfile images={post.images} />
+              ) : null}
 
-            <p>
-              Mais uma venda bem sucedida feita aqui na Macedo Car!
-              {' '}
-              <br />
-              Nosso cliente amigo saiu daqui muito satisfeito com seu novo
-              veiculo
-              {' '}
-              <br />
-              Quer ter essa experiência e sair de um carro novo pagando pouco?
-              <br />
-              <br />
-              #VemPraMacedoCar
-              <br />
-              Estaremos sempre à disposição para tornar seu sonho realidade!
-              <br />
-              (91) 99191-7857
-            </p>
-          </ProfileItem>
+              <p>
+                {post.description}
+              </p>
+            </ProfileItem>
+          ))}
+
+          {total > 10 ? (
+            <PaginationButtonsComponent
+              page={page}
+              total={total}
+              setPage={setPage}
+            />
+          ) : null}
         </ProfileList>
       </Content>
 
