@@ -32,7 +32,7 @@ import LogoIconImage from '../../assets/logo/iconWhite.png';
 export function AboutPage() {
   return (
     <Container>
-      <HeaderComponent heigth="16rem" />
+      <HeaderComponent height="16rem" />
       <SignPage backgroundImage={BackgroundBanner}>
         <Content>
           <div />
