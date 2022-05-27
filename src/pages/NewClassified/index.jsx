@@ -23,9 +23,11 @@ import { FooterComponent } from '../../components/Footer';
 import api from '../../services/api';
 import history from '../../services/history';
 import { useUser } from '../../hooks/useUser';
+// import { FiltersItem } from '../Classifieds/styles';
 
 export function NewClassified() {
   const { user } = useUser();
+  const [regions, setRegions] = useState([]);
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -83,7 +85,7 @@ export function NewClassified() {
       !title
       || !description
       || !category
-      || !uf
+      || uf === 'a'
       || !value
       || !methodPay
       || !mainImage
@@ -108,36 +110,56 @@ export function NewClassified() {
       isDelivered,
       isPix,
       mainImage: mainImageUrl,
+      images: [],
     };
 
     if (aImage) {
-      data.aImageUrl = await getUrl(aImage);
+      const filename = await getUrl(aImage);
+      data.images = [...data.images, filename];
     }
 
     if (bImage) {
-      data.bImageUrl = await getUrl(bImage);
+      const filename = await getUrl(bImage);
+      data.images = [...data.images, filename];
     }
 
     if (cImage) {
-      data.cImageUrl = await getUrl(cImage);
+      const filename = await getUrl(cImage);
+      data.images = [...data.images, filename];
     }
 
     if (dImage) {
-      data.dImageUrl = await getUrl(dImage);
+      const filename = await getUrl(dImage);
+      data.images = [...data.images, filename];
     }
 
     if (eImage) {
-      data.eImageUrl = await getUrl(eImage);
+      const filename = await getUrl(eImage);
+      data.images = [...data.images, filename];
     }
 
     if (fImage) {
-      data.fImageUrl = await getUrl(fImage);
+      const filename = await getUrl(fImage);
+      data.images = [...data.images, filename];
     }
 
     console.log(data);
 
     await postClassified(data);
   }
+
+  useEffect(() => {
+    async function loadRegions() {
+      try {
+        const response = await api.get('/regions');
+        setRegions(response.data);
+      } catch (error) {
+        console.log(error.response.data.error);
+      }
+    }
+
+    loadRegions();
+  }, []);
 
   return (
     <Container>
@@ -184,11 +206,12 @@ export function NewClassified() {
 
             <FormInput>
               <span>Localização</span>
-              <input
-                value={uf}
-                onChange={(e) => setUf(e.target.value)}
-                type="text"
-              />
+              <select name="" id="" onChange={(e) => setUf(e.target.value)}>
+                <option value="a"> </option>
+                {regions.map((region) => (
+                  <option key={region.name} value={region.sigla}>{region.name}</option>
+                ))}
+              </select>
             </FormInput>
 
             <FormInput>
