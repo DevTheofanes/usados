@@ -117,7 +117,7 @@ export function ClassifiedPage() {
               <p>{classified.methodPay}</p>
 
               <h5>Localização</h5>
-              <p>{classified.city}</p>
+              <p>{classified.uf}</p>
 
               <h5>Mais Informações</h5>
               {classified.isPix ? (<p>- Aceita Pix</p>) : null}
