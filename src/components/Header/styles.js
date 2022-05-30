@@ -87,6 +87,8 @@ export const HeaderSearchInput = styled.div`
   box-sizing: border-box;
   border-left: 1px solid #676767;
   margin-left: 1rem;
+  display: flex;
+  align-items: center;
 
   input{
     border: 0;

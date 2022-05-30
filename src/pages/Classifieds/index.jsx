@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
@@ -38,7 +39,9 @@ import { useUser } from '../../hooks/useUser';
 import { ShopAvatar } from '../../components/ShopAvatar';
 
 export function ClassifiedsPage() {
-  const { host } = useUser();
+  const {
+    host, categorySelected, search,
+  } = useUser();
 
   const [classifieds, setClassifieds] = useState([]);
   const [regions, setRegions] = useState([]);
@@ -46,15 +49,50 @@ export function ClassifiedsPage() {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
 
+  const [ufSelected, setUfSelected] = useState('');
+  const [isNew, setIsNew] = useState('a');
+
+  const [loading, setLoading] = useState(false);
+
   async function loadClassifieds() {
     try {
+      setLoading(true);
       let filters = '';
       filters += `?page=${page}`;
+      const searchData = localStorage.getItem('@novosUsados/search');
+      const categoryData = localStorage.getItem('@novosUsados/category');
+
+      if (categorySelected && categorySelected !== 'a') {
+        filters += `&category=${categorySelected}`;
+      }
+
+      if (!categorySelected && categoryData && categoryData !== 'a') {
+        filters += `&category=${categoryData}`;
+      }
+
+      if (ufSelected && ufSelected !== 'a') {
+        filters += `&uf=${ufSelected}`;
+      }
+
+      if (isNew && isNew !== 'a') {
+        filters += `&isNew=${isNew}`;
+      }
+
+      if (search) {
+        filters += `&q=${search}`;
+      }
+
+      if (!search && searchData) {
+        filters += `&q=${searchData}`;
+      }
 
       const response = await api.get(`/classifieds/filters${filters}`);
+
       setClassifieds(response.data.classifieds);
       setTotal(response.data.total);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       toast.warn(error.response.data.error);
       console.log(error.response.data.error);
     }
@@ -69,14 +107,14 @@ export function ClassifiedsPage() {
         console.log(error.response.data.error);
       }
     }
-
-    loadClassifieds();
     loadRegions();
   }, []);
 
   useEffect(() => {
-    loadClassifieds();
-  }, [page]);
+    if (!loading) {
+      loadClassifieds();
+    }
+  }, [ufSelected, isNew, page, categorySelected, search]);
 
   function nextPage() {
     const totalPages = Math.ceil(total / 10);
@@ -95,7 +133,7 @@ export function ClassifiedsPage() {
 
   return (
     <Container>
-      <HeaderComponent showIconsBar={false} />
+      <HeaderComponent showIconsBar={false} noClean />
 
       <Content>
         <SideBand>
@@ -107,8 +145,8 @@ export function ClassifiedsPage() {
 
             <FiltersItem>
               <span>Selecione um estado</span>
-              <select name="" id="">
-                <option value="a">São Paulo</option>
+              <select name="" id="" onChange={(e) => setUfSelected(e.target.value)}>
+                <option value="a"> </option>
                 {regions.map((region) => (
                   <option key={region.name} value={region.sigla}>{region.name}</option>
                 ))}
@@ -117,9 +155,10 @@ export function ClassifiedsPage() {
 
             <FiltersItem>
               <span>Selecione uma opção</span>
-              <select name="" id="">
-                <option value="a">Novos</option>
-                <option value="a">Usados</option>
+              <select name="" id="" onChange={(e) => setIsNew(e.target.value)}>
+                <option value="a"> </option>
+                <option value="true">Novos</option>
+                <option value="false">Usados</option>
               </select>
             </FiltersItem>
           </SideBandFilters>
