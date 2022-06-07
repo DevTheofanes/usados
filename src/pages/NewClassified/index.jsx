@@ -15,6 +15,7 @@ import {
   FormSubmit,
   FormSubmitAcceptTerms,
   FormSubmitButton,
+  ImageInputPrimary,
   SignUpContainer,
 } from './styles';
 
@@ -26,7 +27,7 @@ import { useUser } from '../../hooks/useUser';
 // import { FiltersItem } from '../Classifieds/styles';
 
 export function NewClassified() {
-  const { user } = useUser();
+  const { user, host } = useUser();
   const [regions, setRegions] = useState([]);
 
   const [title, setTitle] = useState('');
@@ -143,8 +144,6 @@ export function NewClassified() {
       data.images = [...data.images, filename];
     }
 
-    console.log(data);
-
     await postClassified(data);
   }
 
@@ -160,6 +159,18 @@ export function NewClassified() {
 
     loadRegions();
   }, []);
+
+  async function handleImage(orderImage, data) {
+    const url = await getUrl(data);
+    switch (orderImage) {
+      case 'main':
+        setMainImage(url);
+        break;
+
+      default:
+        break;
+    }
+  }
 
   return (
     <Container>
@@ -209,7 +220,9 @@ export function NewClassified() {
               <select name="" id="" onChange={(e) => setUf(e.target.value)}>
                 <option value="a"> </option>
                 {regions.map((region) => (
-                  <option key={region.name} value={region.sigla}>{region.name}</option>
+                  <option key={region.name} value={region.sigla}>
+                    {region.name}
+                  </option>
                 ))}
               </select>
             </FormInput>
@@ -280,14 +293,18 @@ export function NewClassified() {
           <FormColumn>
             <FormInputPrimary>
               <span>Foto principal </span>
-              <label htmlFor="perfil">
-                <MdPhotoSizeSelectActual color="#999" size={52} />
-              </label>
+              {!mainImage ? (
+                <label htmlFor="perfil">
+                  <MdPhotoSizeSelectActual color="#999" size={52} />
+                </label>
+              ) : (
+                <ImageInputPrimary htmlFor="perfil" url={`${host}/files/${mainImage}`} />
+              )}
               <input
                 type="file"
                 id="perfil"
                 name="perfil"
-                onChange={(e) => setMainImage(e.target.files[0])}
+                onChange={(e) => handleImage('main', e.target.files[0])}
               />
             </FormInputPrimary>
 

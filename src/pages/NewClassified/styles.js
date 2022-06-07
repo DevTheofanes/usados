@@ -193,6 +193,13 @@ export const FormInputPrimary = styled.div`
   }
 `;
 
+export const ImageInputPrimary = styled.label`
+  background-image: url(${(props) => props.url});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+`;
+
 export const FormInputCheckBox = styled.div`
   display: flex;
   align-items: center;
