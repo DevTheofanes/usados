@@ -68,8 +68,6 @@ export function ProfileShopPage() {
     loadPosts();
   }, [page]);
 
-  console.log(posts);
-
   return (
     <Container>
       <HeaderComponent showIconsBar={false} height="20rem" />
