@@ -68,8 +68,6 @@ export function HeaderComponent({
     setCategorySelected(e.target.value);
   }
 
-  console.log(categorySelected);
-
   return (
     <Container style={height ? { height } : null}>
       <Header>
