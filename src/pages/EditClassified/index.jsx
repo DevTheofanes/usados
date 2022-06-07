@@ -31,11 +31,12 @@ import { HeaderComponent } from '../../components/Header';
 import { FooterComponent } from '../../components/Footer';
 import api from '../../services/api';
 import history from '../../services/history';
-// import { useUser } from '../../hooks/useUser';
+import { ImageInputPrimary } from '../NewClassified/styles';
+import { useUser } from '../../hooks/useUser';
 
 export function EditClassified() {
   const { id } = useParams();
-  // const { user } = useUser();
+  const { host } = useUser();
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -74,6 +75,34 @@ export function EditClassified() {
         setIsNew(classified.isNew);
         setIsDelivered(classified.isDelivered);
         setIsPix(classified.isPix);
+
+        setMainImage(classified.mainImage);
+
+        if (classified.files) {
+          if (classified.files[1]) {
+            setAImage(classified.files[1].filename);
+          }
+
+          if (classified.files[2]) {
+            setBImage(classified.files[2].filename);
+          }
+
+          if (classified.files[3]) {
+            setCImage(classified.files[3].filename);
+          }
+
+          if (classified.files[4]) {
+            setDImage(classified.files[4].filename);
+          }
+
+          if (classified.files[5]) {
+            setEImage(classified.files[5].filename);
+          }
+
+          if (classified.files[6]) {
+            setFImage(classified.files[6].filename);
+          }
+        }
 
         const { data } = await api.get('/categories');
 
@@ -149,38 +178,76 @@ export function EditClassified() {
       isNew,
       isDelivered,
       isPix,
+      images: [],
     };
 
     if (mainImage) {
-      data.mainImage = await getUrl(mainImage);
+      data.mainImage = mainImage;
     }
 
     if (aImage) {
-      data.aImageUrl = await getUrl(aImage);
+      data.images = [...data.images, aImage];
     }
 
     if (bImage) {
-      data.bImageUrl = await getUrl(bImage);
+      data.images = [...data.images, bImage];
     }
 
     if (cImage) {
-      data.cImageUrl = await getUrl(cImage);
+      data.images = [...data.images, cImage];
     }
 
     if (dImage) {
-      data.dImageUrl = await getUrl(dImage);
+      data.images = [...data.images, dImage];
     }
 
     if (eImage) {
-      data.eImageUrl = await getUrl(eImage);
+      data.images = [...data.images, eImage];
     }
 
     if (fImage) {
-      data.fImageUrl = await getUrl(fImage);
+      data.images = [...data.images, fImage];
     }
 
     close();
     await putClassified(data);
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  async function handleImage(orderImage, data) {
+    const url = await getUrl(data);
+    switch (orderImage) {
+      case 'main':
+        setMainImage(url);
+        break;
+
+      case 'a':
+        setAImage(url);
+        break;
+
+      case 'b':
+        setBImage(url);
+        break;
+
+      case 'c':
+        setCImage(url);
+        break;
+
+      case 'd':
+        setDImage(url);
+        break;
+
+      case 'e':
+        setEImage(url);
+        break;
+
+      case 'f':
+        setFImage(url);
+        break;
+
+      default:
+        break;
+    }
   }
 
   return (
@@ -305,14 +372,21 @@ export function EditClassified() {
           <FormColumn>
             <FormInputPrimary>
               <span>Foto principal </span>
-              <label htmlFor="perfil">
-                <MdPhotoSizeSelectActual color="#999" size={52} />
-              </label>
+              {!mainImage ? (
+                <label htmlFor="perfil">
+                  <MdPhotoSizeSelectActual color="#999" size={52} />
+                </label>
+              ) : (
+                <ImageInputPrimary
+                  htmlFor="perfil"
+                  url={`${host}/files/${mainImage}`}
+                />
+              )}
               <input
                 type="file"
                 id="perfil"
                 name="perfil"
-                onChange={(e) => setMainImage(e.target.files[0])}
+                onChange={(e) => handleImage('main', e.target.files[0])}
               />
             </FormInputPrimary>
 
@@ -321,74 +395,116 @@ export function EditClassified() {
               <span />
 
               <FormInputMoreImage>
-                <label htmlFor="arquivo">
-                  <MdPhotoSizeSelectActual color="#999" size={32} />
-                </label>
+                {!aImage ? (
+                  <label htmlFor="arquivo">
+                    <MdPhotoSizeSelectActual color="#999" size={32} />
+                  </label>
+                ) : (
+                  <ImageInputPrimary
+                    htmlFor="arquivo"
+                    url={`${host}/files/${aImage}`}
+                  />
+                )}
                 <input
                   type="file"
-                  onChange={(e) => setAImage(e.target.files[0])}
+                  onChange={(e) => handleImage('a', e.target.files[0])}
                   id="arquivo"
                   name="arquivo"
                 />
               </FormInputMoreImage>
 
               <FormInputMoreImage>
-                <label htmlFor="arquivo">
-                  <MdPhotoSizeSelectActual color="#999" size={32} />
-                </label>
+                {!bImage ? (
+                  <label htmlFor="arquivob">
+                    <MdPhotoSizeSelectActual color="#999" size={32} />
+                  </label>
+                ) : (
+                  <ImageInputPrimary
+                    htmlFor="arquivob"
+                    url={`${host}/files/${bImage}`}
+                  />
+                )}
                 <input
                   type="file"
-                  onChange={(e) => setBImage(e.target.files[0])}
-                  id="arquivo"
-                  name="arquivo"
+                  onChange={(e) => handleImage('b', e.target.files[0])}
+                  id="arquivob"
+                  name="arquivob"
                 />
               </FormInputMoreImage>
 
               <FormInputMoreImage>
-                <label htmlFor="arquivo">
-                  <MdPhotoSizeSelectActual color="#999" size={32} />
-                </label>
+                {!cImage ? (
+                  <label htmlFor="arquivoc">
+                    <MdPhotoSizeSelectActual color="#999" size={32} />
+                  </label>
+                ) : (
+                  <ImageInputPrimary
+                    htmlFor="arquivoc"
+                    url={`${host}/files/${cImage}`}
+                  />
+                )}
                 <input
                   type="file"
-                  onChange={(e) => setCImage(e.target.files[0])}
-                  id="arquivo"
-                  name="arquivo"
+                  onChange={(e) => handleImage('c', e.target.files[0])}
+                  id="arquivoc"
+                  name="arquivoc"
                 />
               </FormInputMoreImage>
 
               <FormInputMoreImage>
-                <label htmlFor="arquivo">
-                  <MdPhotoSizeSelectActual color="#999" size={32} />
-                </label>
+                {!dImage ? (
+                  <label htmlFor="arquivod">
+                    <MdPhotoSizeSelectActual color="#999" size={32} />
+                  </label>
+                ) : (
+                  <ImageInputPrimary
+                    htmlFor="arquivod"
+                    url={`${host}/files/${dImage}`}
+                  />
+                )}
                 <input
                   type="file"
-                  onChange={(e) => setDImage(e.target.files[0])}
-                  id="arquivo"
-                  name="arquivo"
+                  onChange={(e) => handleImage('d', e.target.files[0])}
+                  id="arquivod"
+                  name="arquivod"
                 />
               </FormInputMoreImage>
 
               <FormInputMoreImage>
-                <label htmlFor="arquivo">
-                  <MdPhotoSizeSelectActual color="#999" size={32} />
-                </label>
+                {!eImage ? (
+                  <label htmlFor="arquivoe">
+                    <MdPhotoSizeSelectActual color="#999" size={32} />
+                  </label>
+                ) : (
+                  <ImageInputPrimary
+                    htmlFor="arquivoe"
+                    url={`${host}/files/${eImage}`}
+                  />
+                )}
                 <input
                   type="file"
-                  onChange={(e) => setEImage(e.target.files[0])}
-                  id="arquivo"
-                  name="arquivo"
+                  onChange={(e) => handleImage('e', e.target.files[0])}
+                  id="arquivoe"
+                  name="arquivoe"
                 />
               </FormInputMoreImage>
 
               <FormInputMoreImage>
-                <label htmlFor="arquivo">
-                  <MdPhotoSizeSelectActual color="#999" size={32} />
-                </label>
+                {!fImage ? (
+                  <label htmlFor="arquivof">
+                    <MdPhotoSizeSelectActual color="#999" size={32} />
+                  </label>
+                ) : (
+                  <ImageInputPrimary
+                    htmlFor="arquivof"
+                    url={`${host}/files/${fImage}`}
+                  />
+                )}
                 <input
                   type="file"
-                  onChange={(e) => setFImage(e.target.files[0])}
-                  id="arquivo"
-                  name="arquivo"
+                  onChange={(e) => handleImage('f', e.target.files[0])}
+                  id="arquivof"
+                  name="arquivof"
                 />
               </FormInputMoreImage>
             </FormInputMoreImagesContainer>
