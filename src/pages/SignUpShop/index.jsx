@@ -22,9 +22,10 @@ import { FooterComponent } from '../../components/Footer';
 import { useUser } from '../../hooks/useUser';
 import api from '../../services/api';
 import { FormButton } from '../SignUp/styles';
+import { ImageInputPrimary } from '../NewClassified/styles';
 
 export function SignUpShop() {
-  const { handleRegister } = useUser();
+  const { handleRegister, host } = useUser();
 
   const [name, setName] = useState('');
   const [slogan, setSlogan] = useState('');
@@ -114,9 +115,6 @@ export function SignUpShop() {
       return toast.warn('Confirme seu cnpj.');
     }
 
-    const profileUrl = await getUrl(profile);
-    const profileCoverUrl = await getUrl(profileCover);
-
     const data = {
       name,
       slogan,
@@ -127,13 +125,29 @@ export function SignUpShop() {
       cnpj,
       category,
       instagram,
-      profileUrl,
-      profileCoverUrl,
+      profileUrl: profile,
+      profileCoverUrl: profileCover,
       description,
       password,
     };
 
     handleRegister(data);
+  }
+
+  async function handleImage(orderImage, data) {
+    const url = await getUrl(data);
+    switch (orderImage) {
+      case 'profile':
+        setProfile(url);
+        break;
+
+      case 'cover':
+        setProfileCover(url);
+        break;
+
+      default:
+        break;
+    }
   }
 
   return (
@@ -204,18 +218,42 @@ export function SignUpShop() {
           <FormColumn>
             <FormInputProfile>
               <span>Foto de perfil </span>
-              <label htmlFor="perfil">
-                <MdPhotoSizeSelectActual color="#999" size={40} />
-              </label>
-              <input onChange={(e) => setProfile(e.target.files[0])} type="file" id="perfil" name="perfil" />
+              {!profile ? (
+                <label htmlFor="perfil">
+                  <MdPhotoSizeSelectActual color="#999" size={40} />
+                </label>
+              ) : (
+                <ImageInputPrimary
+                  htmlFor="perfil"
+                  url={`${host}/files/${profile}`}
+                />
+              )}
+              <input
+                type="file"
+                id="perfil"
+                name="perfil"
+                onChange={(e) => handleImage('profile', e.target.files[0])}
+              />
             </FormInputProfile>
 
             <FormInputBanner>
               <span>Foto de capa de perfil </span>
-              <label htmlFor="arquivo">
-                <MdPhotoSizeSelectActual color="#999" size={64} />
-              </label>
-              <input onChange={(e) => setProfileCover(e.target.files[0])} type="file" id="arquivo" name="arquivo" />
+              {!profileCover ? (
+                <label htmlFor="arquivo">
+                  <MdPhotoSizeSelectActual color="#999" size={64} />
+                </label>
+              ) : (
+                <ImageInputPrimary
+                  htmlFor="arquivo"
+                  url={`${host}/files/${profileCover}`}
+                />
+              )}
+              <input
+                type="file"
+                id="arquivo"
+                name="arquivo"
+                onChange={(e) => handleImage('cover', e.target.files[0])}
+              />
             </FormInputBanner>
 
             <FormInput>

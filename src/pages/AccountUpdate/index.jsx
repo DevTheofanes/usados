@@ -1,5 +1,4 @@
 /* eslint-disable react/button-has-type */
-/* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 import Popup from 'reactjs-popup';
 import { toast } from 'react-toastify';
@@ -30,9 +29,10 @@ import { useUser } from '../../hooks/useUser';
 import api from '../../services/api';
 import history from '../../services/history';
 import { HeaderComponent } from '../../components/Header';
+import { ImageInputPrimary } from '../NewClassified/styles';
 
 export function AccountUpdate() {
-  const { user } = useUser();
+  const { user, host } = useUser();
 
   const [name, setName] = useState('');
   const [slogan, setSlogan] = useState('');
@@ -62,6 +62,8 @@ export function AccountUpdate() {
       setCategory(user.category);
       setInstagram(user.instagram);
       setDescription(user.description);
+      setProfile(user.profileUrl);
+      setProfileCover(user.profileCoverUrl);
 
       // Categories
       const { data } = await api.get('/categories');
@@ -94,6 +96,7 @@ export function AccountUpdate() {
   }, [user]);
 
   async function getUrl(image) {
+    // eslint-disable-next-line no-undef
     const data = new FormData();
     data.append('image', image);
 
@@ -113,6 +116,7 @@ export function AccountUpdate() {
         `${response.data.name} sua loja foi atualizada com sucesso.`,
       );
       history.push('/dashboard/classificados');
+      // eslint-disable-next-line no-undef
       localStorage.setItem('@novosUsados/user', JSON.stringify(response.data));
     } catch (error) {
       toast.error(error.response.data.error);
@@ -154,15 +158,31 @@ export function AccountUpdate() {
     };
 
     if (profile) {
-      data.profileUrl = await getUrl(profile);
+      data.profileUrl = profile;
     }
 
     if (profileCover) {
-      data.profileCoverUrl = await getUrl(profileCover);
+      data.profileCoverUrl = profileCover;
     }
 
     update(data);
     close();
+  }
+
+  async function handleImage(orderImage, data) {
+    const url = await getUrl(data);
+    switch (orderImage) {
+      case 'profile':
+        setProfile(url);
+        break;
+
+      case 'cover':
+        setProfileCover(url);
+        break;
+
+      default:
+        break;
+    }
   }
 
   return (
@@ -253,27 +273,41 @@ export function AccountUpdate() {
           <FormColumn>
             <FormInputProfile>
               <span>Foto de perfil </span>
-              <label htmlFor="perfil">
-                <MdPhotoSizeSelectActual color="#999" size={40} />
-              </label>
+              {!profile ? (
+                <label htmlFor="perfil">
+                  <MdPhotoSizeSelectActual color="#999" size={40} />
+                </label>
+              ) : (
+                <ImageInputPrimary
+                  htmlFor="perfil"
+                  url={`${host}/files/${profile}`}
+                />
+              )}
               <input
-                onChange={(e) => setProfile(e.target.files[0])}
                 type="file"
                 id="perfil"
                 name="perfil"
+                onChange={(e) => handleImage('profile', e.target.files[0])}
               />
             </FormInputProfile>
 
             <FormInputBanner>
               <span>Foto de capa de perfil </span>
-              <label htmlFor="arquivo">
-                <MdPhotoSizeSelectActual color="#999" size={64} />
-              </label>
+              {!profileCover ? (
+                <label htmlFor="arquivo">
+                  <MdPhotoSizeSelectActual color="#999" size={64} />
+                </label>
+              ) : (
+                <ImageInputPrimary
+                  htmlFor="arquivo"
+                  url={`${host}/files/${profileCover}`}
+                />
+              )}
               <input
-                onChange={(e) => setProfileCover(e.target.files[0])}
                 type="file"
                 id="arquivo"
                 name="arquivo"
+                onChange={(e) => handleImage('cover', e.target.files[0])}
               />
             </FormInputBanner>
 
