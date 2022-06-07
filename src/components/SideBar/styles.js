@@ -22,6 +22,7 @@ export const SideBarContent = styled.div`
   margin-top: 2rem;
   border-radius: 0.75rem;
   padding: 1.5rem 1rem;
+  width: 100%;
 
   div + div {
     margin-top: 1.5rem;
