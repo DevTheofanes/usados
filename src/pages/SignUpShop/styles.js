@@ -240,7 +240,7 @@ export const FormSubmitAcceptTerms = styled.div`
   }
 `;
 
-export const FormButtonHighLight = styled.button`
+export const FormButtonHighLight = styled.a`
   background-color: var(--white);
   display: flex;
   height: 2.8rem;

@@ -276,7 +276,7 @@ export function SignUpShop() {
         <FormSubmit>
           <FormButtonHighLight
             className="btn-Highlight"
-            onClick={() => handleSignUp()}
+            href="/login"
           >
             Entrar
           </FormButtonHighLight>
