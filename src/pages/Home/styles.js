@@ -67,11 +67,6 @@ export const SearchItem = styled.a`
 
   color: #343434;
 
-  img{
-    width: 14rem;
-    height: 13rem;
-  }
-
   strong{
     padding: .25rem 0 .1225rem;
     font-weight: 900;
@@ -88,6 +83,22 @@ export const SearchItem = styled.a`
     white-space: nowrap;
     text-align: center;
     font-size: 0.8rem;
+  }
+`;
+
+export const SearchItemImage = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 13rem;
+  box-sizing: border-box !important;
+  /* background-color: var(--grayD); */
+  img{
+    width: auto;
+    width: 14rem;
+    /* height: 13rem; */
+    height: auto;
+    max-height: 13rem !important;
   }
 `;
 
