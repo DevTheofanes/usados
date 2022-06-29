@@ -22,9 +22,12 @@ import { FooterComponent } from '../../components/Footer';
 
 import api from '../../services/api';
 import history from '../../services/history';
+import { ImageInputPrimary } from '../NewClassified/styles';
+import { useUser } from '../../hooks/useUser';
 
 export function NewRating() {
   const { id } = useParams();
+  const { host } = useUser();
 
   const [name, setName] = useState('');
   const [title, setTitle] = useState('');
@@ -62,14 +65,12 @@ export function NewRating() {
       return toast.warn('Preencha todos os campos.');
     }
 
-    const avatarUrl = await getUrl(profile);
-
     const data = {
       name,
       title,
       email,
       rating: stars,
-      avatarUrl,
+      avatarUrl: profile,
       comments,
     };
 
@@ -229,6 +230,15 @@ export function NewRating() {
     }
   }
 
+  async function handleImage(data) {
+    try {
+      const url = await getUrl(data);
+      setProfile(url);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <Container>
       <HeaderComponent showIconsBar={false} />
@@ -267,11 +277,18 @@ export function NewRating() {
 
           <FormInputPrimary>
             <span>Foto do perfil </span>
-            <label htmlFor="perfil">
-              <MdPhotoSizeSelectActual color="#999" size={32} />
-            </label>
+            {!profile ? (
+              <label htmlFor="perfil">
+                <MdPhotoSizeSelectActual color="#999" size={40} />
+              </label>
+            ) : (
+              <ImageInputPrimary
+                htmlFor="perfil"
+                url={`${host}/files/${profile}`}
+              />
+            )}
             <input
-              onChange={(e) => setProfile(e.target.files[0])}
+              onChange={(e) => handleImage(e.target.files[0])}
               type="file"
               id="perfil"
               name="perfil"
